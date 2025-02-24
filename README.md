@@ -1,1 +1,2 @@
 # EduRank
+Kanka deniyoz mu
