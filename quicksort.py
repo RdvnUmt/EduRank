@@ -1,7 +1,7 @@
 
 
 def partition(A,p,r):
- #varsaydım ki pivot en sondaki eleman 31
+ #varsaydım ki pivot en sondaki eleman sadsadsadsasdasdaasdddasdsadsadas
     i=p-1
 
     for j in range (p,r):
