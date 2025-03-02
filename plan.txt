@@ -1,6 +1,7 @@
 Project Scope: 
 
-EduRank, kullanıcıların çalışma ilerlemelerini takip etmelerine, performanslarını izlemelerine ve arkadaşlarıyla sonuçlarını karşılaştırmalarına yardımcı olmak için tasarlanmış mobil tabanlı bir uygulamadır. Uygulama aşağıdaki özellikleri içerecektir:
+EduRank, kullanıcıların çalışma ilerlemelerini takip etmelerine, performanslarını izlemelerine ve arkadaşlarıyla sonuçlarını 
+karşılaştırmalarına yardımcı olmak için tasarlanmış mobil tabanlı bir uygulamadır. Uygulama aşağıdaki özellikleri içerecektir:
 
 Kullanıcı hesabı oluşturma ve kimlik doğrulama
 
