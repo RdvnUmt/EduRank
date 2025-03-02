@@ -1,2 +1,0 @@
-sildim
-emirhan1710
