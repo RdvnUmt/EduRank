@@ -1,0 +1,96 @@
+Proje Tanım Belgesi : 
+
+Proje Adı: EduRank 
+
+Proje Özeti: Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
+ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı 
+sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
+karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç 
+özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap 
+oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma 
+süresi istatistikleri sayesinde arkadaşlarıyla rekabet edebilecek. Bu proje, insanların çalışma 
+sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak 
+verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi 
+amaçlamaktadır.
+
+Projenin Hedefleri:
+Kullanıcı dostu bir test çözme ve çalışma takibi sistemi geliştirmek.
+Lider tabloları ile oyunlaştırılmış bir deneyim sunmak.
+Çalışmakta ve odaklanmakta zorluk çeken kişileri verimli çalışmaya motive etmek.
+Kişileri çalıştığı süreç hakkında istatistiksel analizle bilgilendirmek.
+Tatlı bir rekabet ortamı oluşturmak.
+
+Projenin kapsadıkları :
+Kullanıcı kimlik doğrulama
+Çalışmaya dair istatistiklere erişim
+Çalışma oturumu takibi
+Kullanıcı dostu gösterge paneli ile veri görselleştirme
+Çevrimdışı çalışma modu
+
+
+Projenin kapsamadıkları :	
+Üçüncü taraf eğitim platformlarıyla entegrasyon
+
+
+Hedef Kitle: 
+Sınavlara hazırlanan öğrenciler (lise, üniversite, rekabetçi sınavlar)
+Çalışma ilerlemesini takip etmek isteyen bireysel öğreniciler
+Çalışmakta zorlanan ve motivasyon kaynağı arayan öğrenciler
+Öğrencilerinin performansını izleyen öğretmenler ve eğitmenler
+
+
+Temel Özellikler:
+
+Kullanıcı kaydı ve kimlik doğrulama
+Çalışma süresi sayacı ile istatistikleri kayıt etme
+Performans takibi ve test çözme işlevi
+Çalışma oturumu istatistikleri ve analiz paneli
+Lider tablosu özellikleri
+
+Teslimatlar:
+
+Tam işlevsel mobil uygulama
+Proje dokümantasyonu (kullanıcı kılavuzu)
+Test raporları
+
+
+Bütçe ve Kaynaklar:
+
+Eğer kullanılırsa bulut depolama maliyetleri olabilir
+Eğer kullanılırsa API kullanım ücretleri (harici hizmet entegrasyonu olması durumunda)
+4 kişilik geliştirme ekibi (frontend, backend, test)
+Geliştirme araçları: Flutter(mobil), Python/flask (backend), MySQL (veritabanı)
+Yaklaşık 1 aylık geliştirme süresi
+
+
+Riskler ve Azaltma Stratejileri:
+Kullanıcı verileri uygun şekilde saklanmazsa güvenlik ihlalleri oluşabilir.
+Kullanıcı sayısı arttıkça, uygulamanın veritabanı ve sunucu kaynakları yetersiz kalabilir.
+Sistem çökmesi, yanlış yapılandırmalar sonucu veri kaybı yaşanabilir.
+
+
+Çözüm: 
+Geliştiriciler sürekli iletişimde kalmalı ve Scrum gibi yöntemler ile projeyi geliştirerek 
+değişimlere hızlı uyum sağlanabilen modüler bir yazılım geliştirilmeli. Her sprint sonunda proje 
+ilerlemesi değerlendirilerek esneklik sağlanmalı.
+Unit testler ve entegrasyon testleri ile uygulama hatalara karşı dayanıklı hale getirilmeli.
+Düzenli yedekleme yapılmalı ve veritabanı kopyalama (replication) stratejileri uygulanmalı.
+
+
+Proje Başarı Kriterleri:
+Öncelikle uygulamanın teknik kısmı sorunsuz bir şekilde çalışıyor ve gereksinimleri karşılıyor olmalıdır.
+Kullanıcıların en az %70'inde hedeflenen çalışma motivasyonu artışı ve verimi gözlemlenmelidir.
+Kullanıcıların en az %60'ı kullanımı kolay bulmalıdır.
+Kullanıcı verileri güvenli bir şekilde saklanmalıdır.
+
+Task Matrix :
+
+Project Summary                             Emirhan Gül
+Objectives                                  Emirhan Gül
+Scope                                       Emirhan Gül
+Target Audience                             Emirhan Gül
+Key Features                                Emirhan Gül
+Deliverables                                Taha Denizbek Tavlan
+Budget and Resources                        Taha Denizbek Tavlan
+Risks and Mitigation Strategies             Taha Denizbek Tavlan
+Project Success Criteria                    Taha Denizbek Tavlan
