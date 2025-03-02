@@ -1,12 +1,13 @@
-Emirhan Gül
-
 Proje Tanım Belgesi : 
 
 Proje Adı: EduRank 
 
-Proje Özeti: Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözerek çalışma ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç/kronometre özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma süresi istatistikleri sayesinde diğer grup üyeleriyle rekabet edebilecek. Bu proje, insanların çalışma sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi amaçlamaktadır. 
+Proje Özeti: 
+
+Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözerek çalışma ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç/kronometre özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma süresi istatistikleri sayesinde diğer grup üyeleriyle rekabet edebilecek. Bu proje, insanların çalışma sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi amaçlamaktadır. 
 
 Projenin Hedefleri:
+
 Kullanıcı dostu bir test çözme ve çalışma takibi sistemi geliştirmek.
 Lider tabloları ile oyunlaştırılmış bir deneyim sunmak.
 Çalışmakta ve odaklanmakta zorluk çeken kişileri verimli çalışmaya motive etmek.
@@ -14,11 +15,13 @@ Kişileri çalıştığı süreç hakkında istatistiksel analizle bilgilendirme
 Tatlı bir rekabet ortamı oluşturmak.
 
 Projenin kapsadıkları :
+
 Kullanıcı kimlik doğrulama
 Çalışmaya dair istatistiklere erişim
 Çalışma oturumu takibi
 
 Projenin kapsamadıkları :	
+
 Çevrimdışı çalışma modu // sildik mi hatırlamıyom
 Üçüncü taraf eğitim platformlarıyla entegrasyon
 
