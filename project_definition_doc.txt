@@ -82,3 +82,15 @@ Proje Başarı Kriterleri:
 Kullanıcıların en az %70'inde hedeflenen çalışma motivasyonu artışı ve verimi gözlemlenmelidir.
 Kullanıcıların en az %60'ı kullanımı kolay bulmalıdır.
 Kullanıcı verileri güvenli bir şekilde saklanmalıdır.
+
+Task Matrix :
+
+Project Summary                             Emirhan Gül
+Objectives                                  Emirhan Gül
+Scope                                       Emirhan Gül
+Target Audience                             Emirhan Gül
+Key Features                                Emirhan Gül
+Deliverables                                Taha Denizbek Tavlan
+Budget and Resources                        Taha Denizbek Tavlan
+Risks and Mitigation Strategies             Taha Denizbek Tavlan
+Project Success Criteria                    Taha Denizbek Tavlan

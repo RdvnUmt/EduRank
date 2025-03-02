@@ -22,8 +22,6 @@ Yapay zeka destekli soru üretimi dahil edilmeyecek.
 
 Üçüncü taraf öğrenme platformlarıyla entegrasyon sağlanmayacak.
 
-İlk sürümde çevrimdışı mod desteği olmayacak.// bunu hatırlamıyom
-
 ------------------------------------------------------------------------
 
 Proje Organizasyonu - Ekip (Roller ve Sorumluluklar)
@@ -35,9 +33,6 @@ Proje Yöneticisi/Scrum Master: Proje yürütümünü denetler, zaman çizelgesi
 Backend Geliştirici(2 kişi): Veritabanı yönetimini geliştirir ve diğer fonksiyonel özellikleri yapar.
 
 Frontend Geliştiriciler (2 kişi): Kullanıcı arayüzünü, deneyimini tasarlar ve backend ile entegre eder.
-
-Kalite Güvence (QA) Test Uzmanı: Uygulamanın kalite standartlarına uygunluğunu sağlar. // kanka bu lazım mı ve yönetici ne yapacak, kod yazacak mı yazacaksa hem yönetici hem backend/frontendci mi olacak?
-
 
 ------------------------------------------------------------------------
 
@@ -77,9 +72,9 @@ Veritabanı: MySQL
 ------------------------------------------------------------------------
 
 Risk Yönetimi
-Kullanıcı verilerinin güvenliğini sağlamak için şifreleme mekanizmalarının uygulanması.
+Kullanıcı verilerinin güvenliğini sağlanması.
 
-Sunucu kaynak yetersizliği önlemek için AWS veya Firebase gibi ölçeklenebilir bulut hizmetlerinin kullanımı.
+Sunucuya fazla yüklenme olursa kaynak yetersizliğini önlemek için AWS veya Firebase gibi ölçeklenebilir bulut hizmetlerinin kullanımı.
 
 Gereksinim değişikliklerini yönetmek için Scrum metodolojisi kullanılarak esneklik sağlanması.
 
@@ -115,3 +110,16 @@ Bütçe Planı
 Uygulama içindeki test sorularını üçüncü kaynaklardan alırken telif ücreti ödenir.
 
 Ücretsiz kaynaklar kullanarak sürdürülebilir bir geliştirme yapılır.
+
+
+Task Matrix :
+
+Project Scope                        Utku Karatepe    
+Project Organization                 Utku Karatepe    
+Objectives                           Utku Karatepe   
+Key Phases and Timeline              Utku Karatepe    
+Resource Planning                    Utku Karatepe   
+Risk Management                      Rıdvan Umut Ünal    
+Communication Plan                   Utku Karatepe   
+Change Management Plan               Utku Karatepe    
+Budget Plan                          Rıdvan Umut Ünal  
