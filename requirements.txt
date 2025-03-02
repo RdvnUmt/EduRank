@@ -1,0 +1,18 @@
+Fonksiyonel Gereksinimler (Functional Requirements)
+1.) Kullanıcılar hesap oluşturabilmeli.
+2.) Kullanıcılar şifreleriyle giriş yapabilmelidir.
+3.) Kullanıcılar çalışma sürelerini bir sayaç/kronometre yardımıyla kaydedebilmelidir.
+4.) Kullanıcılar test çözebilmelidir.
+5.) Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidir.
+6.) Kullanıcılar herkesin çalışma sürelerini ve test başarı oranlarını görüntüleyebilmelidir.
+7.)Kullanıcılar bildirim alarak günlük çalışma hedefleri konusunda bilgilendirilebilmelidir.
+ekstra yazarsınız beyler.
+
+2. Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
+1.) Uygulama, kullanıcı dostu bir arayüze sahip olmalıdır.
+2.) Sistem, yoğun kullanım altında performans kaybı olmadan çalışmalıdır (örneğin, saniyede 1000 kullanıcı isteğini karşılayabilmelidir).
+3.) Güvenlik açısından OAuth veya JWT tabanlı kimlik doğrulama mekanizmaları kullanılmalıdır.
+4.) Veriler şifrelenerek saklanmalı.
+5.) Uygulama Android ve iOS platformlarında stabil çalışmalıdır.
+
+3.Efor Tahminleri
