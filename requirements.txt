@@ -17,4 +17,10 @@ Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
 3.) Güvenlik açısından OAuth veya JWT tabanlı kimlik doğrulama mekanizmaları kullanılmalıdır.
 4.) Veriler şifrelenerek saklanmalı.
 5.) Uygulama Android ve iOS platformlarında stabil çalışmalıdır.
+
 3.Efor Tahminleri
+Gereksinim Analizi	15 saat	Gereksinimlerin belirlenmesi ve dokümantasyonu
+Tasarım	    20	Arayüz ve sistem mimarisi tasarımı
+Geliştirme	100	Backend ve frontend geliştirme
+Test	    30	Manuel ve otomatik testlerin uygulanması
+Dağıtım ve Bakım	10	Sunucu yapılandırması ve hata giderme
