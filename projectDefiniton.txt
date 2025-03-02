@@ -56,7 +56,7 @@ Test raporları
 
 Bütçe ve Kaynaklar:
 
-Bulut depolama maliyetleri olabilir
+Eğer kullanılırsa bulut depolama maliyetleri olabilir
 Eğer kullanılırsa API kullanım ücretleri (harici hizmet entegrasyonu olması durumunda)
 4 kişilik geliştirme ekibi (frontend, backend, test)
 Geliştirme araçları: Flutter(mobil), Python/flask (backend), MySQL (veritabanı)
