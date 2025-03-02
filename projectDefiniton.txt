@@ -2,12 +2,18 @@ Proje Tanım Belgesi :
 
 Proje Adı: EduRank 
 
-Proje Özeti: 
-
-Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözerek çalışma ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç/kronometre özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma süresi istatistikleri sayesinde diğer grup üyeleriyle rekabet edebilecek. Bu proje, insanların çalışma sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi amaçlamaktadır. 
+Proje Özeti: Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
+ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı 
+sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
+karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç 
+özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap 
+oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma 
+süresi istatistikleri sayesinde arkadaşlarıyla rekabet edebilecek. Bu proje, insanların çalışma 
+sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak 
+verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi 
+amaçlamaktadır.
 
 Projenin Hedefleri:
-
 Kullanıcı dostu bir test çözme ve çalışma takibi sistemi geliştirmek.
 Lider tabloları ile oyunlaştırılmış bir deneyim sunmak.
 Çalışmakta ve odaklanmakta zorluk çeken kişileri verimli çalışmaya motive etmek.
@@ -15,14 +21,14 @@ Kişileri çalıştığı süreç hakkında istatistiksel analizle bilgilendirme
 Tatlı bir rekabet ortamı oluşturmak.
 
 Projenin kapsadıkları :
-
 Kullanıcı kimlik doğrulama
 Çalışmaya dair istatistiklere erişim
 Çalışma oturumu takibi
+Kullanıcı dostu gösterge paneli ile veri görselleştirme
+Çevrimdışı çalışma modu
+
 
 Projenin kapsamadıkları :	
-
-Çevrimdışı çalışma modu // sildik mi hatırlamıyom
 Üçüncü taraf eğitim platformlarıyla entegrasyon
 
 
@@ -37,38 +43,36 @@ Temel Özellikler:
 
 Kullanıcı kaydı ve kimlik doğrulama
 Çalışma süresi sayacı ile istatistikleri kayıt etme
-Gerçek zamanlı performans takibi ile test çözme işlevi
+Performans takibi ve test çözme işlevi
 Çalışma oturumu istatistikleri ve analiz paneli
-Motivasyon için grup ve lider tablosu özellikleri
-Oyunlaştırma unsurları ( ödüller, ilerleme takibi)
-
+Lider tablosu özellikleri
 
 Teslimatlar:
 
 Tam işlevsel mobil uygulama
 Proje dokümantasyonu (kullanıcı kılavuzu)
-Genel erişime açık olacak şekilde dağıtım ve barındırma ayarları
-Test raporları ve kalite güvence kontrolleri
+Test raporları
 
 
 Bütçe ve Kaynaklar:
 
+Bulut depolama maliyetleri olabilir
+Eğer kullanılırsa API kullanım ücretleri (harici hizmet entegrasyonu olması durumunda)
 4 kişilik geliştirme ekibi (frontend, backend, test)
-Geliştirme araçları: Flutter (mobil), Python (backend), MySQL (veritabanı)
-Kimlik doğrulama güvenlik araçları (OAuth, JWT)
+Geliştirme araçları: Flutter(mobil), Python/flask (backend), MySQL (veritabanı)
 Yaklaşık 1 aylık geliştirme süresi
 
 
 Riskler ve Azaltma Stratejileri:
-
 Kullanıcı verileri uygun şekilde saklanmazsa güvenlik ihlalleri oluşabilir.
 Kullanıcı sayısı arttıkça, uygulamanın veritabanı ve sunucu kaynakları yetersiz kalabilir.
 Sistem çökmesi, yanlış yapılandırmalar sonucu veri kaybı yaşanabilir.
-Herhangi bir gereksinim değişikliğine karşı modüler bir kod yazmamış olmak risk unsurudur.
+
 
 Çözüm: 
-Geliştiriciler sürekli iletişimde kalmalı ve Scrum gibi yöntemler ile projeyi geliştirerek değişimlere hızlı uyum sağlanabilen modüler bir yazılım geliştirilmeli.
-Her sprint sonunda proje ilerlemesi değerlendirilerek esneklik sağlanmalı.
+Geliştiriciler sürekli iletişimde kalmalı ve Scrum gibi yöntemler ile projeyi geliştirerek 
+değişimlere hızlı uyum sağlanabilen modüler bir yazılım geliştirilmeli. Her sprint sonunda proje 
+ilerlemesi değerlendirilerek esneklik sağlanmalı.
 Unit testler ve entegrasyon testleri ile uygulama hatalara karşı dayanıklı hale getirilmeli.
 Düzenli yedekleme yapılmalı ve veritabanı kopyalama (replication) stratejileri uygulanmalı.
 
@@ -77,6 +81,4 @@ Proje Başarı Kriterleri:
 Öncelikle uygulamanın teknik kısmı sorunsuz bir şekilde çalışıyor ve gereksinimleri karşılıyor olmalıdır.
 Kullanıcıların en az %70'inde hedeflenen çalışma motivasyonu artışı ve verimi gözlemlenmelidir.
 Kullanıcıların en az %60'ı kullanımı kolay bulmalıdır.
-Kullanıcıların ortalama uygulamayı kullanım süresi 10 dakikadan uzun olmalıdır.
-Uygulama yayınlandıktan sonra ilk üç ay içinde en az 50 aktif kullanıcı olmalıdır.
 Kullanıcı verileri güvenli bir şekilde saklanmalıdır.
