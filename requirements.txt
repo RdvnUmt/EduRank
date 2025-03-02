@@ -20,7 +20,7 @@ Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
 
 3.Efor Tahminleri
 Gereksinim Analizi	15 saat	Gereksinimlerin belirlenmesi ve dokümantasyonu
-Tasarım	    20	Arayüz ve sistem mimarisi tasarımı
-Geliştirme	100	Backend ve frontend geliştirme
-Test	    30	Manuel ve otomatik testlerin uygulanması
-Dağıtım ve Bakım	10	Sunucu yapılandırması ve hata giderme
+Tasarım	            20 saat Arayüz ve sistem mimarisi tasarımı
+Geliştirme	        100	saat Backend ve frontend geliştirme
+Test	            30 saat Manuel ve otomatik testlerin uygulanması
+Dağıtım ve Bakım	10 saat Sunucu yapılandırması ve hata giderme
