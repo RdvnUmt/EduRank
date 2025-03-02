@@ -1,0 +1,119 @@
+Project Scope: 
+
+EduRank, kullanıcıların çalışma ilerlemelerini takip etmelerine, performanslarını izlemelerine ve arkadaşlarıyla sonuçlarını karşılaştırmalarına yardımcı olmak için tasarlanmış mobil tabanlı bir uygulamadır. Uygulama aşağıdaki özellikleri içerecektir:
+
+Kullanıcı hesabı oluşturma ve kimlik doğrulama
+
+Test çözme işlevselliği ve sonuç takibi
+
+Sayaç/kronometre özelliği ile çalışma süresi takibi
+
+Performans analitiği ve istatistikleri
+
+Çalışma süresi ve test sonuçlarına göre sıralama sistemi (liderlik tablosu)
+
+Basit bir kullanıcı arayüzü (UI/UX)
+
+
+Kapsam Dışında:
+
+Yapay zeka destekli soru üretimi dahil edilmeyecek.
+
+Üçüncü taraf öğrenme platformlarıyla entegrasyon sağlanmayacak.
+
+İlk sürümde çevrimdışı mod desteği olmayacak.// bunu hatırlamıyom
+
+------------------------------------------------------------------------
+
+Proje Organizasyonu - Ekip (Roller ve Sorumluluklar)
+
+Ekip Üyeleri:
+
+Proje Yöneticisi/Scrum Master: Proje yürütümünü denetler, zaman çizelgesi ve kaynakları yönetir. Agile geliştirmeyi yönetir ve sprint planlamasını yürütür.
+
+Backend Geliştirici(2 kişi): Veritabanı yönetimini geliştirir ve diğer fonksiyonel özellikleri yapar.
+
+Frontend Geliştiriciler (2 kişi): Kullanıcı arayüzünü, deneyimini tasarlar ve backend ile entegre eder.
+
+Kalite Güvence (QA) Test Uzmanı: Uygulamanın kalite standartlarına uygunluğunu sağlar. // kanka bu lazım mı ve yönetici ne yapacak, kod yazacak mı yazacaksa hem yönetici hem backend/frontendci mi olacak?
+
+
+------------------------------------------------------------------------
+
+Hedefler
+
+Kullanıcıların çalışma süreçlerini verimli bir şekilde takip edebilecekleri bir mobil uygulama geliştirmek.
+
+Test performansı ve çalışma süresi hakkında istatistiksel analizler sağlamak.
+
+Kullanıcı dostu, akıcı ve etkileşimli bir arayüz sunmak.
+
+Kullanıcılar arasında rekabeti teşvik eden bir sıralama sistemi (liderlik tablosu) oluşturmak.
+
+Güçlü ve ölçeklenebilir bir backend altyapısı sağlamak.
+
+------------------------------------------------------------------------
+
+Ana Aşamalar ve Zaman Çizelgesi
+
+Aşama			        Başlangıç Tarihi Bitiş Tarihi	Süre
+Gereksinim Toplama	    1 Mart 2025	     4 Mart 2025	3 gün
+Tasarım			        5 Mart 2025	     12 Mart 2025	7 gün
+Geliştirme		        13 Mart 2025	 31 Mart 2025	18 gün
+Test ve Düzeltmeler	    1 Nisan 2025	 2 Nisan 2025	1 gün
+Dağıtım			        3 Nisan 2025	 4 Nisan  2025	1 gün
+
+------------------------------------------------------------------------
+
+Kaynak Planlaması
+
+Geliştirme Araçları: Flutter (Frontend), Flask & MySQL (Backend)
+
+Veritabanı: MySQL
+
+İşbirliği Araçları: GitHub
+
+Test Araçları: Selenium, Postman
+
+Bulut Hizmetleri: AWS/GCP
+
+------------------------------------------------------------------------
+
+Risk Yönetimi
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+İletişim Planı
+
+Haftalık ekip toplantıları ile ilerleme ve engeller değerlendirilir.
+
+Skype/Discord ile günlük iletişim sağlanır.
+
+GitHub sorunları (issues) ile geliştirme süreci takip edilir.
+
+Jira üzerinden sprint planlaması ve görev yönetimi yapılır.(Bunu bilmiyorum)
+
+Paydaş Güncellemeleri iki haftada bir raporlanır.
+
+------------------------------------------------------------------------
+
+Değişiklik Yönetim Planı
+
+Tüm değişiklik talepleri Proje Yöneticisine bildirilmelidir.
+
+Ekip, değişikliklerin proje kapsamı, zaman çizelgesi ve kaynaklar üzerindeki etkisini değerlendirecektir.
+
+Onaylanan değişiklikler proje zaman çizelgesine entegre edilecektir.
+
+------------------------------------------------------------------------
+
+Bütçe Planı
+
+
+
+
