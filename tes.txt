@@ -73,47 +73,44 @@ Veritabanı: MySQL
 
 İşbirliği Araçları: GitHub
 
-Test Araçları: Selenium, Postman
-
-Bulut Hizmetleri: AWS/GCP
-
 ------------------------------------------------------------------------
 
 Risk Yönetimi
+Kullanıcı verilerinin güvenliğini sağlamak için şifreleme mekanizmalarının uygulanması.
 
+Sunucu kaynak yetersizliği önlemek için AWS veya Firebase gibi ölçeklenebilir bulut hizmetlerinin kullanımı.
 
+Gereksinim değişikliklerini yönetmek için Scrum metodolojisi kullanılarak esneklik sağlanması.
 
+Yeni özellik ekleme sürecini kolaylaştırmak için modüler kod mimarisi uygulanması ve kod incelemelerinin yapılması.
 
-
+Kullanıcı deneyimi problemlerini düzeltmek için	unit ve entegrasyon testleri uygulanarak sistemin dayanıklılığının artırılması.
 
 ------------------------------------------------------------------------
 
 İletişim Planı
+Günlük ekip toplantıları(daily scrum) ile planlamalar yapılır.
 
-Haftalık ekip toplantıları ile ilerleme ve engeller değerlendirilir.
+Haftalık ekip toplantıları ile ilerleme ve sprintler değerlendirilir.
 
 Skype/Discord ile günlük iletişim sağlanır.
 
 GitHub sorunları (issues) ile geliştirme süreci takip edilir.
-
-Jira üzerinden sprint planlaması ve görev yönetimi yapılır.(Bunu bilmiyorum)
-
-Paydaş Güncellemeleri iki haftada bir raporlanır.
-
 ------------------------------------------------------------------------
 
 Değişiklik Yönetim Planı
 
-Tüm değişiklik talepleri Proje Yöneticisine bildirilmelidir.
+Tüm değişiklik talepleri GitHub üzerinden issue olarak açılacak, proje yöneticisine bildirilecektir.
+
+Her sprint sonunda hedeflere göre değişiklikler değerlendirilecek.
 
 Ekip, değişikliklerin proje kapsamı, zaman çizelgesi ve kaynaklar üzerindeki etkisini değerlendirecektir.
 
-Onaylanan değişiklikler proje zaman çizelgesine entegre edilecektir.
+Kod inceleme süreciyle yeni geliştirmeler kontrol edilecek.
 
 ------------------------------------------------------------------------
 
 Bütçe Planı
+Uygulama içindeki test sorularını üçüncü kaynaklardan alırken telif ücreti ödenir.
 
-
-
-
+Ücretsiz kaynaklar kullanarak sürdürülebilir bir geliştirme yapılır.
