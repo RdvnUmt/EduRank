@@ -1,0 +1,48 @@
+Quality Assurance (QA) Plan
+
+1.Quality Assurance Strategy
+
+Overview: EduRank için kalite güvence süreci, fonksiyonel testler, performans testleri, güvenlik testleri, kullanıcı deneyimi testleri ve 
+uyumluluk testleri gibi çeşitli aşamalardan oluşacaktır. Testler otomatik ve manuel yöntemler kullanılarak gerçekleştirilecektir.
+
+Testing Methodologies:
+
+-Birim Testleri: Bireysel bileşenlerin doğru çalıştığını doğrulamak için uygulanacaktır.
+
+-Entegrasyon Testleri: Frontend ile backend arasındaki veri akışını test etmek için kullanılacaktır.
+
+-Fonksiyonel Testler: Kullanıcı senaryolarına dayalı olarak sistemin beklenen şekilde çalıştığını doğrulayacaktır.
+
+-Güvenlik Testleri: Kullanıcı kimlik doğrulaması, veri şifreleme ve yetkilendirme mekanizmaları test edilecektir.
+
+                            Otomatik Manuel
+Birim Testleri                 ✅     ❌
+Entegrasyon Testleri           ✅     ❌
+Fonksiyonel Testler            ✅     ✅
+Güvenlik Testleri              ✅     ✅
+Kullanıcı Deneyimi Testleri    ❌     ✅
+
+2.Quality Factors & Metrics
+
+Quality Factor     Description Measurement           Metric 
+Performance        System response time              Average response time (ms) <=200
+Security           Protection against attacks        Number of security vulnerabilities detected <=0
+Usability          Ease of use for users             User satisfaction score from surveys >=60
+Maintainability    Ease of modifying the codebase    Code complexity score <=30
+
+3.Test Plan
+Test Adı                | Test Türü    | Açıklama                                               | Beklenen Sonuç 
+
+Kullanıcı Kayıt Testi   | Fonksiyonel  | Kullanıcı başarılı şekilde hesap oluşturabilmeli       | Yeni hesap başarıyla oluşturulmalı
+Giriş Testi             | Fonksiyonel  | Kullanıcı doğru bilgileri girdiğinde giriş yapabilmeli | Kullanıcı giriş yapabilmeli
+Test Çözme Testi        | Fonksiyonel  | Kullanıcı bir testi başlatıp bitirebilmeli             | Test tamamlanmalı, sonuç kaydedilmeli
+Çalışma Süresi Kaydetme | Fonksiyonel  | Sayaç ile çalışma süresi ölçülmeli                     | Sayaç doğru süreyi kaydetmeli
+Kullanıcı Yük Testi     | Performans   | Aynı anda 1000 kullanıcı işlem yapmalı                 | Sistem performans kaybı olmadan çalışmalı
+
+Bug Tracking: Hata bildirimleri GitHub Issue Tracking üzerinden takip edilecektir.
+Her hata, öncelik seviyesine göre sınıflandırılacaktır:
+-Kritik (Sistemi tamamen etkileyen)
+-Yüksek (Önemli bir özelliği engelleyen)
+-Orta (Kullanıcı deneyimini olumsuz etkileyen)
+-Düşük (Kozmetik veya küçük hatalar)
+Tespit edilen hatalar geri bildirim döngüsü içinde düzeltilerek yeniden test edilecektir.
