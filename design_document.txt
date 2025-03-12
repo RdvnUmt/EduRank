@@ -6,7 +6,7 @@ included:
 
 
 
-1. System Overview
+1. System Overview  
     ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
         Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
         sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
@@ -35,6 +35,23 @@ included:
     ● Key Implementations:
         ○ Describe significant components or modules with explanations.
         ○ Explain core algorithms or business logic where applicable.
+
+        Bileşenler ve Modüller:
+
+        Kullanıcı Yönetimi: Kayıt, giriş, JWT ile kimlik doğrulama.
+        Test Yönetimi: Test seçme, çözme, sorular arası geçiş, cevap değiştirme, sonuç kaydetme.
+        Çalışma Süresi Takibi: Sayaç başlatma/durdurma, süreleri kaydetme, istatistik oluşturma.
+        İstatistik & Veri Görselleştirme: Kullanıcı performans analizleri, grafik ve tablolar.
+        Lider Tablosu: Çalışma süresi & test başarı oranına göre sıralama.
+
+        Algoritmalar ve İş Mantığı:
+
+        Kimlik Doğrulama: JWT token ile oturum yönetimi.
+        Test Çözme: Sorular arası geçiş yapma, doğru cevap kontrolü ve başarı oranı hesaplama.
+        Çalışma Süresi Takibi: Başlangıç-bitiş zaman damgalarıyla toplam süre kaydı.
+        Lider Tablosu: Öncelik başarı oranı, eşitlikte çalışma süresine göre sıralama.
+        Veri Görselleştirme: Çekilen istatistik verilerinin grafik ve tablolarla sunulması.
+
     ● Component Interfaces:
         ○ Define the interfaces of key components, including class/method signatures.
         ○ Provide API endpoint descriptions if applicable.
