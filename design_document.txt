@@ -7,11 +7,30 @@ included:
 
 
 1. System Overview
-    ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs.
+    ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
+        ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı 
+        Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
+        sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
+        karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç 
+        özelliğini kullanarak toplam çalışma süresine katkıda bulunabilecek. Kullanıcılar hesap 
+        oluşturabilecek, testler çözebilecek, istatistiklerini analiz edebilecek ve başarı oranı veya çalışma 
+        süresi istatistikleri sayesinde arkadaşlarıyla rekabet edebilecek. Bu proje, insanların çalışma 
+        sürecini takip edebilmelerini sağlayarak ve çalışma alışkanlıkları hakkında analizler sunarak 
+        verimliliği artırmayı, sorumluluk duygusunu geliştirmeyi ve öğrenme sürecinde insanları teşvik etmeyi 
+        amaçlamaktadır.
+
+
     ● System Architecture: Provide an overview of the system architecture (e.g., layered,
-    microservices).
+    microservices):
+    ???????????????????????????
+
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
-    databases, frameworks, etc.).
+    databases, frameworks, etc.):
+        frontend: Flutter-dart,
+        backend: flask, MySQL,
+        databases: MySQL,
+        frameworks: Flutter.
+
 2. Implementation Details
     ● Codebase Structure: Explain how the project is structured (folders, modules).
     ● Key Implementations:
@@ -22,6 +41,7 @@ included:
         ○ Provide API endpoint descriptions if applicable.
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
+
 3. Use Case Support in Design
     ● Use Case Selection: Identify 4 important use cases from the Requirements
     Document.
@@ -33,10 +53,12 @@ included:
     ● Demo Requirement:
         ○ These four use cases must be fully implemented and will be demonstrated
     during the final project presentation.
+
 4. Design Decisions
     ● Technology Comparisons: Compare at least two alternative technologies used in the
     project.
     ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
+
 5. GitHub Commit Requirement
     ● Code Implementations & Interfaces: Students must upload their implementations,
     component interfaces, and visual interface designs to GitHub.
