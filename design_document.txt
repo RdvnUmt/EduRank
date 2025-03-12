@@ -54,7 +54,55 @@ included:
 
     ● Component Interfaces:
         ○ Define the interfaces of key components, including class/method signatures.
-        ○ Provide API endpoint descriptions if applicable.
+            Önemli ve temel metotların/bileşenlerin python taslak kodları:
+
+            class User:
+                def __init__(self, user_id: int, username: str, email: str, password_hash: str):
+                    pass
+
+                def register(self, username: str, email: str, password: str) -> bool:
+                    """Kullanıcı kaydı oluşturur"""
+                    pass
+
+                def login(self, email: str, password: str) -> str:
+                    """JWT Token döndürerek kullanıcı girişi yapar"""
+                    pass
+
+            class Test:
+                def __init__(self, test_id: int, category: str, questions: list):
+                    pass
+
+                def start_test(self, user_id: int) -> dict:
+                    """Kullanıcı için testi başlatır"""
+                    pass
+
+                def submit_answers(self, user_id: int, answers: dict) -> float:
+                    """Test cevaplarını değerlendirir ve başarı oranı döndürür"""
+                    pass
+
+            class StudySession:
+                def __init__(self, session_id: int, user_id: int, start_time: str, end_time: str):
+                    pass
+
+                def start_timer(self, user_id: int) -> bool:
+                    """Çalışma süresi sayaç başlatır"""
+                    pass
+
+                def stop_timer(self, user_id: int) -> int:
+                    """Sayaç durdurulur ve toplam çalışma süresi döndürülür"""
+                    pass
+
+            class Leaderboard:
+                def __init__(self, user_id: int, study_time: int, test_score: float):
+                    pass
+
+                def get_ranking(self) -> list:
+                    """Liderlik tablosunu sıralı olarak döndürür"""
+                    pass
+
+
+        ○ Provide API endpoint descriptions if applicable. 
+        ?????????????????????????? api kullanıyor muyuz gençler?
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
 
