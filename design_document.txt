@@ -4,6 +4,8 @@ This document should detail the implementation approach and decision-making proc
 Design Document must be structured around 4 use cases. The following sections must be
 included:
 
+
+
 1. System Overview
     ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs.
     ● System Architecture: Provide an overview of the system architecture (e.g., layered,
