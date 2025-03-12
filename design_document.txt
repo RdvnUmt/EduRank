@@ -1,0 +1,42 @@
+Design Document
+
+This document should detail the implementation approach and decision-making process. The
+Design Document must be structured around 4 use cases. The following sections must be
+included:
+
+1. System Overview
+    ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs.
+    ● System Architecture: Provide an overview of the system architecture (e.g., layered,
+    microservices).
+    ● Technology Stack: List the primary technologies used in the project (frontend, backend,
+    databases, frameworks, etc.).
+2. Implementation Details
+    ● Codebase Structure: Explain how the project is structured (folders, modules).
+    ● Key Implementations:
+        ○ Describe significant components or modules with explanations.
+        ○ Explain core algorithms or business logic where applicable.
+    ● Component Interfaces:
+        ○ Define the interfaces of key components, including class/method signatures.
+        ○ Provide API endpoint descriptions if applicable.
+    ● Visual Interfaces:
+        ○ Include wireframes or screenshots of user interfaces.
+3. Use Case Support in Design
+    ● Use Case Selection: Identify 4 important use cases from the Requirements
+    Document.
+    ● Requirement Mapping: Clearly state which functional requirements correspond to each
+    use case.
+    ● Use Case Design:
+        ○ Detail how the system architecture supports each use case.
+        ○ Provide diagrams or explanations of data flow, state changes, and interactions.
+    ● Demo Requirement:
+        ○ These four use cases must be fully implemented and will be demonstrated
+    during the final project presentation.
+4. Design Decisions
+    ● Technology Comparisons: Compare at least two alternative technologies used in the
+    project.
+    ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
+5. GitHub Commit Requirement
+    ● Code Implementations & Interfaces: Students must upload their implementations,
+    component interfaces, and visual interface designs to GitHub.
+    ● Technology Comparisons: The code snippets used for comparison must also be
+    committed to the repository.
