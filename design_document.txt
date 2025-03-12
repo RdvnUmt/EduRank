@@ -44,7 +44,28 @@ included:
 
 3. Use Case Support in Design
     ● Use Case Selection: Identify 4 important use cases from the Requirements
-    Document.
+    Document:
+        case 1: 
+        1-Kullanıcılar hesap oluşturabilmeli
+        2-Kullanıcılar şifreleriyle giriş yapabilmelidir
+
+        case 2: 
+        1-Kullanıcılar şifreleriyle giriş yapabilmelidir
+        2-Kullanıcılar test kategorilerinden seçim yapabilmeli
+        2-Kullanıcılar test çözebilmelidir
+        3-Kullanıcılar test çözerken sorular arasında geçiş yapabilmeli
+        4-Kullanıcılar test çözerken yanıtlarını değiştirebilmeli
+
+        case 3: 
+        1-Kullanıcılar şifreleriyle giriş yapabilmelidir
+        2-Kullanıcılar çalışma sürelerini bir sayaç/kronometre yardımıyla kaydedebilmelidir
+        3-Kullanıcılar birbirlerinin çalışma sürelerini görüntüleyebilmelidir
+
+        case 4: 
+        1-Kullanıcılar şifreleriyle giriş yapabilmelidir
+        2-Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidir/görüntülenebilmelidir
+        3-Kullanıcılar birbirlerinin test başarı oranlarını görüntüleyebilmelidir(liderlik tablosu)
+
     ● Requirement Mapping: Clearly state which functional requirements correspond to each
     use case.
     ● Use Case Design:
@@ -52,7 +73,7 @@ included:
         ○ Provide diagrams or explanations of data flow, state changes, and interactions.
     ● Demo Requirement:
         ○ These four use cases must be fully implemented and will be demonstrated
-    during the final project presentation.
+        during the final project presentation.
 
 4. Design Decisions
     ● Technology Comparisons: Compare at least two alternative technologies used in the
