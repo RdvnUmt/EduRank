@@ -8,7 +8,6 @@ included:
 
 1. System Overview
     ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
-        ilerlemelerini takip edebilecek, performanslarını izleyebilecek ve arkadaşlarıyla test başarı 
         Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
         sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
         karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç 
