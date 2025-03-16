@@ -21,7 +21,7 @@ included:
 
     ● System Architecture: Provide an overview of the system architecture (e.g., layered,
     microservices):
-    ????????????????????????
+        Will be added soon...
 
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
     databases, frameworks, etc.):
@@ -29,6 +29,8 @@ included:
         backend: flask, MySQL,
         databases: MySQL,
         frameworks: Flutter.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2. Implementation Details
     ● Codebase Structure: Explain how the project is structured (folders, modules).
@@ -114,9 +116,11 @@ included:
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 3. Use Case Support in Design
-    ● Use Case Selection: Identify 4 important use cases from the Requirements
-    Document:
+    ● Use Case Selection: Identify 4 important use cases from the Requirements Document:
+        
         case 1: 
         1-Kullanıcılar hesap oluşturabilmeli
         2-Kullanıcılar şifreleriyle giriş yapabilmelidir
@@ -146,6 +150,8 @@ included:
     ● Demo Requirement:
         ○ These four use cases must be fully implemented and will be demonstrated
         during the final project presentation.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 4. Design Decisions
     ● Technology Comparisons: Compare at least two alternative technologies used in the
@@ -213,9 +219,13 @@ included:
     POST → Yeni veri eklemek için
     PUT/PATCH → Veriyi güncellemek için
     DELETE → Veriyi silmek için
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 5. GitHub Commit Requirement
-    ● Code Implementations & Interfaces: Students must upload their implementations,
-    component interfaces, and visual interface designs to GitHub.
-    ● Technology Comparisons: The code snippets used for comparison must also be
+    ● Code Implementations & Interfaces & Technology Comparisons: Students must upload their implementations,
+    component interfaces, and visual interface designs to GitHub. The code snippets used for comparison must also be
     committed to the repository.
+
+    Kodlamaya henüz başlanmamış olmasına rağmen, proje sürecini GitHub üzerinde yönetiyoruz. 
+    Kod geliştirme süreci başladıktan sonra, istenen tüm kod bileşenleri ve teknoloji karşılaştırmalarına dair 
+    kod parçacıkları da düzenli olarak paylaşılacaktır.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
