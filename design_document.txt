@@ -173,8 +173,41 @@ included:
     ● Requirement Mapping: Clearly state which functional requirements correspond to each
     use case.
     ● Use Case Design:
-        ○ Detail how the system architecture supports each use case.
-        ○ Provide diagrams or explanations of data flow, state changes, and interactions.
+        Case 1: Kullanıcı Hesap İşlemleri (Kayıt, Giriş, Çıkış)
+            Sistem Desteği:
+                Kullanıcı, Flutter arayüzünden kayıt formunu doldurur.
+                    Flutter, girilen verileri Flask API’ye POST /register isteği olarak gönderir.
+                    Flask, bilgileri doğrulayıp MySQL veritabanına kaydeder.
+                    Giriş yaparken Flutter, Flask’e POST /login isteği gönderir, sunucu JWT token oluşturur.
+                    Çıkış işlemi sırasında istemci tarafında token temizlenir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/register, /login) -> MySQL (Kullanıcı tablosu)
+        
+        Case 2: Test Çözme İşlemleri
+            Sistem Desteği:
+                Kullanıcı giriş yaparak test kategorisini seçer.
+                Flutter, kullanıcıya soruları gösterir.
+                Kullanıcı sorular arasında geçiş yapabilir, yanıtlarını değiştirebilir.
+                Flask API’ye POST /submit_test isteği ile cevaplar gönderilir, MySQL’e kaydedilir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/tests, /submit_test) -> MySQL (Test tablosu, Cevaplar tablosu)
+        
+        Case 3: Çalışma Süresi Kaydı ve Görüntüleme
+            Sistem Desteği:
+                Kullanıcı çalışma süresini başlatır/durdurur. Flutter, süreyi hesaplar ve Flask API’ye POST /save_time isteği gönderir.
+                Flask bu süreyi MySQL’de saklar.
+                Kullanıcı çalışma sürelerini ve arkadaşlarının sürelerini görmek için GET /leaderboard isteği gönderir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/save_time, /leaderboard) -> MySQL (Çalışma Süresi tablosu)
+        
+        Case 4: Kullanıcı İstatistikleri ve Liderlik Tablosu
+            Sistem Desteği:
+                Kullanıcının test başarı oranları ve çalışma süreleri MySQL’de saklanır.
+                Flutter, Flask API’ye GET /user_stats isteği yaparak bu bilgileri çeker.
+                Kullanıcılar birbirlerinin liderlik sıralamalarını görüntüleyebilir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/user_stats, /leaderboard) -> MySQL (İstatistik tablosu)
+
     ● Demo Requirement:
         ○ These four use cases must be fully implemented and will be demonstrated
         during the final project presentation.
