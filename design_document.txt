@@ -215,7 +215,10 @@ included:
     DELETE → Veriyi silmek için
 
 5. GitHub Commit Requirement
-    ● Code Implementations & Interfaces: Students must upload their implementations,
-    component interfaces, and visual interface designs to GitHub.
-    ● Technology Comparisons: The code snippets used for comparison must also be
+    ● Code Implementations & Interfaces & Technology Comparisons: Students must upload their implementations,
+    component interfaces, and visual interface designs to GitHub. The code snippets used for comparison must also be
     committed to the repository.
+
+        Kodlamaya henüz başlanmamış olmasına rağmen, proje sürecini GitHub üzerinde yönetiyoruz. 
+        Kod geliştirme süreci başladıktan sonra, istenen tüm kod bileşenleri ve teknoloji 
+        karşılaştırmalarına dair kod parçacıkları da düzenli olarak paylaşılacaktır.
