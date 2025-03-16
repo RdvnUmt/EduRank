@@ -57,8 +57,8 @@ included:
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
     databases, frameworks, etc.):
         frontend: Flutter-dart,
-        backend: flask, MySQL,
-        databases: MySQL,
+        backend: flask, MySQL, SQLite
+        databases: MySQL, SQLite
         frameworks: Flutter.
 
 2. Implementation Details
@@ -254,3 +254,11 @@ included:
         Kodlama süreci devam etmekte olup, proje süreci GitHub üzerinden yönetildiği için 
         Kod geliştirme süreci sürdükçe istenen tüm kod bileşenleri ve teknoloji 
         karşılaştırmalarına dair kod parçacıkları da düzenli olarak paylaşılacaktır.
+
+Task Matrix :
+
+System Overview                Emirhan Gül
+Implementation Details         Utku Karatepe
+Use Case Support in Design     Taha Tavlan
+Design Decisions               Utku Karatepe
+GitHub Commit Requirement      Taha Tavlan
