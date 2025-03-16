@@ -1,10 +1,20 @@
-Design Document
+Design Document:
+
+Table of Contents : Design Document
+-System Overview
+-Implementation Details
+-Use Case Support in Design
+
+List of Contributors:
+
+The following team members contributed to the creation of this document:
+-Utku Karatepe 
+-Emirhan Gül 
+-Taha Tavlan 
 
 This document should detail the implementation approach and decision-making process. The
 Design Document must be structured around 4 use cases. The following sections must be
 included:
-
-
 
 1. System Overview  
     ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
@@ -21,7 +31,28 @@ included:
 
     ● System Architecture: Provide an overview of the system architecture (e.g., layered,
     microservices):
-    ????????????????????????
+        Uygulamamız, Layered Architecture ve Client-Server mimari modelini takip etmektedir. 
+        Sistem üç ana bileşenden oluşmaktadır: Kullanıcı arayüzü (Flutter), backend API (Flask) 
+        ve veritabanı (MySQL). Kullanıcı, Flutter uygulaması aracılığıyla işlemlerini gerçekleştirir.
+        Flutter istemcisi, Flask backend API’sine HTTP istekleri göndererek veri alıp/gönderir. 
+        Backend katmanı, bu istekleri işleyerek MySQL veritabanıyla iletişim kurar ve gerekli 
+        işlemleri yürütür. Katmanlı mimari sayesinde, her bileşen birbirinden bağımsız olarak 
+        geliştirilebilir ve ölçeklenebilir bir yapı sağlanır.
+
+        +--------------------+
+        |   Flutter (UI)     |  <----->  Kullanıcı ile etkileşim
+        +--------------------+
+                 |
+                 v
+        +--------------------+
+        |  Flask (Backend)   |  <----->  İş mantığını yönetir
+        +--------------------+
+                 |
+                 v
+        +--------------------+
+        |    MySQL (DB)      |  <----->  Verileri saklar ve yönetir
+        +--------------------+
+
 
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
     databases, frameworks, etc.):
@@ -120,6 +151,7 @@ included:
         case 1: 
         1-Kullanıcılar hesap oluşturabilmeli
         2-Kullanıcılar şifreleriyle giriş yapabilmelidir
+        3-Kullanıcılar hesaplarından çıkış yapabilmelidir
 
         case 2: 
         1-Kullanıcılar şifreleriyle giriş yapabilmelidir
@@ -219,6 +251,6 @@ included:
     component interfaces, and visual interface designs to GitHub. The code snippets used for comparison must also be
     committed to the repository.
 
-        Kodlamaya henüz başlanmamış olmasına rağmen, proje sürecini GitHub üzerinde yönetiyoruz. 
-        Kod geliştirme süreci başladıktan sonra, istenen tüm kod bileşenleri ve teknoloji 
+        Kodlama süreci devam etmekte olup, proje süreci GitHub üzerinden yönetildiği için 
+        Kod geliştirme süreci sürdükçe istenen tüm kod bileşenleri ve teknoloji 
         karşılaştırmalarına dair kod parçacıkları da düzenli olarak paylaşılacaktır.
