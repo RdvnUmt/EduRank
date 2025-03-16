@@ -1,4 +1,9 @@
-Quality Assurance (QA) Plan
+Table of Contents: Quality Assurance (QA) Plan
+
+-Quality Assurance Strategy
+-Quality Factors & Metrics
+-Test Plan
+
 
 1.Quality Assurance Strategy
 
@@ -46,3 +51,9 @@ Her hata, öncelik seviyesine göre sınıflandırılacaktır:
 -Orta (Kullanıcı deneyimini olumsuz etkileyen)
 -Düşük (Kozmetik veya küçük hatalar)
 Tespit edilen hatalar geri bildirim döngüsü içinde düzeltilerek yeniden test edilecektir.
+
+Task Matrix :
+
+Quality Assurance Strategy :Rıdvan Umut Ünal
+Quality Factors & Metrics : Rıdvan Umut Ünal
+Test Plan :                 Rıdvan Umut Ünal
