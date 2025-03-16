@@ -137,10 +137,10 @@ included:
         USER AUTHENTICATION:
          Method	Endpoint	Description	                                              Request Body
          POST	/register	Yeni kullanıcı kaydı oluşturur.	                              { "username": "string", "password": "string" }
-         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
+         POST	/login	    Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
          GET	/profile	Kullanıcının profil bilgilerini döner (JWT gerekir).	      -
-         POST	/refresh	Refresh token kullanarak yeni access token alır.	      -
-         POST	/logout	        Kullanıcıyı çıkış yaptırır (Token blackliste alınır).         -
+         POST	/refresh	Refresh token kullanarak yeni access token alır.	          -
+         POST	/logout	    Kullanıcıyı çıkış yaptırır (Token blackliste alınır).     -
 
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
@@ -270,7 +270,7 @@ included:
     Güvenlik:	        HTTPS kullanıldığında güvenlidir, ancak token çalınma riski vardır	Sunucuda saklandığı için daha güvenlidir
     Ölçeklenebilirlik:	Sunucuda oturum saklamadığı için daha ölçeklenebilir	            Sunucunun oturumları takip etmesi gerekir, fazla bellek kullanır
     Performans:	        Token doğrulama ile hızlı çalışır	                                Sunucu tarafında ek işlem gerektiğinden biraz daha yavaş olabilir
-    Kullanım Alanı:	API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
+    Kullanım Alanı:	    API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
 
 
     ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
