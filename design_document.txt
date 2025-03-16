@@ -26,8 +26,8 @@ included:
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
     databases, frameworks, etc.):
         frontend: Flutter-dart,
-        backend: flask, MySQL,
-        databases: MySQL,
+        backend: flask, MySQL, SQLite
+        databases: MySQL, SQLite
         frameworks: Flutter.
 
 2. Implementation Details
