@@ -102,7 +102,15 @@ included:
 
 
         ○ Provide API endpoint descriptions if applicable. 
-        ?????????????????????????? api kullanıyor muyuz gençler?
+
+        USER AUTHENTICATION:
+         Method	Endpoint	Description	                                              Request Body
+         POST	/register	Yeni kullanıcı kaydı oluşturur.	                              { "username": "string", "password": "string" }
+         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
+         GET	/profile	Kullanıcının profil bilgilerini döner (JWT gerekir).	      -
+         POST	/refresh	Refresh token kullanarak yeni access token alır.	      -
+         POST	/logout	        Kullanıcıyı çıkış yaptırır (Token blackliste alınır).         -
+
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
 
