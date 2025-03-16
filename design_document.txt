@@ -170,8 +170,40 @@ included:
         2-Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidir/görüntülenebilmelidir
         3-Kullanıcılar birbirlerinin test başarı oranlarını görüntüleyebilmelidir(liderlik tablosu)
 
-    ● Requirement Mapping: Clearly state which functional requirements correspond to each
-    use case.
+    ● Requirement Mapping: 
+
+    Use Case 1	                                                  Functional Requirement
+    1. Kullanıcılar hesap oluşturabilmeli	                      - Kullanıcılar bir hesap oluşturabilmelidir.
+                                                                  - Kullanıcı adı ve şifre ile kayıt olabilmelidir.
+                                                                  - Şifre güvenlik kriterlerine (örneğin, minimum uzunluk, özel karakter vb.)uygun olmalıdır.
+
+    2. Kullanıcılar şifreleriyle giriş yapabilmelidir	          - Kullanıcılar kayıt oldukları kullanıcı adı ve şifre ile giriş yapabilmelidir.
+                                                                  - Yanlış giriş denemelerinde hata mesajı gösterilmelidir.
+                                                                  - Kullanıcı giriş bilgileri şifrelenmiş olarak saklanmalıdır.
+                                                                  - Kullanıcı giriş yaptığında bir oturum başlatılmalı ve  JWT Token ile kimlik doğrulama 
+                                                                    yöntemi kullanılmalıdır.
+
+    Use Case 2                                                    Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - E-posta ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.).
+    2. Test kategorilerinden seçim yapabilmeli	                  - Kategoriler listelenmeli ve kullanıcılar seçim yapabilmeli.
+    3. Test çözebilmeli	                                          - Seçilen test başlatılabilmeli, sorular sırayla gösterilmeli.
+    4. Sorular arasında geçiş yapabilmeli	                      - Önceki/sonraki soruya geçiş yapılabilmeli, cevaplar kaydedilmeli.
+    5. Yanıtlarını değiştirebilmeli	                              - Kullanıcı işaretlediği cevabı değiştirebilmeli.
+
+    Use Case 3	                                                  Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - E-posta ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.).
+    2. Çalışma sürelerini kaydedebilmeli	                      - Sayaç/kronometre başlatılabilmeli, durdurulabilmeli ve süre kaydedilmelidir.
+    3. Diğer kullanıcıların çalışma sürelerini görebilmeli	      - Çalışma süreleri veri tabanında saklanmalı ve kullanıcılar birbirlerinin sürelerini 
+                                                                  görüntüleyebilmelidir.
+   
+    Use Case 4 	                                                  Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - Kullanıcı adı ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.)
+
+    2. Çalışma istatistikleri ve test sonuçları                   - Kullanıcıların test sonuçları ve çalışma istatistikleri veri tabanında
+       kaydedilmeli/görüntülenebilmeli                              saklanmalı ve profil ekranında görüntülenebilmelidir.
+                                                                    
+    3. Liderlik tablosu görüntülenebilmeli	                      - Kullanıcılar diğer kullanıcıların test başarı oranlarını görebilmeli, skorlar 
+                                                                    sıralanarak bir liderlik tablosu oluşturulmalıdır.
     ● Use Case Design:
         Case 1: Kullanıcı Hesap İşlemleri (Kayıt, Giriş, Çıkış)
             Sistem Desteği:
@@ -218,20 +250,25 @@ included:
  
     Veritabanı Teknolojileri – SQLite vs. PostgreSQL
           
-    Özellik	        SQLite	                                                                               PostgreSQL
+    Özellik	            SQLite	                                                                               PostgreSQL
     Performans:	        Küçük ölçekli uygulamalar için hızlıdır	                                               Büyük ölçekli uygulamalarda daha verimlidir
-    Eşzamanlılık:	Aynı anda tek bir yazma işlemi yapabilir (çok kullanıcılı sistemler için uygun değil)  Birden fazla kullanıcının aynı anda yazma işlemi yapmasına izin verir
+    Eşzamanlılık:	    Aynı anda tek bir yazma işlemi yapabilir (çok kullanıcılı sistemler için uygun değil)  Birden fazla kullanıcının aynı anda yazma 
+                                                                                                               işlemi yapmasına izin verir
+
     Depolama:	        Dosya tabanlıdır (.db dosyası yerelde saklanır)	                                       Sunucu tabanlıdır, yapılandırma gerektirir
-    Kullanım Alanı:	Küçük projeler, test ortamları ve yerel geliştirme için uygundur	               Çok kullanıcılı sistemler ve yüksek veri işleyen uygulamalar için daha iyidir
-    Veri Bütünlüğü:	Temel ACID (Atomicity, Consistency, Isolation, Durability) desteği sunar	       Tam ACID uyumluluğu sağlar, karmaşık işlemler için daha güvenlidir
-  
+
+    Kullanım Alanı:	Küçük projeler, test ortamları ve yerel geliştirme için uygundur	                       Çok kullanıcılı sistemler ve yüksek veri 
+                                                                                                               işleyen uygulamalar için daha iyidir
+
+    Veri Bütünlüğü:	Temel ACID (Atomicity, Consistency, Isolation, Durability) desteği sunar	               Tam ACID uyumluluğu sağlar, karmaşık işlemler 
+                                                                                                               için daha güvenlidir. 
 
     Kimlik Doğrulama Yöntemleri: JWT vs. Oturum Tabanlı Kimlik Doğrulama
 
-    Özellik	        JWT (JSON Web Token)	                                                Oturum Tabanlı Kimlik Doğrulama
+    Özellik	            JWT (JSON Web Token)	                                            Oturum Tabanlı Kimlik Doğrulama
     Depolama:	        İstemci tarafında (localStorage, cookie) saklanır	                Sunucuda saklanır
     Güvenlik:	        HTTPS kullanıldığında güvenlidir, ancak token çalınma riski vardır	Sunucuda saklandığı için daha güvenlidir
-    Ölçeklenebilirlik:	Sunucuda oturum saklamadığı için daha ölçeklenebilir	                Sunucunun oturumları takip etmesi gerekir, fazla bellek kullanır
+    Ölçeklenebilirlik:	Sunucuda oturum saklamadığı için daha ölçeklenebilir	            Sunucunun oturumları takip etmesi gerekir, fazla bellek kullanır
     Performans:	        Token doğrulama ile hızlı çalışır	                                Sunucu tarafında ek işlem gerektiğinden biraz daha yavaş olabilir
     Kullanım Alanı:	API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
 
