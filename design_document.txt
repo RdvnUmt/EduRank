@@ -88,7 +88,7 @@ included:
             Önemli ve temel metotların/bileşenlerin python taslak kodları:
 
             class User:
-                def __init__(self, user_id: int, username: str, email: str, password_hash: str):
+                def _init_(self, user_id: int, username: str, email: str, password_hash: str):
                     pass
 
                 def register(self, username: str, email: str, password: str) -> bool:
@@ -100,7 +100,7 @@ included:
                     pass
 
             class Test:
-                def __init__(self, test_id: int, category: str, questions: list):
+                def _init_(self, test_id: int, category: str, questions: list):
                     pass
 
                 def start_test(self, user_id: int) -> dict:
@@ -112,7 +112,7 @@ included:
                     pass
 
             class StudySession:
-                def __init__(self, session_id: int, user_id: int, start_time: str, end_time: str):
+                def _init_(self, session_id: int, user_id: int, start_time: str, end_time: str):
                     pass
 
                 def start_timer(self, user_id: int) -> bool:
@@ -124,7 +124,7 @@ included:
                     pass
 
             class Leaderboard:
-                def __init__(self, user_id: int, study_time: int, test_score: float):
+                def _init_(self, user_id: int, study_time: int, test_score: float):
                     pass
 
                 def get_ranking(self) -> list:
@@ -290,8 +290,8 @@ included:
 
 Task Matrix :
 
-System Overview                Emirhan Gül
-Implementation Details         Utku Karatepe
-Use Case Support in Design     Taha Tavlan
+System Overview               
+Implementation Details      
+Use Case Support in Design     Emirhan GÜl
 Design Decisions               Utku Karatepe
 GitHub Commit Requirement      Taha Tavlan
