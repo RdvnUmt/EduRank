@@ -102,7 +102,15 @@ included:
 
 
         ○ Provide API endpoint descriptions if applicable. 
-        ?????????????????????????? api kullanıyor muyuz gençler?
+
+        USER AUTHENTICATION:
+         Method	Endpoint	Description	                                              Request Body
+         POST	/register	Yeni kullanıcı kaydı oluşturur.	                              { "username": "string", "password": "string" }
+         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
+         GET	/profile	Kullanıcının profil bilgilerini döner (JWT gerekir).	      -
+         POST	/refresh	Refresh token kullanarak yeni access token alır.	      -
+         POST	/logout	        Kullanıcıyı çıkış yaptırır (Token blackliste alınır).         -
+
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
 
@@ -142,7 +150,69 @@ included:
 4. Design Decisions
     ● Technology Comparisons: Compare at least two alternative technologies used in the
     project.
+ 
+    Veritabanı Teknolojileri – SQLite vs. PostgreSQL
+          
+    Özellik	        SQLite	                                                                               PostgreSQL
+    Performans:	        Küçük ölçekli uygulamalar için hızlıdır	                                               Büyük ölçekli uygulamalarda daha verimlidir
+    Eşzamanlılık:	Aynı anda tek bir yazma işlemi yapabilir (çok kullanıcılı sistemler için uygun değil)  Birden fazla kullanıcının aynı anda yazma işlemi yapmasına izin verir
+    Depolama:	        Dosya tabanlıdır (.db dosyası yerelde saklanır)	                                       Sunucu tabanlıdır, yapılandırma gerektirir
+    Kullanım Alanı:	Küçük projeler, test ortamları ve yerel geliştirme için uygundur	               Çok kullanıcılı sistemler ve yüksek veri işleyen uygulamalar için daha iyidir
+    Veri Bütünlüğü:	Temel ACID (Atomicity, Consistency, Isolation, Durability) desteği sunar	       Tam ACID uyumluluğu sağlar, karmaşık işlemler için daha güvenlidir
+  
+
+    Kimlik Doğrulama Yöntemleri: JWT vs. Oturum Tabanlı Kimlik Doğrulama
+
+    Özellik	        JWT (JSON Web Token)	                                                Oturum Tabanlı Kimlik Doğrulama
+    Depolama:	        İstemci tarafında (localStorage, cookie) saklanır	                Sunucuda saklanır
+    Güvenlik:	        HTTPS kullanıldığında güvenlidir, ancak token çalınma riski vardır	Sunucuda saklandığı için daha güvenlidir
+    Ölçeklenebilirlik:	Sunucuda oturum saklamadığı için daha ölçeklenebilir	                Sunucunun oturumları takip etmesi gerekir, fazla bellek kullanır
+    Performans:	        Token doğrulama ile hızlı çalışır	                                Sunucu tarafında ek işlem gerektiğinden biraz daha yavaş olabilir
+    Kullanım Alanı:	API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
+
+
     ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
+    
+    Flask: Flask, Python tabanlı hafif bir web framework'üdür. Basit ve esnek olması nedeniyle küçük ve orta ölçekli projeler için idealdir. Özellikle RESTful API geliştirme konusunda sıkça tercih edilir.
+
+    Flask’in Avantajları:
+    Hafif ve Minimal: Django gibi büyük framework'lere kıyasla, yalnızca ihtiyacınız olan modülleri ekleyerek çalışabilirsiniz.
+    Kolay Öğrenilebilir: Python ile çalıştığı için basit bir sözdizimi vardır.
+    Esneklik: İhtiyaca göre özelleştirilebilir.
+    Geniş Eklenti Desteği: Authentication (kimlik doğrulama), veritabanı yönetimi gibi özellikler için eklentiler sunar. 
+
+    Flask Kullanım Alanları:
+    Küçük ve orta ölçekli web uygulamaları
+    RESTful API geliştirme (sizin projeniz gibi)
+    Mikroservis mimarisi
+    Veri analiz ve görselleştirme uygulamaları
+
+    
+    SQLite: SQLite, hafif ve gömülü bir ilişkisel veritabanı yönetim sistemidir (RDBMS). Flask ile geliştirdiğiniz API'de verileri depolamak için kullanıyorsunuz.
+
+    SQLite’in Avantajları:
+    Sunucusuz: PostgreSQL veya MySQL gibi ayrı bir sunucu gerektirmez. Tüm veritabanı tek bir dosyada saklanır.
+    Hafif ve Hızlı: Küçük ve orta ölçekli projeler için idealdir.
+    Kolay Entegrasyon: Flask ile doğrudan entegre edilebilir.
+    SQL Destekler: Standart SQL sorguları ile çalışır.
+
+    SQLite’in Kullanım Alanları:
+    Küçük ölçekli web ve mobil uygulamalar
+    Test ortamlarında veritabanı olarak
+    Cihaz içi veri depolama (örneğin, Android ve iOS uygulamalarında)
+
+
+    RESTful API: RESTful API, web tabanlı uygulamalar için veri alışverişi yapmayı sağlayan bir API türüdür. REST (Representational State Transfer) prensiplerine dayanır ve HTTP protokolünü kullanır.
+    
+    RESTful API’nin Temel Özellikleri:
+    İstemci-Sunucu Modeli: İstemci (frontend) ile sunucu (backend) birbirinden bağımsızdır.
+    Stateless (Durumsuzluk): Her istek bağımsızdır, sunucu istemcinin önceki durumunu hatırlamaz.
+    Kaynak Temelli: API, belirli kaynakları (users, quizzes, questions) URL'ler aracılığıyla yönetir.
+    HTTP Metodlarını Kullanır:
+    GET → Veri almak için
+    POST → Yeni veri eklemek için
+    PUT/PATCH → Veriyi güncellemek için
+    DELETE → Veriyi silmek için
 
 5. GitHub Commit Requirement
     ● Code Implementations & Interfaces: Students must upload their implementations,
