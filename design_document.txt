@@ -329,6 +329,6 @@ Task Matrix :
 
 System Overview                Emirhan Gül
 Implementation Details         Utku Karatepe
-Use Case Support in Design     Taha Tavlan
-Design Decisions               Utku Karatepe
-GitHub Commit Requirement      Taha Tavlan
+Use Case Support in Design     Taha Tavlan / Utku Karatepe
+Design Decisions               Utku Karatepe / Emirhan Gül
+GitHub Commit Requirement      Taha Tavlan
