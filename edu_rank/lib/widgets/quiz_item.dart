@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class QuizItem extends StatelessWidget {
-  const QuizItem({super.key, required this.quiz});
+  const QuizItem({super.key, required this.quiz, required this.startQuiz});
 
+  final void Function() startQuiz;
   final Quiz quiz;
 
   int get bestTime {
@@ -26,7 +27,7 @@ class QuizItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: startQuiz,
         child: Stack(
           children: [
             FadeInImage(

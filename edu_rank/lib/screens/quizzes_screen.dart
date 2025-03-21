@@ -1,7 +1,7 @@
 import 'package:edu_rank/data/quiz_data.dart';
 import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/models/quiz_category.dart';
-import 'package:edu_rank/screens/quiz_screen.dart';
+import 'package:edu_rank/screens/quiz_info_screen.dart';
 import 'package:edu_rank/widgets/quiz_grid_item.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class QuizzesScreen extends StatelessWidget {
 
   void _selectQuiz(BuildContext context, QuizCategory quizCategory) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (ctx) => QuizScreen(quiz: quizzes[quizCategory.id - 1])),
+      MaterialPageRoute(builder: (ctx) => QuizInfoScreen(quiz: quizzes[quizCategory.id - 1])),
     );
   }
 

@@ -8,7 +8,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -17,7 +17,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -26,7 +26,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -35,7 +35,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -44,8 +44,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -53,7 +54,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -69,7 +70,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -78,7 +79,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -87,7 +88,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -96,7 +97,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -105,8 +106,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -114,7 +116,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -130,7 +132,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -139,7 +141,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -148,7 +150,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -157,7 +159,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -166,8 +168,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -175,7 +178,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -189,9 +192,9 @@ var quizzes = [
     4,
     'Quiz 4',
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
-    const [
+   const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -200,7 +203,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -209,7 +212,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -218,7 +221,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -227,8 +230,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -236,7 +240,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -252,7 +256,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -261,7 +265,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -270,7 +274,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -279,7 +283,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -288,8 +292,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -297,7 +302,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -313,7 +318,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -322,7 +327,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -331,7 +336,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -340,7 +345,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -349,8 +354,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -358,7 +364,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -374,7 +380,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -383,7 +389,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -392,7 +398,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -401,7 +407,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -410,8 +416,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -419,7 +426,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -435,7 +442,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -444,7 +451,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -453,7 +460,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -462,7 +469,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -471,8 +478,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -480,7 +488,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -496,7 +504,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -505,7 +513,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -514,7 +522,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -523,7 +531,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -532,8 +540,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -541,7 +550,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
@@ -557,7 +566,7 @@ var quizzes = [
     'https://cdn.pixabay.com/photo/2025/01/31/02/43/ai-generated-9371381_1280.jpg',
     const [
       QuizQuestion(
-        'Quiz question',
+        'Question 1',
         [
           'true answer',
           'false answer',
@@ -566,7 +575,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 2',
         [
           'true answer',
           'false answer',
@@ -575,7 +584,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 3',
         [
           'true answer',
           'false answer',
@@ -584,7 +593,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 4',
         [
           'true answer',
           'false answer',
@@ -593,8 +602,9 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 5',
         [
+          
           'true answer',
           'false answer',
           'false answer',
@@ -602,7 +612,7 @@ var quizzes = [
         ],
       ),
       QuizQuestion(
-        'Quiz question',
+        'Question 6',
         [
           'true answer',
           'false answer',
