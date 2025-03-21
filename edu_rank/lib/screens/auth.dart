@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/text_field.dart';
+import '/widgets/text_field.dart';
+import '/services/auth_service.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -9,12 +10,13 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  var _isLogin = true;
+  bool _isLogin = true;
   final _form = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading = false;
+  String? _errorMessage;
 
   @override
   void dispose() {
@@ -24,7 +26,11 @@ class _AuthScreenState extends State<AuthScreen> {
     super.dispose();
   }
 
-  void _submit() {
+  Future<void> _submit() async {
+    setState(() {
+      _errorMessage = null;
+    });
+    
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
@@ -34,6 +40,76 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {
       _isLoading = true;
     });
+
+    try {
+      Map<String, dynamic> result;
+
+      if (_isLogin) {
+        print('Login işlemi başlatılıyor');
+        result = await AuthService.login(
+          _emailController.text.trim(), 
+          _passwordController.text
+        );
+        print('Login işlemi sonucu: $result');
+      } else {
+        print('Kayıt işlemi başlatılıyor');
+        result = await AuthService.register(
+          _usernameController.text.trim(),
+          _emailController.text.trim(),
+          _passwordController.text
+        );
+
+        print('Kayıt işlemi sonucu: $result');
+      }
+
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+
+        if (result['success']) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result['message']),
+              backgroundColor: Colors.green,
+            ),
+          );
+
+          if (!_isLogin) {
+            setState(() {
+              _isLogin = true;
+            });
+          } else {
+            Navigator.of(context).pushReplacementNamed('/profile');
+          }
+        } else {
+          setState(() {
+            _errorMessage = result['message'];
+          });
+          
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(_errorMessage ?? 'Bir hata oluştu'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      print('Submit metodu hata: $e');
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+          _errorMessage = 'Bir hata oluştu: ${e.toString()}';
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('İşlem sırasında bir hata oluştu'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -65,6 +141,28 @@ class _AuthScreenState extends State<AuthScreen> {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 40),
+                if (_errorMessage != null)
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.red.shade100,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.red.shade300),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.error_outline, color: Colors.red),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            _errorMessage!,
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 Card(
                   margin: const EdgeInsets.symmetric(
                     horizontal: 0,
@@ -183,6 +281,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       onPressed: () {
                         setState(() {
                           _isLogin = !_isLogin;
+                          _errorMessage = null;
                         });
                       },
                       child: Text(_isLogin ? 'Hesap Oluştur' : 'Giriş Yap'),

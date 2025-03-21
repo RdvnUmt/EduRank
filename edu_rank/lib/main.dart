@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/auth.dart';
+import 'screens/profile_screen.dart';
+import 'services/auth_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,7 +78,12 @@ class MyApp extends StatelessWidget {
           errorStyle: const TextStyle(color: Color(0xFFD32F2F)),
         ),
       ),
-      home: const AuthScreen(),
+      home: const AuthManager(),
+      routes: {
+        '/profile': (context) => const ProfileScreen(),
+        '/auth': (context) => const AuthScreen(),
+      },
     );
   }
 }
+
