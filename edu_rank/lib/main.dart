@@ -1,6 +1,7 @@
 import 'package:edu_rank/screens/home_page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'screens/auth.dart';
 import 'screens/main_screen.dart';
 import 'screens/profile_screen.dart';
 import 'services/auth_manager.dart';

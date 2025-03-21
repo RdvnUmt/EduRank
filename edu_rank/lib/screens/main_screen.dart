@@ -3,7 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'home_screen.dart';
 import 'leaderboard.screen.dart';
 import 'profile_screen.dart';
-import 'quiz_screen.dart';
+import 'quizzes_screen.dart';
 import 'timer_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     HomeScreen(),
     ProfileScreen(),
-    QuizScreen(),
+    QuizzesScreen(),
     TimerScreen(),
     LeaderboardScreen(),
   ];
@@ -44,6 +44,14 @@ class _MainScreenState extends State<MainScreen> {
                 _selectedIndex = index;
               });
             },
+            selectedIndex: _selectedIndex,
+            tabBackgroundGradient: const LinearGradient(
+              colors: [
+                Color.fromARGB(255, 48, 3, 3),
+                Color.fromARGB(255, 68, 3, 3),
+              ],
+              begin: Alignment.topLeft,
+            ),            
             gap: 6,
             padding: EdgeInsets.all(16),
             backgroundColor: Colors.black,
