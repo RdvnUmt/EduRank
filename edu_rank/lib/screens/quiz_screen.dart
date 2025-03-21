@@ -71,14 +71,14 @@ class _QuizScreenState extends State<QuizScreen> {
     Widget screenWidget = QuestionsScreen(
       onSelectAnswer: chooseAnswer,
       quiz: widget.quiz,
-      onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion,
+      onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion, selectedAnswers: selectedAnswers,
     );
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(
           onSelectAnswer: chooseAnswer,
           quiz: widget.quiz,
-          onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion);
+          onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion, selectedAnswers: selectedAnswers,);
     } else if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
           choosenAnswers: selectedAnswers,
