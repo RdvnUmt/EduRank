@@ -50,12 +50,18 @@ class _QuizScreenState extends State<QuizScreen> {
   void nextQuestion() {
     if (index + 1 < widget.quiz.questions.length) {
       index++;
+      setState(() {
+        
+      });
     }
   }
 
   void prevQuestion() {
     if (index > 0) {
       index--;
+      setState(() {
+        
+      });
     }
   }
 
@@ -71,14 +77,22 @@ class _QuizScreenState extends State<QuizScreen> {
     Widget screenWidget = QuestionsScreen(
       onSelectAnswer: chooseAnswer,
       quiz: widget.quiz,
-      onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion, selectedAnswers: selectedAnswers,
+      onFinish: finishQuiz,
+      goPrev: prevQuestion,
+      goNext: nextQuestion,
+      selectedAnswers: selectedAnswers,
+      shuffledAnswers: widget.quiz.questions[index].getShuffledAnswers(),
     );
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(
           onSelectAnswer: chooseAnswer,
           quiz: widget.quiz,
-          onFinish: finishQuiz, goPrev: prevQuestion, goNext: nextQuestion, selectedAnswers: selectedAnswers,);
+          onFinish: finishQuiz,
+          goPrev: prevQuestion,
+          goNext: nextQuestion,
+          selectedAnswers: selectedAnswers,
+          shuffledAnswers: widget.quiz.questions[index].getShuffledAnswers());
     } else if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
           choosenAnswers: selectedAnswers,
