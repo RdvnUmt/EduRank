@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import '/widgets/time_selector.dart';
 
 class TimerScreen extends StatefulWidget {
   const TimerScreen({super.key});
@@ -10,21 +10,18 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStateMixin {
-  // Kronometre değişkenleri
   int _seconds = 0;
   int _minutes = 0;
   int _hours = 0;
   bool _isRunning = false;
   Timer? _timer;
 
-  // Geri sayım değişkenleri
-  int _countdownSeconds = 0;
-  int _countdownMinutes = 0;
-  int _countdownHours = 0;
-  bool _isCountdownRunning = false;
-  Timer? _countdownTimer;
+  int _timerSeconds = 0;
+  int _timerMinutes = 0;
+  int _timerHours = 0;
+  bool _timerRunning = false;
+  Timer? _timerTimer;
 
-  // Tab controller
   late TabController _tabController;
 
   @override
@@ -36,13 +33,12 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
   @override
   void dispose() {
     _timer?.cancel();
-    _countdownTimer?.cancel();
+    _timerTimer?.cancel();
     _tabController.dispose();
     super.dispose();
   }
 
-  // Kronometre başlatma fonksiyonu
-  void _startTimer() {
+  void _startCounter() {
     if (!_isRunning) {
       setState(() {
         _isRunning = true;
@@ -67,8 +63,7 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     }
   }
 
-  // Kronometre durdurma fonksiyonu
-  void _stopTimer() {
+  void _stopCounter() {
     if (_isRunning) {
       _timer?.cancel();
       setState(() {
@@ -77,9 +72,8 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     }
   }
 
-  // Kronometre sıfırlama fonksiyonu
-  void _resetTimer() {
-    _stopTimer();
+  void _resetCounter() {
+    _stopCounter();
     setState(() {
       _seconds = 0;
       _minutes = 0;
@@ -87,31 +81,28 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     });
   }
 
-  // Geri sayım başlatma fonksiyonu
-  void _startCountdown() {
-    if (!_isCountdownRunning && (_countdownSeconds > 0 || _countdownMinutes > 0 || _countdownHours > 0)) {
+  void _startTimer() {
+    if (!_timerRunning && (_timerSeconds > 0 || _timerMinutes > 0 || _timerHours > 0)) {
       setState(() {
-        _isCountdownRunning = true;
+        _timerRunning = true;
       });
       
-      _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      _timerTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
-          if (_countdownSeconds > 0) {
-            _countdownSeconds--;
+          if (_timerSeconds > 0) {
+            _timerSeconds--;
           } else {
-            if (_countdownMinutes > 0) {
-              _countdownMinutes--;
-              _countdownSeconds = 59;
+            if (_timerMinutes > 0) {
+              _timerMinutes--;
+              _timerSeconds = 59;
             } else {
-              if (_countdownHours > 0) {
-                _countdownHours--;
-                _countdownMinutes = 59;
-                _countdownSeconds = 59;
+              if (_timerHours > 0) {
+                _timerHours--;
+                _timerMinutes = 59;
+                _timerSeconds = 59;
               } else {
-                // Geri sayım tamamlandı
-                _countdownTimer?.cancel();
-                _isCountdownRunning = false;
-                // Burada alarm veya bildirim eklenebilir
+                _timerTimer?.cancel();
+                _timerRunning = false;
               }
             }
           }
@@ -120,27 +111,24 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     }
   }
 
-  // Geri sayım durdurma fonksiyonu
-  void _stopCountdown() {
-    if (_isCountdownRunning) {
-      _countdownTimer?.cancel();
+  void _stopTimer() {
+    if (_timerRunning) {
+      _timerTimer?.cancel();
       setState(() {
-        _isCountdownRunning = false;
+        _timerRunning = false;
       });
     }
   }
 
-  // Geri sayım sıfırlama fonksiyonu
-  void _resetCountdown() {
-    _stopCountdown();
+  void _resetTimer() {
+    _stopTimer();
     setState(() {
-      _countdownSeconds = 0;
-      _countdownMinutes = 0;
-      _countdownHours = 0;
+      _timerSeconds = 0;
+      _timerMinutes = 0;
+      _timerHours = 0;
     });
   }
 
-  // Zamanı iki basamaklı gösterme fonksiyonu
   String _formatNumber(int number) {
     return number.toString().padLeft(2, '0');
   }
@@ -160,7 +148,6 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
       body: TabBarView(
         controller: _tabController,
         children: [
-          // Kronometre Sayfası
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -169,6 +156,86 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
                   '${_formatNumber(_hours)}:${_formatNumber(_minutes)}:${_formatNumber(_seconds)}',
                   style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                 ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: _startCounter,
+                      child: const Text('Başlat'),
+                    ),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: _stopCounter,
+                      child: const Text('Durdur'),
+                    ),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: _resetCounter,
+                      child: const Text('Sıfırla'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),          
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${_formatNumber(_timerHours)}:${_formatNumber(_timerMinutes)}:${_formatNumber(_timerSeconds)}',
+                  style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 30),
+                if (!_timerRunning)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TimeSelector(
+                        label: 'Saat',
+                        value: _timerHours,
+                        onChanged: (value) {
+                          setState(() {
+                            _timerHours = value;
+                          });
+                        },
+                        minValue: 0,
+                        maxValue: 23,
+                      ),                      
+                      TimeSelector(
+                        label: 'Dakika',
+                        value: _timerMinutes,
+                        onChanged: (value) {
+                          setState(() {
+                            _timerMinutes = value;
+                          });
+                        },
+                        minValue: 0,
+                        maxValue: 59,
+                      ),                      
+                      TimeSelector(
+                        label: 'Saniye',
+                        value: _timerSeconds,
+                        onChanged: (value) {
+                          setState(() {
+                            _timerSeconds = value;
+                          });
+                        },
+                        minValue: 0,
+                        maxValue: 59,
+                      ),
+                    ],
+                  ),
                 const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -200,159 +267,6 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
                 ),
               ],
             ),
-          ),
-          
-          // Geri Sayım Sayfası
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '${_formatNumber(_countdownHours)}:${_formatNumber(_countdownMinutes)}:${_formatNumber(_countdownSeconds)}',
-                  style: const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 30),
-                if (!_isCountdownRunning)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Saat seçimi
-                      _buildTimeSelector(
-                        label: 'Saat',
-                        value: _countdownHours,
-                        onAdd: () {
-                          setState(() {
-                            if (_countdownHours < 23) {
-                              _countdownHours++;
-                            }
-                          });
-                        },
-                        onRemove: () {
-                          setState(() {
-                            if (_countdownHours > 0) {
-                              _countdownHours--;
-                            }
-                          });
-                        },
-                      ),
-                      
-                      // Dakika seçimi
-                      _buildTimeSelector(
-                        label: 'Dakika',
-                        value: _countdownMinutes,
-                        onAdd: () {
-                          setState(() {
-                            if (_countdownMinutes < 59) {
-                              _countdownMinutes++;
-                            } else {
-                              _countdownMinutes = 0;
-                              if (_countdownHours < 23) {
-                                _countdownHours++;
-                              }
-                            }
-                          });
-                        },
-                        onRemove: () {
-                          setState(() {
-                            if (_countdownMinutes > 0) {
-                              _countdownMinutes--;
-                            } else if (_countdownHours > 0) {
-                              _countdownMinutes = 59;
-                              _countdownHours--;
-                            }
-                          });
-                        },
-                      ),
-                      
-                      // Saniye seçimi
-                      _buildTimeSelector(
-                        label: 'Saniye',
-                        value: _countdownSeconds,
-                        onAdd: () {
-                          setState(() {
-                            if (_countdownSeconds < 59) {
-                              _countdownSeconds++;
-                            } else {
-                              _countdownSeconds = 0;
-                              if (_countdownMinutes < 59) {
-                                _countdownMinutes++;
-                              } else {
-                                _countdownMinutes = 0;
-                                if (_countdownHours < 23) {
-                                  _countdownHours++;
-                                }
-                              }
-                            }
-                          });
-                        },
-                        onRemove: () {
-                          setState(() {
-                            if (_countdownSeconds > 0) {
-                              _countdownSeconds--;
-                            } else if (_countdownMinutes > 0) {
-                              _countdownSeconds = 59;
-                              _countdownMinutes--;
-                            } else if (_countdownHours > 0) {
-                              _countdownSeconds = 59;
-                              _countdownMinutes = 59;
-                              _countdownHours--;
-                            }
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: _startCountdown,
-                      child: const Text('Başlat'),
-                    ),
-                    const SizedBox(width: 20),
-                    ElevatedButton(
-                      onPressed: _stopCountdown,
-                      child: const Text('Durdur'),
-                    ),
-                    const SizedBox(width: 20),
-                    ElevatedButton(
-                      onPressed: _resetCountdown,
-                      child: const Text('Sıfırla'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Zaman seçici widget
-  Widget _buildTimeSelector({
-    required String label,
-    required int value,
-    required VoidCallback onAdd,
-    required VoidCallback onRemove,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        children: [
-          Text(label),
-          IconButton(
-            icon: const Icon(Icons.arrow_upward),
-            onPressed: onAdd,
-          ),
-          Text(
-            _formatNumber(value),
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          IconButton(
-            icon: const Icon(Icons.arrow_downward),
-            onPressed: onRemove,
           ),
         ],
       ),
