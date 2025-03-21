@@ -1,5 +1,6 @@
+import 'package:edu_rank/screens/home_page_screen.dart';
 import 'package:flutter/material.dart';
-import 'screens/auth.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/main_screen.dart';
 import 'screens/profile_screen.dart';
 import 'services/auth_manager.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'EduRank',
       debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
+        textTheme: GoogleFonts.latoTextTheme(),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF4A6572),
           primary: const Color(0xFF4A6572),
