@@ -12,6 +12,7 @@ class QuestionsScreen extends StatefulWidget {
     required this.goPrev,
     required this.goNext,
     required this.selectedAnswers,
+    required this.shuffledAnswers,
   });
 
   final Quiz quiz;
@@ -20,6 +21,7 @@ class QuestionsScreen extends StatefulWidget {
   final void Function() goPrev;
   final void Function() goNext;
   final List<String> selectedAnswers;
+  final List<String> shuffledAnswers;
 
   @override
   State<QuestionsScreen> createState() {
@@ -31,9 +33,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
   void answerQuestion(String selectedAnswer) {
     widget.onSelectAnswer(selectedAnswer);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   void nextQuestion() {
@@ -77,15 +77,38 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
-                ...currentQuestion.getShuffledAnswers().map((answer) {
-                  return AnswerButton(
-                    answer,
-                    () {
-                      answerQuestion(answer);
-                    },
-                    answeredQuestion: widget.selectedAnswers[currentQuestionIndex],
-                  );
-                }),
+                AnswerButton(
+                  widget.shuffledAnswers[0],
+                  () {
+                    answerQuestion(widget.shuffledAnswers[0]);
+                  },
+                  answeredQuestion:
+                      widget.selectedAnswers[currentQuestionIndex],
+                ),
+                AnswerButton(
+                  widget.shuffledAnswers[1],
+                  () {
+                    answerQuestion(widget.shuffledAnswers[1]);
+                  },
+                  answeredQuestion:
+                      widget.selectedAnswers[currentQuestionIndex],
+                ),
+                AnswerButton(
+                  widget.shuffledAnswers[2],
+                  () {
+                    answerQuestion(widget.shuffledAnswers[2]);
+                  },
+                  answeredQuestion:
+                      widget.selectedAnswers[currentQuestionIndex],
+                ),
+                AnswerButton(
+                  widget.shuffledAnswers[3],
+                  () {
+                    answerQuestion(widget.shuffledAnswers[3]);
+                  },
+                  answeredQuestion:
+                      widget.selectedAnswers[currentQuestionIndex],
+                ),
                 const SizedBox(height: 20),
               ],
             ),
