@@ -1,43 +1,58 @@
-import 'package:edu_rank/data/quiz_data.dart';
 import 'package:edu_rank/data/quizzes_data.dart';
-import 'package:edu_rank/models/quiz_category.dart';
-import 'package:edu_rank/screens/quiz_info_screen.dart';
-import 'package:edu_rank/widgets/quiz_grid_item.dart';
+import 'package:edu_rank/screens/quiz_screen.dart';
+import 'package:edu_rank/widgets/quiz_item.dart';
 import 'package:flutter/material.dart';
 
 class QuizzesScreen extends StatelessWidget {
   const QuizzesScreen({super.key});
 
-  void _selectQuiz(BuildContext context, QuizCategory quizCategory) {
+  void _startQuiz(BuildContext context, int index) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (ctx) => QuizInfoScreen(quiz: quizzes[quizCategory.id - 1])),
+      MaterialPageRoute(builder: (ctx) => QuizScreen(quiz: quizzes[index])),
     );
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
+    Widget content = ListView.builder(
+      itemCount: quizzes.length,
+      itemBuilder: (ctx, index) => QuizItem(
+        quiz: quizzes[index],
+        startQuiz: () {
+          _startQuiz(context, index);
+        },
+      ),
+    );
+
+    if (quizzes.isEmpty) {
+      content = Center(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Text('Nothing here!',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Theme.of(context).colorScheme.onSurface)),
+          const SizedBox(height: 16),
+          Text('try to add a new quiz to quizzes list...',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Theme.of(context).colorScheme.onSurface)),
+        ]),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pick a quiz'),
-      ),
-      body: GridView(
-        padding: const EdgeInsets.all(24),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+        title: Text(
+          'Pick a Quiz',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        children: [
-          for (final category in availableCategories)
-            QuizCategoryGridItem(
-              category: category,
-              onSelectQuiz: () {
-                _selectQuiz(context, category);
-              },
-            )
-        ],
       ),
+      body: content,
     );
   }
 }

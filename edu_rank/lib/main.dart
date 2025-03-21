@@ -1,4 +1,4 @@
-import 'package:edu_rank/screens/quizzes_screen.dart';
+import 'package:edu_rank/screens/home_page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
           errorStyle: const TextStyle(color: Color(0xFFD32F2F)),
         ),
       ),
-      home: const QuizzesScreen(),
+      home: const HomePageScreen(),
     );
   }
 }

@@ -17,29 +17,30 @@ class QuizInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            quiz.title,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        title: Text(
+          quiz.title,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              QuizItem(
-                quiz: quiz,
-                startQuiz: () {
-                  _startQuiz(context);
-                },
-              ),
-              const SizedBox(height: 400)
-              //Quiz skorları...
-            ],
-          ),
-        ));
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            QuizItem(
+              quiz: quiz,
+              startQuiz: () {
+                _startQuiz(context);
+              },
+            ),
+            const SizedBox(height: 400)
+            //Quiz skorları...
+          ],
+        ),
+      ),
+    );
   }
 }
