@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/auth.dart';
+import 'screens/main_screen.dart';
 import 'screens/profile_screen.dart';
 import 'services/auth_manager.dart';
 
@@ -80,8 +81,9 @@ class MyApp extends StatelessWidget {
       ),
       home: const AuthManager(),
       routes: {
-        '/profile': (context) => const ProfileScreen(),
+        '/home': (context) => const MainScreen(),
         '/auth': (context) => const AuthScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/screens/auth.dart';
-import '/screens/profile_screen.dart';
+import '../screens/main_screen.dart';
 import '/services/auth_service.dart';
 
 class AuthManager extends StatefulWidget {
@@ -42,7 +42,7 @@ class _AuthManagerState extends State<AuthManager> {
     }
     
     if (_isAuthenticated) {
-      return const ProfileScreen();
+      return const MainScreen();
     }
     
     return const AuthScreen();

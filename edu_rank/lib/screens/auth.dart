@@ -30,7 +30,7 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {
       _errorMessage = null;
     });
-    
+
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
@@ -47,8 +47,8 @@ class _AuthScreenState extends State<AuthScreen> {
       if (_isLogin) {
         print('Login işlemi başlatılıyor');
         result = await AuthService.login(
-          _emailController.text.trim(), 
-          _passwordController.text
+          _emailController.text.trim(),
+          _passwordController.text,
         );
         print('Login işlemi sonucu: $result');
       } else {
@@ -56,7 +56,7 @@ class _AuthScreenState extends State<AuthScreen> {
         result = await AuthService.register(
           _usernameController.text.trim(),
           _emailController.text.trim(),
-          _passwordController.text
+          _passwordController.text,
         );
 
         print('Kayıt işlemi sonucu: $result');
@@ -80,13 +80,13 @@ class _AuthScreenState extends State<AuthScreen> {
               _isLogin = true;
             });
           } else {
-            Navigator.of(context).pushReplacementNamed('/profile');
+            Navigator.of(context).pushReplacementNamed('/home');
           }
         } else {
           setState(() {
             _errorMessage = result['message'];
           });
-          
+
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(_errorMessage ?? 'Bir hata oluştu'),
@@ -137,7 +137,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  _isLogin ? 'Devam etmek için giriş yapın' : 'Yeni bir hesap oluşturun',
+                  _isLogin
+                      ? 'Devam etmek için giriş yapın'
+                      : 'Yeni bir hesap oluşturun',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 40),
@@ -200,7 +202,12 @@ class _AuthScreenState extends State<AuthScreen> {
                             keyboardType: TextInputType.emailAddress,
                             obscureText: false,
                             validator: (value) {
-                              if (value == null || value.trim().isEmpty || value.substring(0, value.indexOf('@')).length < 4) {
+                              if (value == null ||
+                                  value.trim().isEmpty ||
+                                  value
+                                          .substring(0, value.indexOf('@'))
+                                          .length <
+                                      4) {
                                 return 'Lütfen geçerli bir email adresi giriniz';
                               }
                               if (!value.contains('@etu.edu.tr')) {
