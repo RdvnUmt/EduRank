@@ -67,7 +67,7 @@ Geliştirme Araçları: Flutter (Frontend), Flask & MySQL (Backend)
 
 Veritabanı: MySQL
 
-İşbirliği Araçları: GitHub
+İşbirliği Araçları: GitHub, Postman
 
 ------------------------------------------------------------------------
 
