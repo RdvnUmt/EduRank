@@ -8,7 +8,7 @@ class LeaderboardScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          'Leaderboard Screen',
+          'Leaderboard',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
