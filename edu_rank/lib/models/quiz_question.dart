@@ -1,10 +1,11 @@
 class QuizQuestion {
   
   final String text;
-  List<String> answers;
+  final List<String> answers;
+  late List<String> shuffledAnswers;
 
   QuizQuestion(this.text, this.answers) {
-    answers = getShuffledAnswers();
+    shuffledAnswers = getShuffledAnswers();
   }
 
   List<String> getShuffledAnswers() {

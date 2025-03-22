@@ -45,6 +45,7 @@ class ResultsScreen extends StatelessWidget {
     if (newScore > quiz.score) {
       quiz.score = newScore;
       quiz.bestTime = formattedTime;
+      quiz.saveData();
     }
 
 

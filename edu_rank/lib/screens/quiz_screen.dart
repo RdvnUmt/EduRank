@@ -74,7 +74,7 @@ class _QuizScreenState extends State<QuizScreen> {
       goPrev: prevQuestion,
       goNext: nextQuestion,
       selectedAnswers: selectedAnswers,
-      shuffledAnswers: widget.quiz.questions[index].answers,
+      shuffledAnswers: widget.quiz.questions[index].shuffledAnswers,
     );
 
     if (activeScreen == 'questions-screen') {
@@ -85,7 +85,7 @@ class _QuizScreenState extends State<QuizScreen> {
           goPrev: prevQuestion,
           goNext: nextQuestion,
           selectedAnswers: selectedAnswers,
-          shuffledAnswers: widget.quiz.questions[index].answers);
+          shuffledAnswers: widget.quiz.questions[index].shuffledAnswers);
     } else if (activeScreen == 'results-screen') {
       screenWidget = ResultsScreen(
           choosenAnswers: selectedAnswers,
