@@ -4,9 +4,10 @@ import 'package:edu_rank/widgets/questions_widget.dart';
 import 'package:flutter/material.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key, required this.quiz});
+  const QuizScreen({super.key, required this.quiz, required this.refreshQuizzesScreen});
 
   final Quiz quiz;
+  final void Function() refreshQuizzesScreen;
 
   @override
   State<QuizScreen> createState() {
@@ -29,15 +30,6 @@ class _QuizScreenState extends State<QuizScreen> {
     if (index < widget.quiz.questions.length && index >= 0) {
       selectedAnswers[index] = answer;
     }
-  }
-
-  void restartQuiz() {
-    setState(() {
-      index = 0;
-      selectedAnswers =
-          List.filled(widget.quiz.questions.length, 'null', growable: false);
-      activeScreen = 'questions-screen';
-    });
   }
 
   void finishQuiz() {
@@ -70,6 +62,7 @@ class _QuizScreenState extends State<QuizScreen> {
     selectedAnswers =
         List.filled(widget.quiz.questions.length, 'null', growable: false);
     Navigator.of(context).pop();
+    widget.refreshQuizzesScreen();
   }
 
   @override

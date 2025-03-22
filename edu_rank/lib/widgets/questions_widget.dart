@@ -1,5 +1,6 @@
 import 'package:edu_rank/models/quiz.dart';
 import 'package:edu_rank/widgets/answer_button.dart';
+import 'package:edu_rank/widgets/quiz_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -112,6 +113,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 const SizedBox(height: 20),
               ],
             ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: QuizTimer(quiz: widget.quiz),
           ),
         ),
         Align(

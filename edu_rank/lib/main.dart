@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'screens/auth.dart';
 import 'screens/main_screen.dart';
 import 'screens/profile_screen.dart';
-import 'services/auth_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,7 +80,7 @@ class MyApp extends StatelessWidget {
           errorStyle: const TextStyle(color: Color(0xFFD32F2F)),
         ),
       ),
-      home: const AuthManager(),
+      home: const MainScreen(),
       routes: {
         '/home': (context) => const MainScreen(),
         '/auth': (context) => const AuthScreen(),

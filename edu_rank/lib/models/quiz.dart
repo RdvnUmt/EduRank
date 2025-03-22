@@ -8,5 +8,6 @@ class Quiz {
   final String title;
   final String imageUrl;
   int bestTime = 0;
+  int lastTime = 0;
   int score = 0;
 }
