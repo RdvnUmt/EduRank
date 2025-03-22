@@ -6,7 +6,7 @@ var quizzes = [
     1,
     'Math Basics',
     'https://news.harvard.edu/wp-content/uploads/2022/11/iStock-mathproblems.jpg',
-    const [
+    [
       QuizQuestion(
         '3x17=?',
         [
@@ -57,7 +57,7 @@ var quizzes = [
         [
           '30',
           '31',
-          '31',
+          '32',
           '33',
         ],
       ),
@@ -67,7 +67,7 @@ var quizzes = [
     2,
     'English Vocabulary',
     'https://www.novakidschool.com/blog/wp-content/uploads/2022/06/unnamed-1.webp',
-    const [
+    [
       QuizQuestion(
         'What is the synonym of "happy"?',
         [
@@ -119,7 +119,7 @@ var quizzes = [
     3,
     'Capitals',
     'https://cdn.myikas.com/images/16150df7-ec89-4f31-9fbe-4ecb06279433/5a34cb10-1e60-44dc-8777-fc3a8e13c8ff/3840/4543523423.webp',
-    const [
+    [
       QuizQuestion(
         'What is the capital of France?',
         [
@@ -171,7 +171,7 @@ var quizzes = [
     4,
     'Science',
     'https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15414153/shutterstock_172355312.0.0.1435352379.jpg?quality=90&strip=all&crop=0%2C9.7745324109659%2C100%2C80.450935178068&w=2400',
-    const [
+    [
       QuizQuestion(
         'What planet is known as the Red Planet?',
         [
@@ -223,7 +223,7 @@ var quizzes = [
     5,
     'General Knowledge',
     'https://www.challies.com/media/2022/08/AdobeStock_243388799-1.jpeg',
-    const [
+    [
       QuizQuestion(
         'Who painted the Mona Lisa?',
         [
@@ -275,7 +275,7 @@ var quizzes = [
     6,
     'Technology & Computers',
     'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    const [
+    [
       QuizQuestion(
         'What does "CPU" stand for?',
         [
