@@ -1,10 +1,20 @@
-Design Document
+Design Document:
+
+Table of Contents : Design Document
+-System Overview
+-Implementation Details
+-Use Case Support in Design
+
+List of Contributors:
+
+The following team members contributed to the creation of this document:
+-Utku Karatepe 
+-Emirhan Gül 
+-Taha Tavlan 
 
 This document should detail the implementation approach and decision-making process. The
 Design Document must be structured around 4 use cases. The following sections must be
 included:
-
-
 
 1. System Overview  
     ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
@@ -21,13 +31,34 @@ included:
 
     ● System Architecture: Provide an overview of the system architecture (e.g., layered,
     microservices):
-    ????????????????????????
+        Uygulamamız, Layered Architecture ve Client-Server mimari modelini takip etmektedir. 
+        Sistem üç ana bileşenden oluşmaktadır: Kullanıcı arayüzü (Flutter), backend API (Flask) 
+        ve veritabanı (MySQL). Kullanıcı, Flutter uygulaması aracılığıyla işlemlerini gerçekleştirir.
+        Flutter istemcisi, Flask backend API’sine HTTP istekleri göndererek veri alıp/gönderir. 
+        Backend katmanı, bu istekleri işleyerek MySQL veritabanıyla iletişim kurar ve gerekli 
+        işlemleri yürütür. Katmanlı mimari sayesinde, her bileşen birbirinden bağımsız olarak 
+        geliştirilebilir ve ölçeklenebilir bir yapı sağlanır.
+
+        +--------------------+
+        |   Flutter (UI)     |  <----->  Kullanıcı ile etkileşim
+        +--------------------+
+                 |
+                 v
+        +--------------------+
+        |  Flask (Backend)   |  <----->  İş mantığını yönetir
+        +--------------------+
+                 |
+                 v
+        +--------------------+
+        |    MySQL (DB)      |  <----->  Verileri saklar ve yönetir
+        +--------------------+
+
 
     ● Technology Stack: List the primary technologies used in the project (frontend, backend,
     databases, frameworks, etc.):
         frontend: Flutter-dart,
-        backend: flask, MySQL,
-        databases: MySQL,
+        backend: flask, MySQL, SQLite
+        databases: MySQL, SQLite
         frameworks: Flutter.
 
 2. Implementation Details
@@ -102,7 +133,15 @@ included:
 
 
         ○ Provide API endpoint descriptions if applicable. 
-        ?????????????????????????? api kullanıyor muyuz gençler?
+
+        USER AUTHENTICATION:
+         Method	Endpoint	Description	                                              Request Body
+         POST	/register	Yeni kullanıcı kaydı oluşturur.	                              { "username": "string", "password": "string" }
+         POST	/login	    Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
+         GET	/profile	Kullanıcının profil bilgilerini döner (JWT gerekir).	      -
+         POST	/refresh	Refresh token kullanarak yeni access token alır.	          -
+         POST	/logout	    Kullanıcıyı çıkış yaptırır (Token blackliste alınır).     -
+
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
 
@@ -112,6 +151,7 @@ included:
         case 1: 
         1-Kullanıcılar hesap oluşturabilmeli
         2-Kullanıcılar şifreleriyle giriş yapabilmelidir
+        3-Kullanıcılar hesaplarından çıkış yapabilmelidir
 
         case 2: 
         1-Kullanıcılar şifreleriyle giriş yapabilmelidir
@@ -130,11 +170,76 @@ included:
         2-Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidir/görüntülenebilmelidir
         3-Kullanıcılar birbirlerinin test başarı oranlarını görüntüleyebilmelidir(liderlik tablosu)
 
-    ● Requirement Mapping: Clearly state which functional requirements correspond to each
-    use case.
+    ● Requirement Mapping: 
+
+    Use Case 1	                                                  Functional Requirement
+    1. Kullanıcılar hesap oluşturabilmeli	                      - Kullanıcılar bir hesap oluşturabilmelidir.
+                                                                  - Kullanıcı adı ve şifre ile kayıt olabilmelidir.
+                                                                  - Şifre güvenlik kriterlerine (örneğin, minimum uzunluk, özel karakter vb.)uygun olmalıdır.
+
+    2. Kullanıcılar şifreleriyle giriş yapabilmelidir	          - Kullanıcılar kayıt oldukları kullanıcı adı ve şifre ile giriş yapabilmelidir.
+                                                                  - Yanlış giriş denemelerinde hata mesajı gösterilmelidir.
+                                                                  - Kullanıcı giriş bilgileri şifrelenmiş olarak saklanmalıdır.
+                                                                  - Kullanıcı giriş yaptığında bir oturum başlatılmalı ve  JWT Token ile kimlik doğrulama 
+                                                                    yöntemi kullanılmalıdır.
+
+    Use Case 2                                                    Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - E-posta ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.).
+    2. Test kategorilerinden seçim yapabilmeli	                  - Kategoriler listelenmeli ve kullanıcılar seçim yapabilmeli.
+    3. Test çözebilmeli	                                          - Seçilen test başlatılabilmeli, sorular sırayla gösterilmeli.
+    4. Sorular arasında geçiş yapabilmeli	                      - Önceki/sonraki soruya geçiş yapılabilmeli, cevaplar kaydedilmeli.
+    5. Yanıtlarını değiştirebilmeli	                              - Kullanıcı işaretlediği cevabı değiştirebilmeli.
+
+    Use Case 3	                                                  Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - E-posta ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.).
+    2. Çalışma sürelerini kaydedebilmeli	                      - Sayaç/kronometre başlatılabilmeli, durdurulabilmeli ve süre kaydedilmelidir.
+    3. Diğer kullanıcıların çalışma sürelerini görebilmeli	      - Çalışma süreleri veri tabanında saklanmalı ve kullanıcılar birbirlerinin sürelerini 
+                                                                  görüntüleyebilmelidir.
+   
+    Use Case 4 	                                                  Functional Requirement
+    1. Kullanıcılar giriş yapabilmeli	                          - Kullanıcı adı ve şifre ile giriş yapabilmeli, güvenli oturum açılmalı (JWT vb.)
+
+    2. Çalışma istatistikleri ve test sonuçları                   - Kullanıcıların test sonuçları ve çalışma istatistikleri veri tabanında
+       kaydedilmeli/görüntülenebilmeli                              saklanmalı ve profil ekranında görüntülenebilmelidir.
+                                                                    
+    3. Liderlik tablosu görüntülenebilmeli	                      - Kullanıcılar diğer kullanıcıların test başarı oranlarını görebilmeli, skorlar 
+                                                                    sıralanarak bir liderlik tablosu oluşturulmalıdır.
     ● Use Case Design:
-        ○ Detail how the system architecture supports each use case.
-        ○ Provide diagrams or explanations of data flow, state changes, and interactions.
+        Case 1: Kullanıcı Hesap İşlemleri (Kayıt, Giriş, Çıkış)
+            Sistem Desteği:
+                Kullanıcı, Flutter arayüzünden kayıt formunu doldurur.
+                    Flutter, girilen verileri Flask API’ye POST /register isteği olarak gönderir.
+                    Flask, bilgileri doğrulayıp MySQL veritabanına kaydeder.
+                    Giriş yaparken Flutter, Flask’e POST /login isteği gönderir, sunucu JWT token oluşturur.
+                    Çıkış işlemi sırasında istemci tarafında token temizlenir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/register, /login) -> MySQL (Kullanıcı tablosu)
+        
+        Case 2: Test Çözme İşlemleri
+            Sistem Desteği:
+                Kullanıcı giriş yaparak test kategorisini seçer.
+                Flutter, kullanıcıya soruları gösterir.
+                Kullanıcı sorular arasında geçiş yapabilir, yanıtlarını değiştirebilir.
+                Flask API’ye POST /submit_test isteği ile cevaplar gönderilir, MySQL’e kaydedilir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/tests, /submit_test) -> MySQL (Test tablosu, Cevaplar tablosu)
+        
+        Case 3: Çalışma Süresi Kaydı ve Görüntüleme
+            Sistem Desteği:
+                Kullanıcı çalışma süresini başlatır/durdurur. Flutter, süreyi hesaplar ve Flask API’ye POST /save_time isteği gönderir.
+                Flask bu süreyi MySQL’de saklar.
+                Kullanıcı çalışma sürelerini ve arkadaşlarının sürelerini görmek için GET /leaderboard isteği gönderir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/save_time, /leaderboard) -> MySQL (Çalışma Süresi tablosu)
+        
+        Case 4: Kullanıcı İstatistikleri ve Liderlik Tablosu
+            Sistem Desteği:
+                Kullanıcının test başarı oranları ve çalışma süreleri MySQL’de saklanır.
+                Flutter, Flask API’ye GET /user_stats isteği yaparak bu bilgileri çeker.
+                Kullanıcılar birbirlerinin liderlik sıralamalarını görüntüleyebilir.
+            Veri Akışı:
+                Flutter (UI) -> Flask API (/user_stats, /leaderboard) -> MySQL (İstatistik tablosu)
+
     ● Demo Requirement:
         ○ These four use cases must be fully implemented and will be demonstrated
         during the final project presentation.
@@ -142,10 +247,88 @@ included:
 4. Design Decisions
     ● Technology Comparisons: Compare at least two alternative technologies used in the
     project.
+ 
+    Veritabanı Teknolojileri – SQLite vs. PostgreSQL
+          
+    Özellik	            SQLite	                                                                               PostgreSQL
+    Performans:	        Küçük ölçekli uygulamalar için hızlıdır	                                               Büyük ölçekli uygulamalarda daha verimlidir
+    Eşzamanlılık:	    Aynı anda tek bir yazma işlemi yapabilir (çok kullanıcılı sistemler için uygun değil)  Birden fazla kullanıcının aynı anda yazma 
+                                                                                                               işlemi yapmasına izin verir
+
+    Depolama:	        Dosya tabanlıdır (.db dosyası yerelde saklanır)	                                       Sunucu tabanlıdır, yapılandırma gerektirir
+
+    Kullanım Alanı:	Küçük projeler, test ortamları ve yerel geliştirme için uygundur	                       Çok kullanıcılı sistemler ve yüksek veri 
+                                                                                                               işleyen uygulamalar için daha iyidir
+
+    Veri Bütünlüğü:	Temel ACID (Atomicity, Consistency, Isolation, Durability) desteği sunar	               Tam ACID uyumluluğu sağlar, karmaşık işlemler 
+                                                                                                               için daha güvenlidir. 
+
+    Kimlik Doğrulama Yöntemleri: JWT vs. Oturum Tabanlı Kimlik Doğrulama
+
+    Özellik	            JWT (JSON Web Token)	                                            Oturum Tabanlı Kimlik Doğrulama
+    Depolama:	        İstemci tarafında (localStorage, cookie) saklanır	                Sunucuda saklanır
+    Güvenlik:	        HTTPS kullanıldığında güvenlidir, ancak token çalınma riski vardır	Sunucuda saklandığı için daha güvenlidir
+    Ölçeklenebilirlik:	Sunucuda oturum saklamadığı için daha ölçeklenebilir	            Sunucunun oturumları takip etmesi gerekir, fazla bellek kullanır
+    Performans:	        Token doğrulama ile hızlı çalışır	                                Sunucu tarafında ek işlem gerektiğinden biraz daha yavaş olabilir
+    Kullanım Alanı:	    API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
+
+
     ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
+    
+    Flask: Flask, Python tabanlı hafif bir web framework'üdür. Basit ve esnek olması nedeniyle küçük ve orta ölçekli projeler için idealdir. Özellikle RESTful API geliştirme konusunda sıkça tercih edilir.
+
+    Flask’in Avantajları:
+    Hafif ve Minimal: Django gibi büyük framework'lere kıyasla, yalnızca ihtiyacınız olan modülleri ekleyerek çalışabilirsiniz.
+    Kolay Öğrenilebilir: Python ile çalıştığı için basit bir sözdizimi vardır.
+    Esneklik: İhtiyaca göre özelleştirilebilir.
+    Geniş Eklenti Desteği: Authentication (kimlik doğrulama), veritabanı yönetimi gibi özellikler için eklentiler sunar. 
+
+    Flask Kullanım Alanları:
+    Küçük ve orta ölçekli web uygulamaları
+    RESTful API geliştirme (sizin projeniz gibi)
+    Mikroservis mimarisi
+    Veri analiz ve görselleştirme uygulamaları
+
+    
+    SQLite: SQLite, hafif ve gömülü bir ilişkisel veritabanı yönetim sistemidir (RDBMS). Flask ile geliştirdiğiniz API'de verileri depolamak için kullanıyorsunuz.
+
+    SQLite’in Avantajları:
+    Sunucusuz: PostgreSQL veya MySQL gibi ayrı bir sunucu gerektirmez. Tüm veritabanı tek bir dosyada saklanır.
+    Hafif ve Hızlı: Küçük ve orta ölçekli projeler için idealdir.
+    Kolay Entegrasyon: Flask ile doğrudan entegre edilebilir.
+    SQL Destekler: Standart SQL sorguları ile çalışır.
+
+    SQLite’in Kullanım Alanları:
+    Küçük ölçekli web ve mobil uygulamalar
+    Test ortamlarında veritabanı olarak
+    Cihaz içi veri depolama (örneğin, Android ve iOS uygulamalarında)
+
+
+    RESTful API: RESTful API, web tabanlı uygulamalar için veri alışverişi yapmayı sağlayan bir API türüdür. REST (Representational State Transfer) prensiplerine dayanır ve HTTP protokolünü kullanır.
+    
+    RESTful API’nin Temel Özellikleri:
+    İstemci-Sunucu Modeli: İstemci (frontend) ile sunucu (backend) birbirinden bağımsızdır.
+    Stateless (Durumsuzluk): Her istek bağımsızdır, sunucu istemcinin önceki durumunu hatırlamaz.
+    Kaynak Temelli: API, belirli kaynakları (users, quizzes, questions) URL'ler aracılığıyla yönetir.
+    HTTP Metodlarını Kullanır:
+    GET → Veri almak için
+    POST → Yeni veri eklemek için
+    PUT/PATCH → Veriyi güncellemek için
+    DELETE → Veriyi silmek için
 
 5. GitHub Commit Requirement
-    ● Code Implementations & Interfaces: Students must upload their implementations,
-    component interfaces, and visual interface designs to GitHub.
-    ● Technology Comparisons: The code snippets used for comparison must also be
+    ● Code Implementations & Interfaces & Technology Comparisons: Students must upload their implementations,
+    component interfaces, and visual interface designs to GitHub. The code snippets used for comparison must also be
     committed to the repository.
+
+        Kodlama süreci devam etmekte olup, proje süreci GitHub üzerinden yönetildiği için 
+        Kod geliştirme süreci sürdükçe istenen tüm kod bileşenleri ve teknoloji 
+        karşılaştırmalarına dair kod parçacıkları da düzenli olarak paylaşılacaktır.
+
+Task Matrix :
+
+System Overview                Emirhan Gül
+Implementation Details         Utku Karatepe
+Use Case Support in Design     Taha Tavlan / Utku Karatepe
+Design Decisions               Utku Karatepe / Emirhan Gül
+GitHub Commit Requirement      Taha Tavlan

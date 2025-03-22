@@ -10,6 +10,7 @@ Fonksiyonel Gereksinimler (Functional Requirements)
 9.) Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidi/görüntülenebilmeli.
 10.) Kullanıcılar birbirlerinin çalışma sürelerini görüntüleyebilmelidir
 11.) Kullanıcılar birbirlerinin test başarı oranlarını görüntüleyebilmelidir.
+12.) Kullanıcılar hesaplarından çıkış yapabilmelidir.
 
 Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
 1.) Uygulama, kullanıcı dostu bir arayüze sahip olmalıdır.
