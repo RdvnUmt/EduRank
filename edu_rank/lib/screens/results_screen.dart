@@ -40,15 +40,17 @@ class ResultsScreen extends StatelessWidget {
     final numCorrectAnswers = summaryData.where((data) {
       return data['user_answer'] == data['correct_answer'];
     }).length;
+    
     int newScore =
-        ((1500 - (1000 * (quiz.lastTime/120))) * (numCorrectAnswers / numTotalQuestions)).toInt();
+        ((1500 - (1000 * (quiz.lastTime / 120))) * (numCorrectAnswers / numTotalQuestions)).toInt();
+
     if (newScore > quiz.score) {
       quiz.score = newScore;
       quiz.bestTime = formattedTime;
-      quiz.saveData();
+      Future.delayed(Duration.zero, () async {
+        await quiz.saveData();
+      });
     }
-
-
 
     return SizedBox(
       width: double.infinity,
@@ -84,7 +86,6 @@ class ResultsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const Icon(Icons.stop_circle_rounded, size: 24, color: Color(0xFF4A6572)),
-                
               ],
             ),
             SizedBox(height: 30),

@@ -13,6 +13,15 @@ class QuizzesScreen extends StatefulWidget {
 }
 
 class _QuizzesScreenState extends State<QuizzesScreen> {
+  
+  @override
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    setState(() {});
+  });
+}
+
   void _startQuiz(BuildContext context, int index) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => QuizScreen(

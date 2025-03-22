@@ -12,7 +12,7 @@ class Quiz {
 
   Quiz(this.id, this.title, this.imageUrl, this.questions) {
     questions = getShuffledAnswers();
-    _loadData(); // Başlangıçta kaydedilen verileri yükle
+    _loadData();
   }
 
   void init() async {
@@ -25,14 +25,12 @@ class Quiz {
     return shuffledList;
   }
 
-  // Score ve BestTime'ı kaydetme fonksiyonu
   Future<void> saveData() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('quiz_${id}_score', score);
     await prefs.setString('quiz_${id}_bestTime', bestTime);
   }
 
-  // Score ve BestTime'ı yükleme fonksiyonu
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
     score = prefs.getInt('quiz_${id}_score') ?? 0;
