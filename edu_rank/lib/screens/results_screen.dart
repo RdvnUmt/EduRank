@@ -27,7 +27,6 @@ class ResultsScreen extends StatelessWidget {
     return summary;
   }
 
-  
   String get formattedTime {
     int minutes = quiz.lastTime ~/ 60;
     int seconds = quiz.lastTime % 60;
@@ -47,7 +46,6 @@ class ResultsScreen extends StatelessWidget {
       quiz.score = newScore;
     }
 
-    
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -55,30 +53,37 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Your score is $newScore',
-              style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 0, 0, 0),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 30),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
                 const Icon(Icons.timer, size: 28, color: Color(0xFF4A6572)),
-                const SizedBox(width: 8),
+                const SizedBox(width: 2),
                 Text(
                   formattedTime,
                   style: const TextStyle(
                       fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(width: 8),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Text(
+                  'Your score is $newScore',
+                  style: GoogleFonts.lato(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const Icon(Icons.stop_circle_rounded, size: 24, color: Color(0xFF4A6572)),
+                
+              ],
+            ),
+            SizedBox(height: 30),
             Text(
               'You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!',
               style: GoogleFonts.lato(
