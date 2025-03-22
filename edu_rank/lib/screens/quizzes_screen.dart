@@ -3,13 +3,32 @@ import 'package:edu_rank/screens/quiz_screen.dart';
 import 'package:edu_rank/widgets/quiz_item.dart';
 import 'package:flutter/material.dart';
 
-class QuizzesScreen extends StatelessWidget {
+class QuizzesScreen extends StatefulWidget {
   const QuizzesScreen({super.key});
 
+  @override
+  State<StatefulWidget> createState() {
+    return _QuizzesScreenState();
+  }
+}
+
+class _QuizzesScreenState extends State<QuizzesScreen> {
+  
+  @override
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    setState(() {});
+  });
+}
+
   void _startQuiz(BuildContext context, int index) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (ctx) => QuizScreen(quiz: quizzes[index])),
-    );
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => QuizScreen(
+            quiz: quizzes[index],
+            refreshQuizzesScreen: () {
+              setState(() {});
+            })));
   }
 
   @override
