@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
           errorStyle: const TextStyle(color: Color(0xFFD32F2F)),
         ),
       ),
-      home: const AuthScreen(),
+      home: const MainScreen(),
       routes: {
         '/home': (context) => const MainScreen(),
         '/auth': (context) => const AuthScreen(),
