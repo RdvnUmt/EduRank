@@ -41,7 +41,7 @@ class ResultsScreen extends StatelessWidget {
       return data['user_answer'] == data['correct_answer'];
     }).length;
     int newScore =
-        ((1500 - (1000 * 1)) * (numCorrectAnswers / numTotalQuestions)).toInt();
+        ((1500 - (1000 * (quiz.lastTime/120))) * (numCorrectAnswers / numTotalQuestions)).toInt();
     if (newScore > quiz.score) {
       quiz.score = newScore;
       quiz.bestTime = formattedTime;
