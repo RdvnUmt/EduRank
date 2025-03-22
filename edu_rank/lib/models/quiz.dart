@@ -7,7 +7,7 @@ class Quiz {
   final int id;
   final String title;
   final String imageUrl;
-  int bestTime = 0;
+  String bestTime = '0:00';
   int lastTime = 0;
   int score = 0;
 }

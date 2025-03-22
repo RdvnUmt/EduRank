@@ -44,7 +44,10 @@ class ResultsScreen extends StatelessWidget {
         ((1500 - (1000 * 1)) * (numCorrectAnswers / numTotalQuestions)).toInt();
     if (newScore > quiz.score) {
       quiz.score = newScore;
+      quiz.bestTime = formattedTime;
     }
+
+
 
     return SizedBox(
       width: double.infinity,

@@ -9,7 +9,7 @@ class QuizItem extends StatelessWidget {
   final void Function() startQuiz;
   final Quiz quiz;
 
-  int get bestTime {
+  String get bestTime {
     return quiz.bestTime;
   }
 
@@ -65,7 +65,7 @@ class QuizItem extends StatelessWidget {
                       children: [
                         QuizItemTrait(
                           icon: Icons.schedule,
-                          label: '${quiz.bestTime} min',
+                          label: bestTime,
                         ),
                         const SizedBox(width: 24),
                         QuizItemTrait(
