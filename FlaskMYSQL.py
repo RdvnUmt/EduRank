@@ -107,7 +107,85 @@ class Profile(Resource):
 
 api.add_resource(Profile, "/profile")
 
+class UpdateScore(Resource):
+    @jwt_required()
+    def post(self):
+        # Get the data from the request
+        data = request.get_json()
+        new_score = data.get("new_score")
 
+        if new_score is None:
+            return make_response(jsonify({"status": "error", "message": "New score is required"}), 400)
+
+        current_user = get_jwt_identity()
+        user = User.query.filter_by(username=current_user).first()
+
+        if not user:
+            return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
+
+        # Update the total score
+        user.total_score = new_score
+
+        try:
+            db.session.commit()
+            return make_response(jsonify({
+                "status": "success",
+                "message": "Score updated successfully",
+                "total_score": user.total_score
+            }), 200)
+        except Exception as e:
+            db.session.rollback()
+            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
+
+
+# Add the resource to the API
+api.add_resource(UpdateScore, "/update_score")
+
+# **Liderlik Tablosu**
+class Leaderboard(Resource):
+    def get(self):
+        try:
+            # Kullanıcıları toplam skora göre azalan sırayla alıyoruz
+            leaderboard = User.query.order_by(User.total_score.desc()).all()
+
+            # Her kullanıcı için gerekli bilgileri döndürüyoruz
+            result = []
+            for user in leaderboard:
+                result.append({
+                    "username": user.username,
+                    "total_score": user.total_score
+                })
+
+            return make_response(jsonify({"status": "success", "leaderboard": result}), 200)
+
+        except Exception as e:
+            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
+
+
+api.add_resource(Leaderboard, "/leaderboard")
+
+# **Liderlik Tablosu**
+class Leaderboard2(Resource):
+    def get(self):
+        try:
+            # Kullanıcıları harcadıkları toplam zamana göre azalan sırayla alıyoruz
+            leaderboard = User.query.order_by(User.total_time_spent.desc()).all()
+
+            # Her kullanıcı için gerekli bilgileri döndürüyoruz
+            result = []
+            for user in leaderboard:
+                result.append({
+                    "username": user.username,
+                    "total_time_spent": user.total_time_spent
+                })
+
+            return make_response(jsonify({"status": "success", "leaderboard": result}), 200)
+
+        except Exception as e:
+            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
+
+
+api.add_resource(Leaderboard2, "/leaderboard2")
 
 # **Token Yenileme (Refresh Token ile)**
 class TokenRefresh(Resource):
