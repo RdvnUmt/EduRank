@@ -38,33 +38,39 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
       body: TabBarView(
         controller: _tabController,
         children: [
-          LeaderboardWidget(
-            leaderboardData: [
-              {"Utku": 2500},
-              {"Rıdvan": 2200},
-              {"Taha": 2100},
-              {"Emirhan": 1900},
-              {"Mirza": 1800},
-              {"Ahmet": 1700},
-              {"Işıkalp": 1600},
-              {"Furkan": 1400},
-              {"Mehmet": 1100},
-              {"Efe": 900},
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LeaderboardWidget(
+              leaderboardData: [
+                {"Utku": 2500},
+                {"Rıdvan": 2200},
+                {"Taha": 2100},
+                {"Emirhan": 1900},
+                {"Mirza": 1800},
+                {"Ahmet": 1700},
+                {"Işıkalp": 1600},
+                {"Furkan": 1400},
+                {"Mehmet": 1100},
+                {"Efe": 900},
+              ], isScore: true,
+            ),
           ),
-          LeaderboardWidget(
-            leaderboardData: [
-              {"Utku": 120},
-              {"Rıdvan": 100},
-              {"Taha": 95},
-              {"Emirhan": 85},
-              {"Mirza": 80},
-              {"Ahmet": 75},
-              {"Işıkalp": 70},
-              {"Furkan": 60},
-              {"Mehmet": 50},
-              {"Efe": 45},
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LeaderboardWidget(
+              leaderboardData: [
+                {"Utku": 120},
+                {"Rıdvan": 100},
+                {"Taha": 95},
+                {"Emirhan": 85},
+                {"Mirza": 80},
+                {"Ahmet": 75},
+                {"Işıkalp": 70},
+                {"Furkan": 60},
+                {"Mehmet": 50},
+                {"Efe": 45},
+              ], isScore: false,
+            ),
           ),
         ],
       ),
