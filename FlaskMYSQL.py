@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # **MySQL Veritabanı ve JWT Ayarları**
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://kullanici_adi:sifre@localhost/quiz_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:emre2004@localhost/edurank"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["JWT_SECRET_KEY"] = "super-secret-key"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
@@ -28,60 +28,14 @@ jwt = JWTManager(app)
 class User(db.Model):
     __tablename__ = 'users'
     
-    user_id = db.Column(db.String(50), primary_key=True)
+    username = db.Column(db.String(50), primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
     
-    # Quiz skorları ve süreleri - Var olan MySQL tablosuna uyumlu
-    quiz1_score = db.Column(db.Float, default=0)
-    quiz1_time_spent = db.Column(db.Integer, default=0)
-    quiz2_score = db.Column(db.Float, default=0)
-    quiz2_time_spent = db.Column(db.Integer, default=0)
-    quiz3_score = db.Column(db.Float, default=0)
-    quiz3_time_spent = db.Column(db.Integer, default=0)
-    quiz4_score = db.Column(db.Float, default=0)
-    quiz4_time_spent = db.Column(db.Integer, default=0)
-    quiz5_score = db.Column(db.Float, default=0)
-    quiz5_time_spent = db.Column(db.Integer, default=0)
-    quiz6_score = db.Column(db.Float, default=0)
-    quiz6_time_spent = db.Column(db.Integer, default=0)
-    quiz7_score = db.Column(db.Float, default=0)
-    quiz7_time_spent = db.Column(db.Integer, default=0)
-    quiz8_score = db.Column(db.Float, default=0)
-    quiz8_time_spent = db.Column(db.Integer, default=0)
-    quiz9_score = db.Column(db.Float, default=0)
-    quiz9_time_spent = db.Column(db.Integer, default=0)
-    quiz10_score = db.Column(db.Float, default=0)
-    quiz10_time_spent = db.Column(db.Integer, default=0)
     
     total_score = db.Column(db.Float, default=0)
     total_time_spent = db.Column(db.Integer, default=0)
     
-    def update_total_stats(self):
-        # Tüm quiz skorlarını al
-        scores = [
-            self.quiz1_score, self.quiz2_score, self.quiz3_score, self.quiz4_score, self.quiz5_score,
-            self.quiz6_score, self.quiz7_score, self.quiz8_score, self.quiz9_score, self.quiz10_score
-        ]
-        
-        # Tüm quiz sürelerini al
-        times = [
-            self.quiz1_time_spent, self.quiz2_time_spent, self.quiz3_time_spent, 
-            self.quiz4_time_spent, self.quiz5_time_spent, self.quiz6_time_spent,
-            self.quiz7_time_spent, self.quiz8_time_spent, self.quiz9_time_spent, 
-            self.quiz10_time_spent
-        ]
-        
-        # En az bir quiz çözülmüşse ortalamaları hesapla
-        completed_quizzes = sum(1 for score in scores if score > 0)
-        
-        if completed_quizzes > 0:
-            self.total_score = sum(scores) / completed_quizzes
-        else:
-            self.total_score = 0
-            
-        self.total_time_spent = sum(times)
-        db.session.commit()
 
 # **Kullanıcı Kaydı**
 class Register(Resource):
@@ -105,7 +59,7 @@ class Register(Resource):
         db.session.add(new_user)
         db.session.commit()
 
-        return make_response(jsonify({"status": "success", "message": "User created successfully", "data": {"user_id": new_user.user_id, "email": new_user.email}}), 201)
+        return make_response(jsonify({"status": "success", "message": "User created successfully", "data": {"user_id": new_user.username, "email": new_user.email}}), 201)
 
 api.add_resource(Register, "/register")
 
@@ -116,7 +70,7 @@ class Login(Resource):
         identifier = data.get("identifier")  # Kullanıcı ID veya e-posta ile giriş
         password = data.get("password")
         
-        user = User.query.filter((User.user_id == identifier) | (User.email == identifier)).first()
+        user = User.query.filter((User.username == identifier) | (User.email == identifier)).first()
         
         if not user or not check_password_hash(user.password_hash, password):
             return make_response(jsonify({"status": "error", "message": "Invalid user ID/email or password"}), 401)
@@ -153,73 +107,7 @@ class Profile(Resource):
 
 api.add_resource(Profile, "/profile")
 
-# **Quiz Skorlarını Güncelleme**
-class QuizScore(Resource):
-    @jwt_required()
-    def post(self, quiz_number):
-        if not 1 <= quiz_number <= 10:
-            return make_response(jsonify({"status": "error", "message": "Invalid quiz number"}), 400)
-        
-        try:
-            current_user = get_jwt_identity()
-            user = User.query.filter_by(user_id=current_user).first()
-            
-            if not user:
-                return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
-            
-            data = request.get_json()
-            score = data.get("score", 0)
-            time_spent = data.get("time_spent", 0)
-            
-            # İlgili quiz skorunu ve süresini güncelle
-            setattr(user, f"quiz{quiz_number}_score", score)
-            setattr(user, f"quiz{quiz_number}_time_spent", time_spent)
-            
-            # Toplam istatistikleri güncelle
-            user.update_total_stats()
-            
-            return make_response(jsonify({
-                "status": "success", 
-                "message": f"Quiz {quiz_number} score updated",
-                "score": score,
-                "time_spent": time_spent,
-                "total_score": user.total_score,
-                "total_time_spent": user.total_time_spent
-            }), 200)
-        except Exception as e:
-            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
 
-api.add_resource(QuizScore, "/quiz/<int:quiz_number>/score")
-
-# **Tüm Quiz Skorlarını Getirme**
-class AllQuizScores(Resource):
-    @jwt_required()
-    def get(self):
-        try:
-            current_user = get_jwt_identity()
-            user = User.query.filter_by(user_id=current_user).first()
-            
-            if not user:
-                return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
-            
-            scores = {}
-            for i in range(1, 11):
-                scores[f"quiz{i}"] = {
-                    "score": getattr(user, f"quiz{i}_score"),
-                    "time_spent": getattr(user, f"quiz{i}_time_spent")
-                }
-            
-            return make_response(jsonify({
-                "status": "success",
-                "user_id": user.user_id,
-                "quizzes": scores,
-                "total_score": user.total_score,
-                "total_time_spent": user.total_time_spent
-            }), 200)
-        except Exception as e:
-            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
-
-api.add_resource(AllQuizScores, "/quiz/scores")
 
 # **Token Yenileme (Refresh Token ile)**
 class TokenRefresh(Resource):
