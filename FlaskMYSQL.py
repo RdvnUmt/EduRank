@@ -41,25 +41,25 @@ class User(db.Model):
 class Register(Resource):
     def post(self):
         data = request.get_json()
-        user_id = data.get("user_id")
+        username = data.get("username")
         email = data.get("email")
         password = data.get("password")
         
-        if not user_id or not email or not password:
+        if not username or not email or not password:
             return make_response(jsonify({"status": "error", "message": "User ID, email, and password required"}), 400)
         
         if not re.match(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
             return make_response(jsonify({"status": "error", "message": "Invalid email format"}), 400)
         
-        if User.query.filter_by(user_id=user_id).first() or User.query.filter_by(email=email).first():
+        if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
             return make_response(jsonify({"status": "error", "message": "User ID or email already exists"}), 400)
         
         hashed_password = generate_password_hash(password)
-        new_user = User(user_id=user_id, email=email, password_hash=hashed_password)
+        new_user = User(username=username, email=email, password_hash=hashed_password)
         db.session.add(new_user)
         db.session.commit()
 
-        return make_response(jsonify({"status": "success", "message": "User created successfully", "data": {"user_id": new_user.username, "email": new_user.email}}), 201)
+        return make_response(jsonify({"status": "success", "message": "User created successfully", "data": {"username": new_user.username, "email": new_user.email}}), 201)
 
 api.add_resource(Register, "/register")
 
@@ -75,8 +75,8 @@ class Login(Resource):
         if not user or not check_password_hash(user.password_hash, password):
             return make_response(jsonify({"status": "error", "message": "Invalid user ID/email or password"}), 401)
         
-        access_token = create_access_token(identity=user.user_id)
-        refresh_token = create_refresh_token(identity=user.user_id)
+        access_token = create_access_token(identity=user.username)
+        refresh_token = create_refresh_token(identity=user.username)
         
         return make_response(jsonify({
             "status": "success",
@@ -92,11 +92,11 @@ class Profile(Resource):
     def get(self):
         try:
             current_user = get_jwt_identity()
-            user = User.query.filter_by(user_id=current_user).first()
+            user = User.query.filter_by(username=current_user).first()
             if user:
                 return make_response(jsonify({
                     "status": "success", 
-                    "user_id": user.user_id, 
+                    "username": user.username, 
                     "email": user.email,
                     "total_score": user.total_score,
                     "total_time_spent": user.total_time_spent

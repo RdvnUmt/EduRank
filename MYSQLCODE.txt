@@ -1,6 +1,6 @@
 CREATE DATABASE edurank;
 CREATE TABLE users (
-    user_id VARCHAR(50) PRIMARY KEY,       -- Kullanıcının kendi belirlediği eşsiz ID
+    username VARCHAR(50) PRIMARY KEY,       -- Kullanıcının kendi belirlediği eşsiz ID
     email VARCHAR(120) UNIQUE NOT NULL,    -- Kullanıcının e-posta adresi
     password_hash VARCHAR(256) NOT NULL,   -- Hashlenmiş şifre
 
