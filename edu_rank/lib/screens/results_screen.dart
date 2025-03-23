@@ -116,7 +116,11 @@ class ResultsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: OutlinedButton.icon(
                   onPressed: onExit,
-                  style: Theme.of(context).textButtonTheme.style,
+                  style: TextButton.styleFrom(
+                    foregroundColor: const Color(0xFF4A6572),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 24),
+                  ),
                   icon: const Icon(Icons.home),
                   label: const Text('Exit Quiz'),
                 ),

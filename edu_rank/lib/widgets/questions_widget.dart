@@ -144,6 +144,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               onPressed: widget.onFinish,
               style: TextButton.styleFrom(
                 foregroundColor: const Color(0xFF4A6572),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
               ),
               label: const Text(
                 'Finish Quiz',

@@ -7,14 +7,22 @@ class AnswerButton extends StatelessWidget {
   final String answeredQuestion;
   final String answerText;
   final void Function() onTap;
-  
 
   @override
   Widget build(BuildContext context) {
-    bool isSelected = (answerText == answeredQuestion)? true : false;
+    bool isSelected = (answerText == answeredQuestion) ? true : false;
     ElevatedButton answerButton = ElevatedButton(
       onPressed: onTap,
-      style: Theme.of(context).elevatedButtonTheme.style,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: const Color(0xFF4A6572),
+        elevation: 4,
+        shadowColor: Colors.black26,
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
       child: Text(
         answerText,
         textAlign: TextAlign.center,
@@ -26,7 +34,7 @@ class AnswerButton extends StatelessWidget {
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF4A6572),
-          foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+          foregroundColor: const Color.fromARGB(255, 255, 255, 255),
           elevation: 4,
           shadowColor: Colors.black26,
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
