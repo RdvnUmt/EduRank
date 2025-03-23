@@ -1,0 +1,2 @@
+C:/Users/rumut/git_deneme/EduRank/edu_rank/android/app/.cxx/Debug/293q1o1l/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/rumut/git_deneme/EduRank/edu_rank/android/app/.cxx/Debug/293q1o1l/armeabi-v7a/CMakeFiles/rebuild_cache.dir
