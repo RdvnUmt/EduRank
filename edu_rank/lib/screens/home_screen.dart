@@ -1,3 +1,4 @@
+import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,8 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Main Screen'),
+          SizedBox(height: 10),
+          Text('Total Score: $totalScore'),
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {

@@ -1,6 +1,7 @@
 import 'package:edu_rank/models/quiz.dart';
 import 'package:edu_rank/models/quiz_question.dart';
 
+int totalScore = 0;
 var quizzes = [
   Quiz(
     1,

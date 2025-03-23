@@ -1,11 +1,15 @@
+import 'package:edu_rank/data/quizzes_data.dart';
+import 'package:edu_rank/score_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/auth.dart';
 import 'screens/main_screen.dart';
 import 'screens/profile_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  totalScore = await ScoreManager.loadScore();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -80,7 +84,7 @@ class MyApp extends StatelessWidget {
           errorStyle: const TextStyle(color: Color(0xFFD32F2F)),
         ),
       ),
-      home: const AuthScreen(),
+      home: const MainScreen(),
       routes: {
         '/home': (context) => const MainScreen(),
         '/auth': (context) => const AuthScreen(),

@@ -1,5 +1,7 @@
+import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/models/quiz.dart';
 import 'package:edu_rank/questions_summary/questions_summary.dart';
+import 'package:edu_rank/score_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,15 +42,21 @@ class ResultsScreen extends StatelessWidget {
     final numCorrectAnswers = summaryData.where((data) {
       return data['user_answer'] == data['correct_answer'];
     }).length;
-    
-    int newScore =
-        ((1500 - (1000 * (quiz.lastTime / 120))) * (numCorrectAnswers / numTotalQuestions)).toInt();
+
+    int newScore = ((1500 - (1000 * (quiz.lastTime / 120))) *
+            (numCorrectAnswers / numTotalQuestions))
+        .toInt();
 
     if (newScore > quiz.score) {
       quiz.score = newScore;
       quiz.bestTime = formattedTime;
+      totalScore = 0;
+      for (int i = 0; i < quizzes.length; i++) {
+        totalScore += quizzes[i].score;
+      }
       Future.delayed(Duration.zero, () async {
         await quiz.saveData();
+        await ScoreManager.saveScore(totalScore);
       });
     }
 
@@ -85,7 +93,8 @@ class ResultsScreen extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const Icon(Icons.stop_circle_rounded, size: 24, color: Color(0xFF4A6572)),
+                const Icon(Icons.stop_circle_rounded,
+                    size: 24, color: Color(0xFF4A6572)),
               ],
             ),
             SizedBox(height: 30),

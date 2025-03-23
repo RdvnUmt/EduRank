@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: Container(
         color: Colors.black,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: GNav(
             tabs: [
               GButton(icon: Icons.home, text: 'Home'),
@@ -51,15 +51,15 @@ class _MainScreenState extends State<MainScreen> {
                 Color.fromARGB(255, 68, 3, 3),
               ],
               begin: Alignment.topLeft,
-            ),            
-            gap: 6,
-            padding: EdgeInsets.all(16),
+            ),
+            gap: 5,
+            padding: const EdgeInsets.all(12),
             backgroundColor: Colors.black,
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade900,
-            mainAxisAlignment: MainAxisAlignment.center,
-            tabBorderRadius: 42,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            tabBorderRadius: 32,
           ),
         ),
       ),
