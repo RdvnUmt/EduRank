@@ -1,5 +1,6 @@
 import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/score_manager.dart';
+import 'package:edu_rank/time_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/auth.dart';
@@ -9,6 +10,7 @@ import 'screens/profile_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   totalScore = await ScoreManager.loadScore();
+  totalTime = await TimeManager.loadTime();
   runApp(MyApp());
 }
 

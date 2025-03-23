@@ -2,6 +2,7 @@ import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/models/quiz.dart';
 import 'package:edu_rank/questions_summary/questions_summary.dart';
 import 'package:edu_rank/score_manager.dart';
+import 'package:edu_rank/time_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -46,7 +47,10 @@ class ResultsScreen extends StatelessWidget {
     int newScore = ((1500 - (1000 * (quiz.lastTime / 120))) *
             (numCorrectAnswers / numTotalQuestions))
         .toInt();
-
+    totalTime += quiz.lastTime;
+    Future.delayed(Duration.zero, () async {
+      await TimeManager.saveTime(totalTime);
+    });
     if (newScore > quiz.score) {
       quiz.score = newScore;
       quiz.bestTime = formattedTime;

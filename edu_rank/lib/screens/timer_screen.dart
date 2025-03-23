@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:edu_rank/data/quizzes_data.dart';
+import 'package:edu_rank/time_manager.dart';
 import 'package:flutter/material.dart';
 import '/widgets/time_selector.dart';
 
@@ -74,6 +76,8 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
 
   void _resetCounter() {
     _stopCounter();
+    totalTime += _seconds + _minutes*60 + _hours*3600;
+    TimeManager.saveTime(totalTime);
     setState(() {
       _seconds = 0;
       _minutes = 0;
