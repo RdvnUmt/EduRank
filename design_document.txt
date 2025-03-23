@@ -135,12 +135,21 @@ included:
         ○ Provide API endpoint descriptions if applicable. 
 
         USER AUTHENTICATION:
-         Method	Endpoint	Description	                                              Request Body
-         POST	/register	Yeni kullanıcı kaydı oluşturur.	                              { "username": "string", "password": "string" }
-         POST	/login	    Kullanıcı girişi yapar ve JWT döner.	                      { "username": "string", "password": "string" }
-         GET	/profile	Kullanıcının profil bilgilerini döner (JWT gerekir).	      -
-         POST	/refresh	Refresh token kullanarak yeni access token alır.	          -
-         POST	/logout	    Kullanıcıyı çıkış yaptırır (Token blackliste alınır).     -
+         Method	Endpoint	    Description	                                                                   Request Body
+         POST	/register    	Yeni kullanıcı kaydı oluşturur.	                                               { "username": "string", "password": "string" }
+         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                                       { "username": "string", "password": "string" }
+         GET	/profile	    Kullanıcının profil bilgilerini döner (JWT gerekir).	                        -
+         POST	/refresh	    Refresh token kullanarak yeni access token alır.	                            -
+         POST	/logout	        Kullanıcıyı çıkış yaptırır (Token blackliste alınır).  
+-
+         POST	/update_score	Kullanıcının toplam skorunu günceller.                                         { "new_score": "integer" }
+                                Kullanıcıdan new_score bilgisi alır.
+
+         GET	/leaderboard	Kullanıcıları toplam skora göre azalan sırayla                                  -
+                                listeleyerek liderlik tablosunu döner.	    
+
+         GET	/leaderboard2	Kullanıcıları harcadıkları toplam zamana göre                                   -
+                                azalan sırayla listeleyerek ikinci liderlik tablosunu döner.	
 
     ● Visual Interfaces:
         ○ Include wireframes or screenshots of user interfaces.
