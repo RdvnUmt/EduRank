@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'EduRank',
       debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
-        textTheme: GoogleFonts.latoTextTheme(),
+        textTheme: GoogleFonts.robotoTextTheme(),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF4A6572),
           primary: const Color(0xFF4A6572),

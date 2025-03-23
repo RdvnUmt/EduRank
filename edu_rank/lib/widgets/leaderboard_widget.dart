@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LeaderboardWidget extends StatelessWidget {
   final List<Map<String, int>> leaderboardData;
@@ -21,7 +22,7 @@ class LeaderboardWidget extends StatelessWidget {
               leading: CircleAvatar(
                 child: Text((index + 1).toString()),
               ),
-              title: Text(playerName, style: TextStyle(fontWeight: FontWeight.bold)),
+              title: Text(playerName, style: GoogleFonts.roboto(fontWeight: FontWeight.bold)),
               trailing: Text(score.toString(), style: TextStyle(fontSize: 16)),
             );
           },
