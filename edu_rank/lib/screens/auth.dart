@@ -45,21 +45,16 @@ class _AuthScreenState extends State<AuthScreen> {
       Map<String, dynamic> result;
 
       if (_isLogin) {
-        print('Login işlemi başlatılıyor');
         result = await AuthService.login(
           _emailController.text.trim(),
           _passwordController.text,
         );
-        print('Login işlemi sonucu: $result');
       } else {
-        print('Kayıt işlemi başlatılıyor');
         result = await AuthService.register(
           _usernameController.text.trim(),
           _emailController.text.trim(),
           _passwordController.text,
         );
-
-        print('Kayıt işlemi sonucu: $result');
       }
 
       if (mounted) {
@@ -96,7 +91,6 @@ class _AuthScreenState extends State<AuthScreen> {
         }
       }
     } catch (e) {
-      print('Submit metodu hata: $e');
       if (mounted) {
         setState(() {
           _isLoading = false;

@@ -124,7 +124,7 @@ class UpdateScore(Resource):
             return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
 
         # Update the total score
-        user.total_score = new_score
+        user.total_score += new_score
 
         try:
             db.session.commit()
@@ -158,7 +158,7 @@ class UpdateTimeSpent(Resource):
             return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
 
         # Update the total time spent
-        user.total_time_spent = new_time_spent
+        user.total_time_spent += new_time_spent
 
         try:
             db.session.commit()

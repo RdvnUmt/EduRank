@@ -22,10 +22,6 @@ class ResultsScreen extends StatefulWidget {
 }
 
 class _ResultsScreenState extends State<ResultsScreen> {
-  bool _isUploading = false;
-  String? _errorMessage;
-  bool _uploadSuccess = false;
-
   @override
   void initState() {
     super.initState();
@@ -43,72 +39,18 @@ class _ResultsScreenState extends State<ResultsScreen> {
             (numCorrectAnswers / numTotalQuestions))
         .toInt();
     totalTime += widget.quiz.lastTime;
-    
+
     if (newScore > widget.quiz.score) {
       widget.quiz.score = newScore;
       widget.quiz.bestTime = formattedTime;
+      await LeaderboardService.updateScore(widget.quiz.score.toDouble());
+      await LeaderboardService.updateTimeSpent(totalTime);
     }
-    
-    totalScore = 0;
-    for (int i = 0; i < quizzes.length; i++) {
-      totalScore += quizzes[i].score;
-    }
-    
-    setState(() {
-      _isUploading = true;
-      _errorMessage = null;
-      _uploadSuccess = false;
-    });
-    
-    try {
-      print('Sending score to server: $totalScore');
-      final scoreResult = await LeaderboardService.updateScore(totalScore.toDouble());
-      
-      if (!scoreResult['success']) {
-        setState(() {
-          _errorMessage = 'Skor güncellenirken hata: ${scoreResult['message']}';
-          _isUploading = false;
-        });
-        return;
-      }
-      
-      print('Sending time to server: $totalTime');
-      final timeResult = await LeaderboardService.updateTimeSpent(totalTime);
-      
-      if (!timeResult['success']) {
-        setState(() {
-          _errorMessage = 'Süre güncellenirken hata: ${timeResult['message']}';
-          _isUploading = false;
-        });
-        return;
-      }
-      
-      setState(() {
-        _isUploading = false;
-        _uploadSuccess = true;
-      });
-      
-      if (scoreResult['total_score'] != null) {
-        totalScore = scoreResult['total_score'].toDouble().toInt();
-        print('Total score updated from server: $totalScore');
-      }
-      
-      if (timeResult['total_time_spent'] != null) {
-        totalTime = timeResult['total_time_spent'];
-        print('Total time updated from server: $totalTime');
-      }
-      
-      print('Score and time updated successfully!');
-      print('New total score: ${scoreResult['total_score']}');
-      print('New total time: ${timeResult['total_time_spent']}');
-      
-    } catch (e) {
-      setState(() {
-        _errorMessage = 'Sunucu iletişim hatası: ${e.toString()}';
-        _isUploading = false;
-      });
-      print('Error updating score and time: $e');
-    }
+
+    // var totalScore1 = 0;
+    // for (int i = 0; i < quizzes.length; i++) {
+    //   totalScore1 += quizzes[i].score;
+    // }
   }
 
   List<Map<String, Object>> getSummaryData() {
@@ -179,29 +121,6 @@ class _ResultsScreenState extends State<ResultsScreen> {
                     size: 24, color: Color(0xFF4A6572)),
               ],
             ),
-            if (_isUploading)
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: CircularProgressIndicator(),
-              ),
-            if (_errorMessage != null)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  _errorMessage!,
-                  style: TextStyle(color: Colors.red),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            if (_uploadSuccess)
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Score and time updated successfully!',
-                  style: TextStyle(color: Colors.green),
-                  textAlign: TextAlign.center,
-                ),
-              ),
             SizedBox(height: 30),
             Text(
               'You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!',

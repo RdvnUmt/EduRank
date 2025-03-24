@@ -28,26 +28,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
 
     try {
-      print('Fetching profile data...');
       final result = await AuthService.getProfile();
-      print('Profile data received: $result');
 
       if (mounted) {
         setState(() {
           _isLoading = false;
           if (result['success']) {
             _profileData = result;
-            print('Profile data loaded successfully');
-            print('Total score: ${_profileData?['total_score']}');
-            print('Total time spent: ${_profileData?['total_time_spent']}');
           } else {
             _errorMessage = result['message'];
-            print('Failed to load profile: ${result['message']}');
           }
         });
       }
     } catch (e) {
-      print('Error loading profile: $e');
       if (mounted) {
         setState(() {
           _isLoading = false;
