@@ -12,8 +12,8 @@ class HomeScreen extends StatelessWidget {
         children: [
           Text('Main Screen'),
           SizedBox(height: 10),
-          Text('Total Score: $totalScore points'),
-          Text('Total Time: $totalTime seconds'),
+          // Text('Total Score: $totalScore points'),
+          // Text('Total Time: $totalTime seconds'),
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {

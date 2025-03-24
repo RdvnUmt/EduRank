@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '/widgets/profile_item.dart';
 import '/services/auth_service.dart';
 
@@ -27,19 +28,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
 
     try {
+      print('Fetching profile data...');
       final result = await AuthService.getProfile();
+      print('Profile data received: $result');
 
       if (mounted) {
         setState(() {
           _isLoading = false;
           if (result['success']) {
             _profileData = result;
+            print('Profile data loaded successfully');
+            print('Total score: ${_profileData?['total_score']}');
+            print('Total time spent: ${_profileData?['total_time_spent']}');
           } else {
             _errorMessage = result['message'];
+            print('Failed to load profile: ${result['message']}');
           }
         });
       }
     } catch (e) {
+      print('Error loading profile: $e');
       if (mounted) {
         setState(() {
           _isLoading = false;
@@ -93,7 +101,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[150],
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Profil'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _loadProfile,
+          ),
+        ],
+      ),
       body:
           _isLoading
               ? const Center(child: CircularProgressIndicator())
@@ -150,7 +166,71 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 140),
+                    const SizedBox(height: 20),
+                    Card(
+                      elevation: 5,
+                      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(Icons.star, color: Colors.amber, size: 30),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      'Toplam Skorunuz',
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  '${_profileData?['total_score'] != null ? _profileData!['total_score'].toStringAsFixed(0) : 0}',
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(height: 30),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(Icons.timer, color: Colors.blue, size: 30),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      'Toplam Süreniz',
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  '${_profileData?['total_time_spent'] != null ? (_profileData!['total_time_spent'] / 60).toStringAsFixed(1) : 0} dakika',
+                                  style: GoogleFonts.roboto(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 20),
                     const Divider(),
                     ProfileItem(
                       icon: Icons.person_outline,

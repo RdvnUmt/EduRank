@@ -30,10 +30,14 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
     });
     
     try {
+      print('Fetching score leaderboard data...');
       final scoreResult = await LeaderboardService.getScoreLeaderboard();
+      print('Score leaderboard response: $scoreResult');
       
       if (scoreResult['success']) {
         final scoreData = scoreResult['leaderboard'] as List;
+        print('Score data: $scoreData');
+        
         final typedScoreData = scoreData.map((entry) {
           return {entry['username'] as String: entry['total_score'].round() as int};
         }).toList();
@@ -41,15 +45,22 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
         setState(() {
           _scoreLeaderboard = typedScoreData;
         });
+        print('Score leaderboard updated: $_scoreLeaderboard');
       } else {
         setState(() {
           _errorMessage = scoreResult['message'];
         });
+        print('Failed to get score leaderboard: ${scoreResult['message']}');
       }
+      
+      print('Fetching time leaderboard data...');
       final timeResult = await LeaderboardService.getTimeLeaderboard();
+      print('Time leaderboard response: $timeResult');
       
       if (timeResult['success']) {
         final timeData = timeResult['leaderboard'] as List;
+        print('Time data: $timeData');
+        
         final typedTimeData = timeData.map((entry) {
           return {entry['username'] as String: entry['total_time_spent'].round() as int};
         }).toList();
@@ -57,12 +68,15 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
         setState(() {
           _timeLeaderboard = typedTimeData;
         });
+        print('Time leaderboard updated: $_timeLeaderboard');
       } else {
         setState(() {
           _errorMessage = timeResult['message'];
         });
+        print('Failed to get time leaderboard: ${timeResult['message']}');
       }
     } catch (e) {
+      print('Error fetching leaderboard data: $e');
       setState(() {
         _errorMessage = 'Failed to load leaderboard data: ${e.toString()}';
       });
