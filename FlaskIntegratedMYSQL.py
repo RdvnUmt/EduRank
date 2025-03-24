@@ -11,7 +11,7 @@ from datetime import timedelta
 from flask_cors import CORS
 import re
 
-app = Flask(_name_)
+app = Flask(__name__)
 CORS(app)
 
 # *Veritabanı ve JWT Ayarları*
@@ -187,5 +187,5 @@ def check_if_token_in_blacklist(jwt_header, jwt_payload):
 api.add_resource(Logout, "/logout")
 
 # *Veritabanını oluştur*
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True)
