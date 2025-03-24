@@ -1,0 +1,10 @@
+CREATE DATABASE edurank;
+CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,       -- Kullanıcının kendi belirlediği eşsiz ID
+    email VARCHAR(120) UNIQUE NOT NULL,    -- Kullanıcının e-posta adresi
+    password_hash VARCHAR(256) NOT NULL,   -- Hashlenmiş şifre
+
+    total_score FLOAT DEFAULT 0,          
+    total_time_spent INT DEFAULT 0
+);
+-- güncellendi artık her quizin süresi ayrı ayrı tutulmuyor
