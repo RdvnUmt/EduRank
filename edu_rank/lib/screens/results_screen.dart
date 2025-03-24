@@ -1,68 +1,124 @@
 import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/models/quiz.dart';
 import 'package:edu_rank/questions_summary/questions_summary.dart';
-import 'package:edu_rank/score_manager.dart';
-import 'package:edu_rank/time_manager.dart';
+import 'package:edu_rank/services/leaderboard_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ResultsScreen extends StatelessWidget {
-  const ResultsScreen(
-      {super.key,
-      required this.choosenAnswers,
-      required this.onExit,
-      required this.quiz});
+class ResultsScreen extends StatefulWidget {
+  const ResultsScreen({
+    super.key,
+    required this.choosenAnswers,
+    required this.onExit,
+    required this.quiz,
+  });
 
   final Quiz quiz;
   final void Function() onExit;
   final List<String> choosenAnswers;
 
+  @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
+  bool _isUploading = false;
+  String? _errorMessage;
+  bool _uploadSuccess = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _updateScoreAndTime();
+  }
+
+  Future<void> _updateScoreAndTime() async {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = widget.quiz.questions.length;
+    final numCorrectAnswers = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
+    int newScore = ((1500 - (1000 * (widget.quiz.lastTime / 120))) *
+            (numCorrectAnswers / numTotalQuestions))
+        .toInt();
+    totalTime += widget.quiz.lastTime;
+    if (newScore > widget.quiz.score) {
+      widget.quiz.score = newScore;
+      widget.quiz.bestTime = formattedTime;
+      totalScore = 0;
+      for (int i = 0; i < quizzes.length; i++) {
+        totalScore += quizzes[i].score;
+      }
+      
+      setState(() {
+        _isUploading = true;
+      });
+      
+      try {
+        final scoreResult = await LeaderboardService.updateScore(totalScore.toDouble());
+        
+        if (!scoreResult['success']) {
+          setState(() {
+            _errorMessage = scoreResult['message'];
+            _isUploading = false;
+          });
+          return;
+        }
+        
+        final timeResult = await LeaderboardService.updateTimeSpent(totalTime);
+        
+        if (!timeResult['success']) {
+          setState(() {
+            _errorMessage = timeResult['message'];
+            _isUploading = false;
+          });
+          return;
+        }
+        
+        setState(() {
+          _isUploading = false;
+          _uploadSuccess = true;
+        });
+      } catch (e) {
+        setState(() {
+          _errorMessage = 'Failed to update score and time: ${e.toString()}';
+          _isUploading = false;
+        });
+      }
+    }
+  }
+
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
-    for (var i = 0; i < choosenAnswers.length; i++) {
+    for (var i = 0; i < widget.choosenAnswers.length; i++) {
       summary.add({
         'question_index': i,
-        'question': quiz.questions[i].text,
-        'correct_answer': quiz.questions[i].answers[0],
-        'user_answer': choosenAnswers[i],
+        'question': widget.quiz.questions[i].text,
+        'correct_answer': widget.quiz.questions[i].answers[0],
+        'user_answer': widget.choosenAnswers[i],
       });
     }
     return summary;
   }
 
   String get formattedTime {
-    int minutes = quiz.lastTime ~/ 60;
-    int seconds = quiz.lastTime % 60;
+    int minutes = widget.quiz.lastTime ~/ 60;
+    int seconds = widget.quiz.lastTime % 60;
     return '$minutes:${seconds.toString().padLeft(2, '0')}';
   }
 
   @override
   Widget build(BuildContext context) {
     final summaryData = getSummaryData();
-    final numTotalQuestions = quiz.questions.length;
+    final numTotalQuestions = widget.quiz.questions.length;
     final numCorrectAnswers = summaryData.where((data) {
       return data['user_answer'] == data['correct_answer'];
     }).length;
 
-    int newScore = ((1500 - (1000 * (quiz.lastTime / 120))) *
+    int newScore = ((1500 - (1000 * (widget.quiz.lastTime / 120))) *
             (numCorrectAnswers / numTotalQuestions))
         .toInt();
-    totalTime += quiz.lastTime;
-    Future.delayed(Duration.zero, () async {
-      await TimeManager.saveTime(totalTime);
-    });
-    if (newScore > quiz.score) {
-      quiz.score = newScore;
-      quiz.bestTime = formattedTime;
-      totalScore = 0;
-      for (int i = 0; i < quizzes.length; i++) {
-        totalScore += quizzes[i].score;
-      }
-      Future.delayed(Duration.zero, () async {
-        await quiz.saveData();
-        await ScoreManager.saveScore(totalScore);
-      });
-    }
 
     return SizedBox(
       width: double.infinity,
@@ -101,6 +157,29 @@ class ResultsScreen extends StatelessWidget {
                     size: 24, color: Color(0xFF4A6572)),
               ],
             ),
+            if (_isUploading)
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CircularProgressIndicator(),
+              ),
+            if (_errorMessage != null)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  _errorMessage!,
+                  style: TextStyle(color: Colors.red),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            if (_uploadSuccess)
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Score and time updated successfully!',
+                  style: TextStyle(color: Colors.green),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             SizedBox(height: 30),
             Text(
               'You answered $numCorrectAnswers out of $numTotalQuestions questions correctly!',
@@ -119,7 +198,7 @@ class ResultsScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: OutlinedButton.icon(
-                  onPressed: onExit,
+                  onPressed: widget.onExit,
                   style: TextButton.styleFrom(
                     foregroundColor: const Color(0xFF4A6572),
                     padding: const EdgeInsets.symmetric(

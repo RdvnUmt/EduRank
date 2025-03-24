@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'home_screen.dart';
-import 'leaderboard.screen.dart';
+import 'leaderboard_screen.dart';
 import 'profile_screen.dart';
 import 'quizzes_screen.dart';
 import 'timer_screen.dart';

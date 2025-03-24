@@ -141,6 +141,39 @@ class UpdateScore(Resource):
 # Add the resource to the API
 api.add_resource(UpdateScore, "/update_score")
 
+class UpdateTimeSpent(Resource):
+    @jwt_required()
+    def post(self):
+        # Get the data from the request
+        data = request.get_json()
+        new_time_spent = data.get("new_time_spent")
+
+        if new_time_spent is None:
+            return make_response(jsonify({"status": "error", "message": "New time spent is required"}), 400)
+
+        current_user = get_jwt_identity()
+        user = User.query.filter_by(username=current_user).first()
+
+        if not user:
+            return make_response(jsonify({"status": "error", "message": "User not found"}), 404)
+
+        # Update the total time spent
+        user.total_time_spent = new_time_spent
+
+        try:
+            db.session.commit()
+            return make_response(jsonify({
+                "status": "success",
+                "message": "Time spent updated successfully",
+                "total_time_spent": user.total_time_spent
+            }), 200)
+        except Exception as e:
+            db.session.rollback()
+            return make_response(jsonify({"status": "error", "message": str(e)}), 500)
+
+# Add the resource to the API
+api.add_resource(UpdateTimeSpent, "/update_time_spent")
+
 # **Liderlik Tablosu**
 class Leaderboard(Resource):
     def get(self):
@@ -214,4 +247,6 @@ def check_if_token_in_blacklist(jwt_header, jwt_payload):
 api.add_resource(Logout, "/logout")
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
