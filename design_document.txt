@@ -145,8 +145,8 @@ included:
          POST	/update_score	Kullanıcının toplam skorunu günceller.                                         { "new_score": "integer" }
                                 Kullanıcıdan new_score bilgisi alır.
 
-         POST	/update_time_spent	Kullanıcının toplam skorunu günceller.                                      { "new_time_spent": "integer" }
-                                    Kullanıcıdan new_score bilgisi alır.
+         POST	/update_time_spent	Kullanıcının toplam çalışma süresini günceller.                                      { "new_time_spent": "integer" }
+                                    Kullanıcıdan new_time_spent bilgisi alır.
 
          GET	/leaderboard	Kullanıcıları toplam skora göre azalan sırayla                                  -
                                 listeleyerek liderlik tablosunu döner.	    
