@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:edu_rank/data/quizzes_data.dart';
+import 'package:edu_rank/services/leaderboard_service.dart';
 import 'package:flutter/material.dart';
 import '/widgets/time_selector.dart';
 
@@ -20,6 +21,12 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
   int _timerSeconds = 0;
   int _timerMinutes = 0;
   int _timerHours = 0;
+
+  int firstSeconds = 0;
+  int firstMinutes = 0;
+  int firstHours = 0;
+
+
   bool _timerRunning = false;
   Timer? _timerTimer;
 
@@ -73,9 +80,10 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     }
   }
 
-  void _resetCounter() {
+  void _resetCounter() async {
     _stopCounter();
     totalTime += _seconds + _minutes*60 + _hours*3600;
+    await LeaderboardService.updateTimeSpent(totalTime);
     setState(() {
       _seconds = 0;
       _minutes = 0;
@@ -87,6 +95,9 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     if (!_timerRunning && (_timerSeconds > 0 || _timerMinutes > 0 || _timerHours > 0)) {
       setState(() {
         _timerRunning = true;
+        firstSeconds = _timerSeconds;
+        firstMinutes = _timerMinutes;
+        firstHours = _timerHours;
       });
       
       _timerTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -105,6 +116,7 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
               } else {
                 _timerTimer?.cancel();
                 _timerRunning = false;
+                _saveCompletedTimerTime();
               }
             }
           }
@@ -122,13 +134,32 @@ class _TimerScreenState extends State<TimerScreen> with SingleTickerProviderStat
     }
   }
 
-  void _resetTimer() {
+  void _resetTimer() async {
     _stopTimer();
+    
+    int totalStartSeconds = firstHours * 3600 + firstMinutes * 60 + firstSeconds;
+    int totalRemainingSeconds = _timerHours * 3600 + _timerMinutes * 60 + _timerSeconds;
+    int workedSeconds = totalStartSeconds - totalRemainingSeconds;
+    
+    if (workedSeconds > 0) {
+      totalTime += workedSeconds;
+      await LeaderboardService.updateTimeSpent(totalTime);
+    }
+    
     setState(() {
       _timerSeconds = 0;
       _timerMinutes = 0;
       _timerHours = 0;
+      firstSeconds = 0;
+      firstMinutes = 0;
+      firstHours = 0;
     });
+  }
+
+  void _saveCompletedTimerTime() async {
+    int totalFirstSeconds = firstSeconds + firstMinutes * 60 + firstHours * 3600;
+    totalTime += totalFirstSeconds;
+    await LeaderboardService.updateTimeSpent(totalTime);
   }
 
   String _formatNumber(int number) {

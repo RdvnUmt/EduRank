@@ -3,8 +3,6 @@ import 'package:edu_rank/models/quiz_question.dart';
 
 var totalScore = 0;
 var totalTime = 0;
-var backendScore = 0;
-var backendTime = 0;
 
 var quizzes = [
   Quiz(
