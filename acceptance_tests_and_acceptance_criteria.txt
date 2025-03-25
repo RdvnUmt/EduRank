@@ -93,5 +93,5 @@ Beklenen Sonuç: Kullanıcılar, birbirlerinin başarı oranlarını doğru bir 
 
 TASK MATRİX :
 
-Acceptance Tests______Taha Denizbek Tavlan
-Acceptance Criteria___Taha Denizbek Tavlan
+Acceptance Tests______Taha Denizbek Tavlan, Emirhan Gül
+Acceptance Criteria___Taha Denizbek Tavlan, Emirhan Gül
