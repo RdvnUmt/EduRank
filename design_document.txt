@@ -136,14 +136,17 @@ included:
 
         USER AUTHENTICATION:
          Method	Endpoint	    Description	                                                                   Request Body
-         POST	/register    	Yeni kullanıcı kaydı oluşturur.	                                               { "username": "string", "password": "string" }
-         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                                       { "username": "string", "password": "string" }
+         POST	/register    	Yeni kullanıcı kaydı oluşturur.	                                               {"username": "string", "password": "string"}
+         POST	/login	        Kullanıcı girişi yapar ve JWT döner.	                                       {"username": "string", "password": "string"}
          GET	/profile	    Kullanıcının profil bilgilerini döner (JWT gerekir).	                        -
          POST	/refresh	    Refresh token kullanarak yeni access token alır.	                            -
          POST	/logout	        Kullanıcıyı çıkış yaptırır (Token blackliste alınır).  
 -
          POST	/update_score	Kullanıcının toplam skorunu günceller.                                         { "new_score": "integer" }
                                 Kullanıcıdan new_score bilgisi alır.
+
+         POST	/update_time_spent	Kullanıcının toplam çalışma süresini günceller.                                      { "new_time_spent": "integer" }
+                                    Kullanıcıdan new_time_spent bilgisi alır.
 
          GET	/leaderboard	Kullanıcıları toplam skora göre azalan sırayla                                  -
                                 listeleyerek liderlik tablosunu döner.	    

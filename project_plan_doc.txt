@@ -63,11 +63,11 @@ Dağıtım			        3 Nisan 2025	 4 Nisan  2025	1 gün
 
 Kaynak Planlaması
 
-Geliştirme Araçları: Flutter (Frontend), Flask & MySQL (Backend)
+Geliştirme Araçları: Flutter (Frontend), Flask & MySQL & SQLite (Backend)
 
-Veritabanı: MySQL
+Veritabanı: MySQL, SQLite
 
-İşbirliği Araçları: GitHub, Postman
+İşbirliği Araçları: GitHub, Postman, Visual Studio Code
 
 ------------------------------------------------------------------------
 
