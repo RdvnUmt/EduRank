@@ -1,4 +1,3 @@
-import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,11 +9,9 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Main Screen'),
+          Text('EduRank', style: TextStyle(fontSize: 30, fontWeight:FontWeight.bold),),
           SizedBox(height: 10),
-          Text('Total Score: $totalScore points'),
-          Text('Total Time: $totalTime seconds'),
-          SizedBox(height: 20),
+          SizedBox(height: 200),
           ElevatedButton(
             onPressed: () {
               //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));

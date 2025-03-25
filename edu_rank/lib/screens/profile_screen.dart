@@ -93,10 +93,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                         Text(
-                          '$totalScore',
+                          '${totalScore}p',
                           style: GoogleFonts.roboto(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
@@ -120,10 +120,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                         Text(
-                          '${totalTime/60} dakika',
+                          '${(totalTime ~/ 60)} dakika',
                           style: GoogleFonts.roboto(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
