@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EduRank',
+      title: 'EduRank',      
       debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
         textTheme: GoogleFonts.robotoTextTheme(),

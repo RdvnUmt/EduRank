@@ -1,4 +1,3 @@
-import 'package:edu_rank/data/quizzes_data.dart';
 import 'package:edu_rank/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
