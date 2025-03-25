@@ -415,7 +415,7 @@ Acceptance Tests and Acceptance Criteria: Taha Denizbek Tavlan
 
 Test Results Report : Taha Denizbek Tavlan
 
-Test Results Overview :Taha Denizbek Tavlan
+Test Results Overview :Taha Denizbek Tavlan / Rıdvan Umut Ünal
 
 Test Results Analysis : Utku Karatepe / Rıdvan Umut Ünal
 
