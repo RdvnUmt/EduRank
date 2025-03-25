@@ -1,4 +1,4 @@
-# chat_app
+# EduRank
 
 A new Flutter project.
 
