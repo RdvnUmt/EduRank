@@ -90,7 +90,7 @@ Logs and Outputs:
 
 TASK MATRİX :
 
-Test Results Report_________Taha Denizbek Tavlan
-Test Results Overview_______Taha Denizbek Tavlan / Rıdvan Umut Ünal
+Test Results Report_________Taha Denizbek Tavlan / Emirhan Gül
+Test Results Overview_______Emirhan Gül / Rıdvan Umut Ünal
 Test Results Analysis_______Utku Karatepe / Rıdvan Umut Ünal
 Logs and Outputs____________Utku Karatepe / Rıdvan Umut Ünal

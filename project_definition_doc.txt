@@ -59,7 +59,7 @@ Bütçe ve Kaynaklar:
 Eğer kullanılırsa bulut depolama maliyetleri olabilir
 Eğer kullanılırsa API kullanım ücretleri (harici hizmet entegrasyonu olması durumunda)
 4 kişilik geliştirme ekibi (frontend, backend, test)
-Geliştirme araçları: Flutter(mobil), Python/flask (backend), MySQL (veritabanı)
+Geliştirme araçları: Flutter(mobil), Python/flask (backend), MySQL, SQLite (veritabanı)
 Yaklaşık 1 aylık geliştirme süresi
 
 
