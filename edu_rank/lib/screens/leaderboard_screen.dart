@@ -9,7 +9,8 @@ class LeaderboardScreen extends StatefulWidget {
   State<LeaderboardScreen> createState() => _LeaderboardScreenState();
 }
 
-class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTickerProviderStateMixin {
+class _LeaderboardScreenState extends State<LeaderboardScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   bool _isLoading = false;
   String? _errorMessage;
@@ -22,23 +23,25 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
     _tabController = TabController(length: 2, vsync: this);
     _fetchLeaderboardData();
   }
-  
+
   Future<void> _fetchLeaderboardData() async {
     setState(() {
       _isLoading = true;
       _errorMessage = null;
     });
-    
+
     try {
       final scoreResult = await LeaderboardService.getScoreLeaderboard();
-      
+
       if (scoreResult['success']) {
         final scoreData = scoreResult['leaderboard'] as List;
-        
+
         final typedScoreData = scoreData.map((entry) {
-          return {entry['username'] as String: entry['total_score'].round() as int};
+          return {
+            entry['username'] as String: entry['total_score'].round() as int
+          };
         }).toList();
-        
+
         setState(() {
           _scoreLeaderboard = typedScoreData;
         });
@@ -47,16 +50,27 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
           _errorMessage = scoreResult['message'];
         });
       }
-      
+
       final timeResult = await LeaderboardService.getTimeLeaderboard();
-      
+
       if (timeResult['success']) {
         final timeData = timeResult['leaderboard'] as List;
-        
+
         final typedTimeData = timeData.map((entry) {
-          return {entry['username'] as String: entry['total_time_spent'].round() as int};
+          final totalTime = entry['total_time_spent'];
+          int timeInMinutes;
+
+          if (totalTime is double) {
+            timeInMinutes = totalTime.toInt();
+          } else if (totalTime is int) {
+            timeInMinutes = totalTime;
+          } else {
+            throw Exception("Unexpected type for total_time_spent");
+          }
+
+          return {entry['username'] as String: timeInMinutes};
         }).toList();
-        
+
         setState(() {
           _timeLeaderboard = typedTimeData;
         });
@@ -89,8 +103,12 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(text: 'Toplam Skor', icon: Icon(Icons.leaderboard, color: Colors.black), height: 46),
-            Tab(text: 'Çalışma Süresi', icon: Icon(Icons.timer, color: Colors.black), height: 46),
+            Tab(
+                text: 'Toplam Skor',
+                icon: Icon(Icons.leaderboard, color: Colors.black)),
+            Tab(
+                text: 'Çalışma Süresi',
+                icon: Icon(Icons.timer, color: Colors.black)),
           ],
         ),
         actions: [
@@ -100,45 +118,45 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> with SingleTicker
           ),
         ],
       ),
-      body: _isLoading 
-        ? const Center(child: CircularProgressIndicator())
-        : _errorMessage != null
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    _errorMessage!,
-                    style: const TextStyle(color: Colors.red),
-                    textAlign: TextAlign.center,
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : _errorMessage != null
+              ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        _errorMessage!,
+                        style: const TextStyle(color: Colors.red),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: _fetchLeaderboardData,
+                        child: const Text('Tekrar Dene'),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: _fetchLeaderboardData,
-                    child: const Text('Tekrar Dene'),
-                  ),
-                ],
-              ),
-            )
-          : TabBarView(
-              controller: _tabController,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LeaderboardWidget(
-                    leaderboardData: _scoreLeaderboard,
-                    isScore: true,
-                  ),
+                )
+              : TabBarView(
+                  controller: _tabController,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: LeaderboardWidget(
+                        leaderboardData: _scoreLeaderboard,
+                        isScore: true,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: LeaderboardWidget(
+                        leaderboardData: _timeLeaderboard,
+                        isScore: false,
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LeaderboardWidget(
-                    leaderboardData: _timeLeaderboard, 
-                    isScore: false,
-                  ),
-                ),
-              ],
-            ),
     );
   }
 }

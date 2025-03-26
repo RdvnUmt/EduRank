@@ -210,7 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ],
                                 ),
                                 Text(
-                                  '${_profileData?['total_time_spent'] != null ? (_profileData!['total_time_spent'] / 60).toStringAsFixed(1) : 0} dakika',
+                                  '${_profileData?['total_time_spent'] != null ? (_profileData!['total_time_spent'] ~/ 60) : 0} dakika',
                                   style: GoogleFonts.roboto(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,

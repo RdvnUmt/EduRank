@@ -10,7 +10,7 @@ import 'package:edu_rank/data/quizzes_data.dart';
  */
 class AuthService {
   // Emülatör için 10.0.2.2:5000, gerçek cihaz için IP adresini kullanıyormuşuz.
-  static const String baseUrl = 'http://10.0.2.2:5000'; 
+  static const String baseUrl = 'http://192.168.1.124:5000'; 
   
   // HTTP isteklerinin zaman aşımı süresi. Bu süre içinde yanıt alınmazsa istek başarısız olur.
   static const int timeoutDuration = 15;

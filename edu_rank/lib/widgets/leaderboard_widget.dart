@@ -10,9 +10,6 @@ class LeaderboardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String criteria = isScore ? 'puan' : 'dakika';
-    print('Building LeaderboardWidget with ${leaderboardData.length} items');
-    print('isScore: $isScore, criteria: $criteria');
-    print('Data: $leaderboardData');
 
     return leaderboardData.isEmpty
         ? Center(
@@ -30,9 +27,8 @@ class LeaderboardWidget extends StatelessWidget {
               final value = entry[playerName]!;
               
               // Eğer time leaderboard ise, saniyeyi dakikaya çevir
-              final displayValue = isScore ? value : (value / 60).toStringAsFixed(1);
+              final displayValue = isScore ? value : (value ~/ 60);
               
-              print('Item $index: $playerName - $displayValue $criteria');
 
               return Column(
                 children: [
