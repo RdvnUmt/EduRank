@@ -53,11 +53,11 @@ Güçlü ve ölçeklenebilir bir backend altyapısı sağlamak.
 Ana Aşamalar ve Zaman Çizelgesi
 
 Aşama			        Başlangıç Tarihi Bitiş Tarihi	Süre
-Gereksinim Toplama	    1 Mart 2025	     4 Mart 2025	3 gün
-Tasarım			        5 Mart 2025	     12 Mart 2025	7 gün
-Geliştirme		        13 Mart 2025	 31 Mart 2025	18 gün
-Test ve Düzeltmeler	    1 Nisan 2025	 2 Nisan 2025	1 gün
-Dağıtım			        3 Nisan 2025	 4 Nisan  2025	1 gün
+Gereksinim Toplama	    1 Mart 2025	     4 Mart 2025	4 gün  
+Tasarım			        5 Mart 2025	     8 Mart 2025	4 gün
+Geliştirme		        9 Mart 2025	     21 Mart 2025	13 gün
+Test ve Düzeltmeler	    22 Mart 2025	 25 Mart 2025	4 gün
+Dağıtım			        26 Mart 2025	 27 Mart  2025	2 gün
 
 ------------------------------------------------------------------------
 
@@ -72,9 +72,8 @@ Veritabanı: MySQL, SQLite
 ------------------------------------------------------------------------
 
 Risk Yönetimi
-Kullanıcı verilerinin güvenliğini sağlanması.
 
-Sunucuya fazla yüklenme olursa kaynak yetersizliğini önlemek için AWS veya Firebase gibi ölçeklenebilir bulut hizmetlerinin kullanımı.
+Kullanıcı verilerinin güvenliğini sağlanması.
 
 Gereksinim değişikliklerini yönetmek için Scrum metodolojisi kullanılarak esneklik sağlanması.
 
@@ -85,6 +84,7 @@ Kullanıcı deneyimi problemlerini düzeltmek için	unit ve entegrasyon testleri
 ------------------------------------------------------------------------
 
 İletişim Planı
+
 Günlük ekip toplantıları(daily scrum) ile planlamalar yapılır.
 
 Haftalık ekip toplantıları ile ilerleme ve sprintler değerlendirilir.
@@ -96,7 +96,7 @@ GitHub sorunları (issues) ile geliştirme süreci takip edilir.
 
 Değişiklik Yönetim Planı
 
-Tüm değişiklik talepleri GitHub üzerinden issue olarak açılacak, proje yöneticisine bildirilecektir.
+Tüm değişiklik talepleri toplantıda tartışılacak, proje yöneticisine bildirilecektir.
 
 Her sprint sonunda hedeflere göre değişiklikler değerlendirilecek.
 
@@ -107,7 +107,8 @@ Kod inceleme süreciyle yeni geliştirmeler kontrol edilecek.
 ------------------------------------------------------------------------
 
 Bütçe Planı
-Uygulama içindeki test sorularını üçüncü kaynaklardan alırken telif ücreti ödenir.
+
+Uygulama içindeki test sorularını üçüncü kaynaklardan alırken telif ücreti ödenebilir.
 
 Ücretsiz kaynaklar kullanarak sürdürülebilir bir geliştirme yapılır.
 

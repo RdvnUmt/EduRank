@@ -64,14 +64,15 @@ Yaklaşık 1 aylık geliştirme süresi
 
 
 Riskler ve Azaltma Stratejileri:
-Kullanıcı verileri uygun şekilde saklanmazsa güvenlik ihlalleri oluşabilir.
+Kullanıcı verileri uygun şekilde saklanmazsa güvenlik ihlalleri oluşabilir. 
 Kullanıcı sayısı arttıkça, uygulamanın veritabanı ve sunucu kaynakları yetersiz kalabilir.
 Sistem çökmesi, yanlış yapılandırmalar sonucu veri kaybı yaşanabilir.
 
 
 Çözüm: 
-Geliştiriciler sürekli iletişimde kalmalı ve Scrum gibi yöntemler ile projeyi geliştirerek 
-değişimlere hızlı uyum sağlanabilen modüler bir yazılım geliştirilmeli. Her sprint sonunda proje 
+Geliştiriciler sürekli iletişimde kalmalı ve Scrum gibi yöntemler ile projeyi geliştirerek
+Kullanıcı verilerinden biri olan şifrelerin hashlenerek saklanması. 
+Değişimlere hızlı uyum sağlanabilen modüler bir yazılım geliştirilmeli. Her sprint sonunda proje 
 ilerlemesi değerlendirilerek esneklik sağlanmalı.
 Unit testler ve entegrasyon testleri ile uygulama hatalara karşı dayanıklı hale getirilmeli.
 Düzenli yedekleme yapılmalı ve veritabanı kopyalama (replication) stratejileri uygulanmalı.
