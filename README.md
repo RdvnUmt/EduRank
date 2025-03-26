@@ -20,13 +20,14 @@ EduRank, kullanıcıların test çözerek, çalışma ilerlemelerini takip edere
 
 📷 Ekran Görüntüleri
 
-Aşağıdaki kodu README dosyanıza ekleyerek görüntüleri gösterebilirsiniz.
 
-![Açıklama](gorseller/dosya_adi.png)
-
-Örnek:
-
-![Ana Ekran](images/main_screen.png)
+![Main Screen](images/Screenshot_20250326_152618.jpg)
+![Profile Screen](images/Screenshot_20250326_152649.jpg)
+![Quizzes Screen](images/Screenshot_20250326_152618.jpg)
+![Timer Screen](images/Screenshot_20250326_152633.jpg)
+![Leader Board Screen](/images/Screenshot_20250326_152639.jpg)
+![Quiz Screen](images/Screenshot_20250326_152722.jpg)
+![Results Screen](images/Screenshot_20250326_152737.jpg)
 
 Görselleri proje dizininize eklediğinizden emin olun ve dosya yollarını doğru şekilde ayarlayın.
 
