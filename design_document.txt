@@ -58,67 +58,66 @@ List of Contributors:
     ● Codebase Structure: 
         Kök Dizin (edu_rank)
 
-android/
-ios/
-assets/images/
-lib/
-instance/
-edu_rank/
-FlaskMYSQL.py - Flask ve MySQL entegrasyonu için Python betiği.
-MYSQLCODE.txt - MySQL betiği.
-README.md - Dokümantasyon dosyası.
-acceptance_tests_and_acceptance_criteria.txt - Kabul testleri ve kriterleri.
-deployment_plan.txt - Dağıtım stratejisi.
-design_document.txt - Yazılım tasarım detayları.
-project_definition_doc.txt - Proje genel bakışı.
-project_plan_doc.txt - Proje planlama detayları.
-project_requirements_doc.txt - Fonksiyonel ve fonksiyonel olmayan gereksinimler.
-quality_assurance_plan.txt - Kalite güvencesi stratejisi.
-test_results_report.txt - Test sonuçları dokümantasyonu.
+            android/
+            ios/
+            assets/images/
+            lib/
+            instance/
+            edu_rank/
+            FlaskMYSQL.py - Flask ve MySQL entegrasyonu için Python betiği.
+            MYSQLCODE.txt - MySQL betiği.
+            README.md - Dokümantasyon dosyası.
+            acceptance_tests_and_acceptance_criteria.txt - Kabul testleri ve kriterleri.
+            deployment_plan.txt - Dağıtım stratejisi.
+            design_document.txt - Yazılım tasarım detayları.
+            project_definition_doc.txt - Proje genel bakışı.
+            project_plan_doc.txt - Proje planlama detayları.
+            project_requirements_doc.txt - Fonksiyonel ve fonksiyonel olmayan gereksinimler.
+            quality_assurance_plan.txt - Kalite güvencesi stratejisi.
+            test_results_report.txt - Test sonuçları dokümantasyonu.
 
 
-Lib Dizini
+            Lib Dizini
 
-Projenin ana Dart kaynak kodlarını barındırır.
-Data
-    quizzes_data.dart - Quiz ile ilgili verileri içerir.
-Models
-    quiz.dart - Quiz modelini tanımlar.
-    quiz_question.dart - Quiz sorularını tanımlar.
-Questions Summary
-    questions_identifier.dart - Soru tanımlayıcılarını yönetir.
-    questions_summary.dart - Soru özetlerini yönetir.
-    summary_item.dart - Bireysel özet öğelerini ele alır.
-Screens
-    auth.dart - Kimlik doğrulama ekranı.
-    home_screen.dart - Ana ekran.
-    leaderboard_screen.dart - Liderlik tablosu arayüzü.
-    main_screen.dart - Ana uygulama ekranı.
-    profile_screen.dart - Kullanıcı profili arayüzü.
-    quiz_screen.dart - Quiz arayüzü.
-    quizzes_screen.dart - Quiz listesi.
-    results_screen.dart - Quiz sonuçlarının gösterimi.
-    timer_screen.dart - Quiz zamanlayıcı arayüzü.
-Services
-    auth_manager.dart - Kimlik doğrulama mantığını yönetir.
-    auth_service.dart - Kimlik doğrulama servislerini ele alır.
-    leaderboard_service.dart - Liderlik tablosu verilerini yönetir.
-Widgets
-    answer_button.dart - Cevaplar için düğme.
-    finish_quiz_button.dart - Quiz bitirme düğmesi.
-    leaderboard_widget.dart - Liderlik tablosu bileşeni.
-    profile_item.dart - Kullanıcı profili bileşeni.
-    questions_widget.dart - Quiz sorularını görüntüler.
-    quiz_item.dart - Bireysel quiz öğesi.
-    quiz_item_trait.dart - Quiz öğeleri için ek özellikler.
-    quiz_timer.dart - Quiz zamanlayıcı bileşeni.
-    text_field.dart - Özelleştirilmiş metin alanı bileşeni.
-    time_selector.dart - Quiz süresi seçici bileşeni.
+            Projenin ana Dart kaynak kodlarını barındırır.
+            Data
+                quizzes_data.dart - Quiz ile ilgili verileri içerir.
+            Models
+                quiz.dart - Quiz modelini tanımlar.
+                quiz_question.dart - Quiz sorularını tanımlar.
+            Questions Summary
+                questions_identifier.dart - Soru tanımlayıcılarını yönetir.
+                questions_summary.dart - Soru özetlerini yönetir.
+                summary_item.dart - Bireysel özet öğelerini ele alır.
+            Screens
+                auth.dart - Kimlik doğrulama ekranı.
+                home_screen.dart - Ana ekran.
+                leaderboard_screen.dart - Liderlik tablosu arayüzü.
+                main_screen.dart - Ana uygulama ekranı.
+                profile_screen.dart - Kullanıcı profili arayüzü.
+                quiz_screen.dart - Quiz arayüzü.
+                quizzes_screen.dart - Quiz listesi.
+                results_screen.dart - Quiz sonuçlarının gösterimi.
+                timer_screen.dart - Quiz zamanlayıcı arayüzü.
+            Services
+                auth_manager.dart - Kimlik doğrulama mantığını yönetir.
+                auth_service.dart - Kimlik doğrulama servislerini ele alır.
+                leaderboard_service.dart - Liderlik tablosu verilerini yönetir.
+            Widgets
+                answer_button.dart - Cevaplar için düğme.
+                finish_quiz_button.dart - Quiz bitirme düğmesi.
+                leaderboard_widget.dart - Liderlik tablosu bileşeni.
+                profile_item.dart - Kullanıcı profili bileşeni.
+                questions_widget.dart - Quiz sorularını görüntüler.
+                quiz_item.dart - Bireysel quiz öğesi.
+                quiz_item_trait.dart - Quiz öğeleri için ek özellikler.
+                quiz_timer.dart - Quiz zamanlayıcı bileşeni.
+                text_field.dart - Özelleştirilmiş metin alanı bileşeni.
+                time_selector.dart - Quiz süresi seçici bileşeni.
 
-main.dart - Flutter uygulamasının giriş noktası.
+            main.dart - Flutter uygulamasının giriş noktası.
+    
     ● Key Implementations:
-        ○ Describe significant components or modules with explanations.
-        ○ Explain core algorithms or business logic where applicable.
 
         Bileşenler ve Modüller:
 
@@ -137,9 +136,6 @@ main.dart - Flutter uygulamasının giriş noktası.
         Veri Görselleştirme: Çekilen istatistik verilerinin grafik ve tablolarla sunulması.
 
     ● Component Interfaces:
-        ○ Define the interfaces of key components, including class/method signatures.
-            Önemli ve temel metotların/bileşenlerin python taslak kodları:
-
             class User:
                 def __init__(self, user_id: int, username: str, email: str, password_hash: str):
                     pass
@@ -184,9 +180,6 @@ main.dart - Flutter uygulamasının giriş noktası.
                     """Liderlik tablosunu sıralı olarak döndürür"""
                     pass
 
-
-        ○ Provide API endpoint descriptions if applicable. 
-
         USER AUTHENTICATION:
          Method	Endpoint	    Description	                                                                   Request Body
          POST	/register    	Yeni kullanıcı kaydı oluşturur.	                                               {"username": "string", "password": "string"}
@@ -208,10 +201,10 @@ main.dart - Flutter uygulamasının giriş noktası.
                                 azalan sırayla listeleyerek ikinci liderlik tablosunu döner.	
 
     ● Visual Interfaces:
-        ○ Include wireframes or screenshots of user interfaces.
+        ○ images klasörüne göz atılabilir
 
 3. Use Case Support in Design
-    ● Use Case Selection: Identify 4 important use cases from the Requirements
+    ● Use Case Selection:
     Document:
         case 1: 
         1-Kullanıcılar hesap oluşturabilmeli
@@ -305,13 +298,8 @@ main.dart - Flutter uygulamasının giriş noktası.
             Veri Akışı:
                 Flutter (UI) -> Flask API (/user_stats, /leaderboard) -> MySQL (İstatistik tablosu)
 
-    ● Demo Requirement:
-        ○ These four use cases must be fully implemented and will be demonstrated
-        during the final project presentation.
-
 4. Design Decisions
-    ● Technology Comparisons: Compare at least two alternative technologies used in the
-    project.
+    ● Technology Comparisons: 
  
     Veritabanı Teknolojileri – SQLite vs. PostgreSQL
           
@@ -338,7 +326,7 @@ main.dart - Flutter uygulamasının giriş noktası.
     Kullanım Alanı:	    API tabanlı sistemler ve mobil uygulamalar için idealdir	        Geleneksel web uygulamalarında daha uygundur
 
 
-    ● Decision Justifications: Justify choices for databases, frameworks, and architecture.
+    ● Decision Justifications:
     
     Flask: Flask, Python tabanlı hafif bir web framework'üdür. Basit ve esnek olması nedeniyle küçük ve orta ölçekli projeler için idealdir. Özellikle RESTful API geliştirme konusunda sıkça tercih edilir.
 
@@ -381,19 +369,11 @@ main.dart - Flutter uygulamasının giriş noktası.
     PUT/PATCH → Veriyi güncellemek için
     DELETE → Veriyi silmek için
 
-5. GitHub Commit Requirement
-    ● Code Implementations & Interfaces & Technology Comparisons: Students must upload their implementations,
-    component interfaces, and visual interface designs to GitHub. The code snippets used for comparison must also be
-    committed to the repository.
-
-        Kodlama süreci devam etmekte olup, proje süreci GitHub üzerinden yönetildiği için 
-        Kod geliştirme süreci sürdükçe istenen tüm kod bileşenleri ve teknoloji 
-        karşılaştırmalarına dair kod parçacıkları da düzenli olarak paylaşılacaktır.
 
 Task Matrix :
 
 System Overview                Emirhan Gül
-Implementation Details         Utku Karatepe
+Implementation Details         Utku Karatepe / Taha Tavlan
 Use Case Support in Design     Taha Tavlan / Utku Karatepe
 Design Decisions               Utku Karatepe / Emirhan Gül
-GitHub Commit Requirement      Taha Tavlan
+GitHub Commit Requirement      Taha Tavlan / Emirhan Gül
