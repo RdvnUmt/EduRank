@@ -22,13 +22,13 @@ Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
 
 Efor Tahminleri
 
-Aşama			             Tahmini Süre		   Kişi Sayısı	  Kişi/Saat Cinsinden Efor
-Gereksinim Toplama	        4 gün (16 saat)		 4 kişi		     64  saat
-Tasarım			            4 gün (16 saat)		 2 kişi		     32  saat
-Geliştirme		             13 gün (52 saat)	  4 kişi		      208  saat
-Test ve Düzeltmeler	     4 gün (16 saat)	  2 kişi		      32  saat
-Dağıtım			         2 gün (8 saat)		  2 kişi	   	      16  saat
-Toplam Proje Eforu	        30 gün (120 saat)		 -               352  saat
+Aşama			                 Tahmini Süre		     Kişi Sayısı	  Kişi/Saat Cinsinden Efor
+Gereksinim Toplama	        4 gün (16 saat)		   4 kişi		       64  saat
+Tasarım			                4 gün (16 saat)		   2 kişi		       32  saat
+Geliştirme		              13 gün (52 saat)	   4 kişi		       208  saat
+Test ve Düzeltmeler	        4 gün (16 saat)	     2 kişi		       32  saat
+Dağıtım			                2 gün (8 saat)		   2 kişi	   	     16  saat
+Toplam Proje Eforu	        30 gün (120 saat)		  -              352  saat
 
 
 Efor tahminleri uzman görüşünden (expert judgment) yararlanılarak yapılmıştır. 
