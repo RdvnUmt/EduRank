@@ -35,8 +35,8 @@ Görselleri proje dizininize eklediğinizden emin olun ve dosya yollarını doğ
 
 Bu proje aşağıdaki teknolojiler kullanılarak geliştirilmiştir:
 
-Flutter / React Native (Mobil Geliştirme)
+Flutter / Dart (Mobil Geliştirme)
 
-Firebase (Kimlik Doğrulama & Veritabanı)
+JWT / SQLite, MySQL (Kimlik Doğrulama & Veritabanı)
 
-Node.js / Django (Backend API)
+Node.js / Flask (Backend API)
