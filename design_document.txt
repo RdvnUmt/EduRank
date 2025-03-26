@@ -1,23 +1,18 @@
 Design Document:
 
-Table of Contents : Design Document
+Table of Contents : 
 -System Overview
 -Implementation Details
 -Use Case Support in Design
 
 List of Contributors:
 
-The following team members contributed to the creation of this document:
 -Utku Karatepe 
 -Emirhan Gül 
 -Taha Tavlan 
 
-This document should detail the implementation approach and decision-making process. The
-Design Document must be structured around 4 use cases. The following sections must be
-included:
-
 1. System Overview  
-    ● Brief Project Description: Summarize the project and its goals in 1-2 paragraphs:
+    ● Brief Project Description:
         Mobil tabanlı EduRank uygulaması sayesinde kullanıcılar test çözebilecek, çalışma 
         sonuçlarını, çalışma sürelerini karşılaştırabilecek. Ayrıca sadece çalışma süresini arkadaşlarıyla 
         karşılaştırmak isteyen bir kullanıcı, uygulama üzerinden test çözme zorunluluğu olmadan da sayaç 
@@ -29,8 +24,7 @@ included:
         amaçlamaktadır.
 
 
-    ● System Architecture: Provide an overview of the system architecture (e.g., layered,
-    microservices):
+    ● System Architecture:
         Uygulamamız, Layered Architecture ve Client-Server mimari modelini takip etmektedir. 
         Sistem üç ana bileşenden oluşmaktadır: Kullanıcı arayüzü (Flutter), backend API (Flask) 
         ve veritabanı (MySQL). Kullanıcı, Flutter uygulaması aracılığıyla işlemlerini gerçekleştirir.
@@ -54,15 +48,74 @@ included:
         +--------------------+
 
 
-    ● Technology Stack: List the primary technologies used in the project (frontend, backend,
-    databases, frameworks, etc.):
+    ● Technology Stack: 
         frontend: Flutter-dart,
         backend: flask, MySQL, SQLite
         databases: MySQL, SQLite
         frameworks: Flutter.
 
 2. Implementation Details
-    ● Codebase Structure: Explain how the project is structured (folders, modules).
+    ● Codebase Structure: 
+        Kök Dizin (edu_rank)
+
+android/
+ios/
+assets/images/
+lib/
+instance/
+edu_rank/
+FlaskMYSQL.py - Flask ve MySQL entegrasyonu için Python betiği.
+MYSQLCODE.txt - MySQL betiği.
+README.md - Dokümantasyon dosyası.
+acceptance_tests_and_acceptance_criteria.txt - Kabul testleri ve kriterleri.
+deployment_plan.txt - Dağıtım stratejisi.
+design_document.txt - Yazılım tasarım detayları.
+project_definition_doc.txt - Proje genel bakışı.
+project_plan_doc.txt - Proje planlama detayları.
+project_requirements_doc.txt - Fonksiyonel ve fonksiyonel olmayan gereksinimler.
+quality_assurance_plan.txt - Kalite güvencesi stratejisi.
+test_results_report.txt - Test sonuçları dokümantasyonu.
+
+
+Lib Dizini
+
+Projenin ana Dart kaynak kodlarını barındırır.
+Data
+    quizzes_data.dart - Quiz ile ilgili verileri içerir.
+Models
+    quiz.dart - Quiz modelini tanımlar.
+    quiz_question.dart - Quiz sorularını tanımlar.
+Questions Summary
+    questions_identifier.dart - Soru tanımlayıcılarını yönetir.
+    questions_summary.dart - Soru özetlerini yönetir.
+    summary_item.dart - Bireysel özet öğelerini ele alır.
+Screens
+    auth.dart - Kimlik doğrulama ekranı.
+    home_screen.dart - Ana ekran.
+    leaderboard_screen.dart - Liderlik tablosu arayüzü.
+    main_screen.dart - Ana uygulama ekranı.
+    profile_screen.dart - Kullanıcı profili arayüzü.
+    quiz_screen.dart - Quiz arayüzü.
+    quizzes_screen.dart - Quiz listesi.
+    results_screen.dart - Quiz sonuçlarının gösterimi.
+    timer_screen.dart - Quiz zamanlayıcı arayüzü.
+Services
+    auth_manager.dart - Kimlik doğrulama mantığını yönetir.
+    auth_service.dart - Kimlik doğrulama servislerini ele alır.
+    leaderboard_service.dart - Liderlik tablosu verilerini yönetir.
+Widgets
+    answer_button.dart - Cevaplar için düğme.
+    finish_quiz_button.dart - Quiz bitirme düğmesi.
+    leaderboard_widget.dart - Liderlik tablosu bileşeni.
+    profile_item.dart - Kullanıcı profili bileşeni.
+    questions_widget.dart - Quiz sorularını görüntüler.
+    quiz_item.dart - Bireysel quiz öğesi.
+    quiz_item_trait.dart - Quiz öğeleri için ek özellikler.
+    quiz_timer.dart - Quiz zamanlayıcı bileşeni.
+    text_field.dart - Özelleştirilmiş metin alanı bileşeni.
+    time_selector.dart - Quiz süresi seçici bileşeni.
+
+main.dart - Flutter uygulamasının giriş noktası.
     ● Key Implementations:
         ○ Describe significant components or modules with explanations.
         ○ Explain core algorithms or business logic where applicable.
