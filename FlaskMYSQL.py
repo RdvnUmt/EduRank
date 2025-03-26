@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # **MySQL Veritabanı ve JWT Ayarları**
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:emre2004@localhost/edurank"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:emre2004@localhost/edurank"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["JWT_SECRET_KEY"] = "super-secret-key"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=30)
