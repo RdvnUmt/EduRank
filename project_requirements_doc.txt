@@ -5,7 +5,7 @@ Fonksiyonel Gereksinimler (Functional Requirements)
 4.) Kullanıcılar test çözebilmelidir.
 5.) Kullanıcılar test çözerken sorular arasında geçiş yapabilmeli.
 6.) Kullanıcılar test çözerken yanıtlarını değiştirebilmeli
-7.) Kullanıcılar test çözerken sorunun cevabının doğru/yanlış olduğunu görebilmeli
+7.) Kullanıcılar test sorusunun cevabının doğru/yanlış olduğunu görebilmeli
 8.) Kullanıcılar test kategorilerinden seçim yapabilmeli
 9.) Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidi/görüntülenebilmeli.
 10.) Kullanıcılar birbirlerinin çalışma sürelerini görüntüleyebilmelidir
@@ -17,25 +17,25 @@ Fonksiyonel Olmayan Gereksinimler (Non-Functional Requirements)
 2.) Sistem, yoğun kullanım altında performans kaybı olmadan çalışmalıdır (örneğin, saniyede 1000 kullanıcı isteğini karşılayabilmelidir).
 3.) Güvenlik açısından kimlik doğrulama mekanizmaları kullanılmalıdır.
 4.) Veriler şifrelenerek saklanmalı.
-5.) Uygulama Android ve iOS platformlarında stabil çalışmalıdır.
+5.) Uygulama Android platformunda stabil çalışmalıdır.
 
 
 Efor Tahminleri
 
-Aşama			             Tahmini Süre		   Kişi Sayısı	  Kişi/Saat Cinsinden Efor
-Gereksinim Toplama	        3 gün (12 saat)		4 kişi		     48 saat
-Tasarım			            7 gün (28 saat)		2 kişi		     56 saat
-Geliştirme		             18 gün (72 saat)	     4 kişi		  288 saat
-Test ve Düzeltmeler	     1 gün (4 saat)		 2 kişi		  8 saat
-Dağıtım			         1 gün (4 saat)		 2 kişi	   	  8 saat
-Toplam Proje Eforu	        30 gün (120 saat)		  -             408 saat
+Aşama			                 Tahmini Süre		     Kişi Sayısı	  Kişi/Saat Cinsinden Efor
+Gereksinim Toplama	        4 gün (16 saat)		   4 kişi		       64  saat
+Tasarım			                4 gün (16 saat)		   2 kişi		       32  saat
+Geliştirme		              13 gün (52 saat)	   4 kişi		       208  saat
+Test ve Düzeltmeler	        4 gün (16 saat)	     2 kişi		       32  saat
+Dağıtım			                2 gün (8 saat)		   2 kişi	   	     16  saat
+Toplam Proje Eforu	        30 gün (120 saat)		  -              352  saat
 
 
-Efor tahminleri uzman görüşü (expert judgment) ve analojik tahminleme yöntemleri kullanılarak yapılmıştır. 
+Efor tahminleri uzman görüşünden (expert judgment) yararlanılarak yapılmıştır. 
 Önceki benzer projelerden edinilen bilgiler ve ekip üyelerinin deneyimleri doğrultusunda her aşamanın süresi belirlenmiştir.
 
 Toplam Proje Eforu:
-Proje sürecindeki tüm aşamalar ve görevler göz önünde bulundurularak hesaplanan toplam proje eforu 408 kişi-saat olarak belirlenmiştir.
+Proje sürecindeki tüm aşamalar ve görevler göz önünde bulundurularak hesaplanan toplam proje eforu 352 kişi-saat olarak belirlenmiştir.
 Bu tahminler, proje ilerledikçe Scrum metodolojisi çerçevesinde gözden geçirilecek ve gerektiğinde güncellenecektir
 
 
@@ -63,13 +63,14 @@ Utku Karatepe:
 (Flask)
 Kullanıcı yönetimi (kayıt, giriş, şifre işlemleri)
 Test havuzu yönetimi (test ekleme, silme, güncelleme)
-Kullanıcı test sonuçlarının saklanması ve sorgulanması
+Kullanıcı veri sonuçlarının saklanması ve sorgulanması
 Lider tablosu ve puan sisteminin backend tarafında geliştirilmesi
 
 Emirhan Gül
 
 (MySQL & Veri Yönetimi)
 MySQL ile veritabanı tasarımına destek vermesi
+Verilerin saklanması ve sorgulanması
 Tabloların oluşturulması, veri ilişkilerinin yönetilmesi
 Giriş yapan kullanıcıların verilerinin veritabanında olup olmadığının kontrolünün yapılması
 Çalışma süresinin ve başarı oranlarının veritabanında saklanması
