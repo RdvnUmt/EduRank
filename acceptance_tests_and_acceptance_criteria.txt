@@ -83,7 +83,7 @@ CASE 4: Çalışma İstatistikleri ve Test Sonuçları Görüntülenmesi
   Kabul Kriterleri:
   Kullanıcılar şifreleriyle giriş yapabilmeli.
   Kullanıcıların çalışma istatistikleri ve test sonuçları kaydedilmelidir/görüntülenebilmelidir.
-  Kullanıcılar birbirlerinin test başarı oranlarını görüntüleyebilmelidir.
+  Kullanıcılar birbirlerinin test başarı oranlarını, yani liderlik tablosunu görüntüleyebilmelidir.
 
   Kabul Testi:
 
