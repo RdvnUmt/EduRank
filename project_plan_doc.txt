@@ -52,12 +52,12 @@ Güçlü ve ölçeklenebilir bir backend altyapısı sağlamak.
 
 Ana Aşamalar ve Zaman Çizelgesi
 
-Aşama			        Başlangıç Tarihi Bitiş Tarihi	Süre
-Gereksinim Toplama	    1 Mart 2025	     4 Mart 2025	4 gün  
-Tasarım			        5 Mart 2025	     8 Mart 2025	4 gün
-Geliştirme		        9 Mart 2025	     21 Mart 2025	13 gün
-Test ve Düzeltmeler	    22 Mart 2025	 25 Mart 2025	4 gün
-Dağıtım			        26 Mart 2025	 27 Mart  2025	2 gün
+Aşama			              Başlangıç Tarihi   Bitiş Tarihi	  Süre
+Gereksinim Toplama	    1 Mart 2025	       4 Mart 2025	  4 gün  
+Tasarım			            5 Mart 2025	       8 Mart 2025	  4 gün
+Geliştirme		          9 Mart 2025	       21 Mart 2025	  13 gün
+Test ve Düzeltmeler	    22 Mart 2025	     25 Mart 2025	  4 gün
+Dağıtım			            26 Mart 2025	     27 Mart 2025	  2 gün
 
 ------------------------------------------------------------------------
 
